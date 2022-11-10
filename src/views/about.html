@@ -7,13 +7,13 @@
   <body>
     <main>
       <!-- reusable components -->
-      @require('../partials/header.html')
+      <%= require('html-loader!../partials/header.html').default %>
       <section>
         <div class="container">
           <h1>About Page</h1>
         </div>
       </section>
-      @require('../partials/footer.html')
+      <%= require('html-loader!../partials/footer.html').default %>
     </main>
   </body>
 </html>

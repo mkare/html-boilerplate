@@ -75,11 +75,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.html$/,
-        // Use the underscore template loader to load the html files
-        loader: "underscore-template-loader",
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif|webp|avif)$/i,
         // Webpack 5 asset modules
         type: "asset/resource",
