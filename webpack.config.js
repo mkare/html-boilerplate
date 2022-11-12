@@ -3,6 +3,8 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // HtmlWebpackPlugin is a plugin that simplifies creation of HTML files to serve your webpack bundles.
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// CleanWebpackPlugin is a plugin that removes/cleans build folders and unused assets when rebuilding.
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 // multipage website
 // Pages array for HtmlWebpackPlugin
@@ -30,6 +32,9 @@ module.exports = {
   },
 
   plugins: [
+    // Clean dist folder
+    new CleanWebpackPlugin(),
+    // Extract css into files
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),

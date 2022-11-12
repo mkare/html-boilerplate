@@ -4,12 +4,14 @@
   "description": "Bootstrap 5, Webpack5, Scss",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack build --mode production"
+    "build": "webpack build --mode production",
+    "clean": "rm -rf dist"
   },
   "author": "MKare",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^5.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "ejs": "^3.1.8",
     "ejs-loader": "^0.5.0",
