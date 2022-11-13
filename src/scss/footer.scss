@@ -1,0 +1,12 @@
+footer.footer {
+  background-color: $brown;
+  padding: calc($spacer / 4) 0;
+  .nav {
+    &-link {
+      color: $cream;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}

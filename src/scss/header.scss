@@ -1,0 +1,30 @@
+header.header {
+  background-color: $light;
+  padding: calc($spacer / 4) 0;
+
+  nav {
+    ul {
+      li {
+        a {
+          color: $green;
+
+          @extend .d-block;
+          @extend .fs-6;
+          @extend .fw-semibold;
+          @extend .text-uppercase;
+          @extend .text-decoration-none;
+          @extend .py-2;
+          @extend .mx-2;
+          @extend .px-3;
+          @extend .border;
+          @extend .border-2;
+
+          &:hover {
+            color: $brown;
+            border-color: $brown !important;
+          }
+        }
+      }
+    }
+  }
+}

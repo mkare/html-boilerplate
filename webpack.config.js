@@ -47,7 +47,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           inject: "body",
           title: `${page} Page`,
-          filename: `${page}.html`,
+          filename: page === "index" ? "index.html" : `${page}/index.html`,
           template: `./src/views/${page}.html`,
         })
     )
