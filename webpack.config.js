@@ -14,6 +14,7 @@ const pages = [
   "progress-bar",
   "reverse-scroll",
   "image-reveal",
+  "stacking-cards",
 ];
 
 // Webpack configuration
