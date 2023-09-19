@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 // multipage website
 // Pages array for HtmlWebpackPlugin
-const pages = ["index", "about"];
+const pages = ["index", "about", "progress-bar"];
 
 // Webpack configuration
 module.exports = {

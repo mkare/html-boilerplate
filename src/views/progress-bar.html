@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <main>
+      <!-- reusable components -->
+      <%= require('html-loader!../partials/header.html').default %>
+      <section class="progress-bar-page">
+        <div class="my-5">
+          <h1 class="fw-bold">The Polar Bear</h1>
+          <div class="warning">
+            <p class="my-4">
+              ⚠️ Your browser does not support Scroll-driven Animations. Please
+              use Chrome 115 or newer.
+            </p>
+            <em>
+              From
+              <a href="https://en.wikipedia.org/wiki/Polar_bear">Wikipedia</a>,
+              the free encyclopedia
+            </em>
+            <p class="my-4">
+              The <strong>polar bear <em>(Ursus maritimus)</em></strong> is a
+              hypercarnivorous species of bear. Its native range lies largely
+              within the Arctic Circle, encompassing the Arctic Ocean and its
+              surrounding seas and landmasses, which includes the northernmost
+              regions of North America and Eurasia. It is the largest extant
+              bear species, as well as the largest extant land carnivore. A boar
+              (adult male) weighs around 350–700 kg (770–1,540 lb), while a sow
+              (adult female) is about half that size. Although it is the sister
+              species of the brown bear, it has evolved to occupy a narrower
+              ecological niche, with many body characteristics adapted for cold
+              temperatures, for moving across snow, ice and open water, and for
+              hunting seals, which make up most of its diet. Although most polar
+              bears are born on land, they spend most of their time on the sea
+              ice. Their scientific name means "maritime bear" and derives from
+              this fact. Polar bears hunt their preferred food of seals from the
+              edge of sea ice, often living off fat reserves when no sea ice is
+              present. Because of their dependence on the sea ice, polar bears
+              are classified as marine mammals.
+            </p>
+            <p class="my-4">
+              Because of expected habitat loss caused by climate change, the
+              polar bear is classified as a vulnerable species. For decades,
+              large-scale hunting raised international concern for the future of
+              the species, but populations rebounded after controls and quotas
+              began to take effect. For thousands of years, the polar bear has
+              been a key figure in the material, spiritual, and cultural life of
+              circumpolar peoples, and polar bears remain important in their
+              cultures. Historically, the polar bear has also been known as the
+              "white bear". It is sometimes referred to as the "nanook", based
+              on the Inuit term nanuq.
+            </p>
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1610570426407-efa770f9d31a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt=""
+                title=""
+                width="1080"
+                height="720"
+                class="img-fluid rounded"
+              />
+              <figcaption class="mt-4 text-center">
+                <a href="https://unsplash.com/photos/PX_1j-M59I8"
+                  >Polar bear walking</a
+                >
+                by <a href="https://unsplash.com/@dtbosse">Daniel Bosse</a>
+              </figcaption>
+            </figure>
+            <hr class="clearfix my-5" />
+            <h2>Naming and etymology</h2>
+            <p class="my-4">
+              Constantine John Phipps was the first to describe the polar bear
+              as a distinct species in 1774 in his report about his 1773
+              expedition towards the North Pole. He chose the scientific name
+              Ursus maritimus, the Latin for "maritime bear", due to the
+              animal's native habitat. The Inuit refer to the animal as nanook
+              (transliterated as nanuq in the Inupiat language). The Yupik also
+              refer to the bear as nanuuk in Siberian Yupik. In the
+              Chukotko-Kamchatkan languages of Alyutor and Koryak, the name of
+              the polar bear is umqa, while in the related Chukchi, it is umqə.
+              In Russian, it is usually called бе́лый медве́дь (bélyj medvédj,
+              'white bear'), though an older word still in use is ошку́й (Oshkúj,
+              which comes from the Komi oski, "bear"). In Quebec, the polar bear
+              is referred to by the french terms ours blanc ('white bear') or
+              ours polaire ('polar bear'). In Norwegian, one of the primary
+              languages of the Svalbard archipelago, the polar bear is referred
+              to as isbjørn ('ice bear') or kvitbjørn ('white bear').
+            </p>
+            <p class="my-4">
+              The polar bear was previously considered to be in its own genus,
+              Thalarctos. However, evidence of hybrids between polar bears and
+              brown bears, and of the recent evolutionary divergence of the two
+              species, does not support the establishment of this separate
+              genus, and the accepted scientific name is now therefore Ursus
+              maritimus, as Phipps originally proposed.
+            </p>
+            <hr class="clearfix my-5" />
+            <h2>Taxonomy and evolution</h2>
+            <p class="my-4">
+              The bear family, Ursidae, is thought to have split from other
+              carnivorans about 38 million years ago. The subfamily Ursinae
+              originated approximately 4.2 million years ago. The oldest known
+              polar bear fossil is a 130,000 to 110,000-year-old jaw bone, found
+              on Prince Charles Foreland in 2004. Fossils show that between
+              10,000 and 20,000 years ago, the polar bear's molar teeth changed
+              significantly from those of the brown bear. Polar bears are
+              thought to have diverged from a population of brown bears that
+              became isolated during a period of glaciation in the
+              Pleistocenefrom the eastern part of Siberia (from Kamchatka and
+              the Kolym Peninsula).
+            </p>
+            <p class="my-4">
+              The evidence from DNA analysis is more complex. The mitochondrial
+              DNA (mtDNA) of the polar bear diverged from the brown bear, Ursus
+              arctos, roughly 150,000 years ago. Further, some clades of brown
+              bear, as assessed by their mtDNA, were thought to be more closely
+              related to polar bears than to other brown bears, meaning that the
+              brown bear might not be considered a species under some species
+              concepts, but paraphyletic. The mtDNA of extinct Irish brown bears
+              is particularly close to polar bears. A comparison of the nuclear
+              genome of polar bears with that of brown bears revealed a
+              different pattern, the two forming genetically distinct clades
+              that diverged approximately 603,000 years ago, although the latest
+              research is based on analysis of the complete genomes (rather than
+              just the mitochondria or partial nuclear genomes) of polar and
+              brown bears, and establishes the divergence of polar and brown
+              bears at 400,000 years ago.
+            </p>
+            <p class="my-4">
+              However, the two species have mated intermittently for all that
+              time, most likely coming into contact with each other during
+              warming periods, when polar bears were driven onto land and brown
+              bears migrated northward. Most brown bears have about 2 percent
+              genetic material from polar bears, but one population, the ABC
+              Islands bears, has between 5 percent and 10 percent polar bear
+              genes, indicating more frequent and recent mating. Polar bears can
+              breed with brown bears to produce fertile grizzly–polar bear
+              hybrids; rather than indicating that they have only recently
+              diverged, the new evidence suggests more frequent mating has
+              continued over a longer period of time, and thus the two bears
+              remain genetically similar. However, because neither species can
+              survive long in the other's ecological niche, and because they
+              have different morphology, metabolism, social and feeding
+              behaviours, and other phenotypic characteristics, the two bears
+              are generally classified as separate species.
+            </p>
+            <p class="my-4">
+              When the polar bear was originally documented, two subspecies were
+              identified: the American polar bear (Ursus maritimus maritimus) by
+              Constantine J. Phipps in 1774, and the Siberian polar bear (Ursus
+              maritimus marinus) by Peter Simon Pallas in 1776. This distinction
+              has since been invalidated. One alleged fossil subspecies has been
+              identified: Ursus maritimus tyrannus, which became extinct during
+              the Pleistocene. U.m. tyrannus was significantly larger than the
+              living subspecies. However, recent reanalysis of the fossil
+              suggests that it was actually a brown bear.
+            </p>
+            <p class="my-4">
+              <em
+                >Source:
+                <a href="https://en.wikipedia.org/wiki/Polar_bear"
+                  >Wikipedia</a
+                ></em
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+      <%= require('html-loader!../partials/footer.html').default %>
+    </main>
+  </body>
+</html>
