@@ -14,11 +14,10 @@ const pages = ["index", "about"];
 module.exports = {
   // Define dynamically an entry for each page
   // -------------------------------
-  // entry: pages.reduce((config, page) => {
-  //   config[page] = `./src/js/${page}.js`;
-  //   return config;
-  // }, {}),
-  entry: "./src/index.js",
+  entry: pages.reduce((config, page) => {
+    config[page] = `./src/views/${page}/${page}.js`;
+    return config;
+  }, {}),
 
   output: {
     filename: "[name].js",
@@ -48,7 +47,8 @@ module.exports = {
           inject: "body",
           title: `${page} Page`,
           filename: page === "index" ? "index.html" : `${page}/index.html`,
-          template: `./src/views/${page}.html`,
+          template: `./src/views/${page}/${page}.pug`, // Pug template
+          chunks: [page], // Inject only the corresponding js file
         })
     )
   ),
@@ -84,7 +84,27 @@ module.exports = {
         // Webpack 5 asset modules
         type: "asset/resource",
       },
+      {
+        test: /\.pug$/,
+        use: {
+          loader: "@webdiscus/pug-loader",
+          options: {
+            pretty: true,
+            baseDir: path.resolve(__dirname, "src/"),
+          },
+        },
+      },
     ],
+  },
+
+  resolve: {
+    alias: {
+      "@components": path.resolve(__dirname, "src/components"),
+      "@layouts": path.resolve(__dirname, "src/layouts"),
+      "@images": path.resolve(__dirname, "src/assets/images"),
+      "@scss": path.resolve(__dirname, "src/scss"),
+      "@js": path.resolve(__dirname, "src/js"),
+    },
   },
 
   devServer: {

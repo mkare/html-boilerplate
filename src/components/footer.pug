@@ -1,0 +1,36 @@
+
+-
+  const pageList = {
+    "Home" : "/",
+    "About" : "/about",
+    "Contact" : "/contact",
+    "Blog" : "/blog",
+  }
+  const footerList = {
+    "Lorem, ipsum dolor." : "#",
+    "Cupiditate, possimus et." : "#",
+    "Quos, error sint?" : "#",
+    "Cupiditate, exercitationem nihil?" : "#",
+    "Dolore, earum cum." : "#",
+  }
+  const socialMediaList = {
+    instagram : "https://www.instagram.com/",
+    facebook : "https://www.facebook.com/",
+    twitter : "https://twitter.com/",
+    youtube : "https://www.youtube.com/",
+  }
+
+footer.footer
+  .container.d-flex.flex-column.flex-lg-row.my-5
+    ul.nav.flex-column.my-3.my-lg-0
+      each val, key in pageList
+        li.nav-item
+          a.nav-link(href=val) #{key}
+    ul.nav.flex-column.my-3.my-lg-0
+      each val, key in footerList
+        li.nav-item
+          a.nav-link(href=val) #{key}
+    ul.nav.social-media.justify-content-center
+      each val, key in socialMediaList
+        li.nav-item
+          a.nav-link(href=val) #{key}
