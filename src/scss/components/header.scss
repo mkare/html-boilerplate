@@ -2,7 +2,16 @@ header.header {
   background-color: $light;
   padding: calc($spacer / 4) 0;
 
+  &.active {
+    @extend .fixed-top;
+    @extend .shadow-sm;
+    @extend .w-100;
+    animation: drop 400ms ease-in-out;
+  }
+
   nav {
+    @extend .d-flex;
+    @extend .flex-column;
     ul {
       li {
         a {
@@ -27,4 +36,25 @@ header.header {
       }
     }
   }
+
+  &.active {
+    nav {
+      @extend .flex-row;
+      @extend .align-items-center;
+    }
+  }
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+[data-observer-intercept] {
+  position: absolute;
+  top: 10rem;
 }
