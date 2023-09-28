@@ -1,1 +1,55 @@
 @import "@scss/main.scss";
+h1 {
+  &#countdown {
+    @extend .text-center;
+    @extend .my-5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $cream;
+    font-family: $font-family-monospace;
+    font-size: 7vw;
+
+    span {
+      @extend .shadow-sm;
+      border: 0.05em solid darken($red, 5%);
+      background-color: $red;
+      display: block;
+      text-align: center;
+      width: 1.15em;
+
+      &:nth-child(3n) {
+        width: auto;
+        color: rgba($cream, 0.35);
+      }
+
+      &:not(:nth-child(3n)) {
+        text-shadow: 0.05em 0.05em 0 darken($red, 10%);
+      }
+
+      &:first-of-type {
+        border-top-left-radius: 0.1em;
+        border-bottom-left-radius: 0.1em;
+        padding-left: 0.75em;
+        text-align: right;
+        width: 1.9em;
+      }
+
+      &:last-of-type {
+        border-top-right-radius: 0.1em;
+        border-bottom-right-radius: 0.1em;
+        padding-right: 0.75em;
+        text-align: left;
+        width: 1.9em;
+      }
+
+      &:not(:last-of-type) {
+        border-right: none;
+      }
+
+      &:not(:first-of-type) {
+        border-left: none;
+      }
+    }
+  }
+}
