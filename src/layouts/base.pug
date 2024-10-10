@@ -3,7 +3,9 @@ html
   head
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    title= htmlWebpackPlugin.options.title
+    //- the title is the external variable passed in Webpack config via PugPlugin
+    title= title
+    block head
   body
     main#siteMain
       //- reusable components
