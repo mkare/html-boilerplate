@@ -12,7 +12,7 @@ This boilerplate provides you with a starting point for building a multipage web
 - Webpack for bundling assets
 - SCSS for stylesheets
 - Development server with live reload
-- HTML template generation using HtmlWebpackPlugin
+- HTML template generation using [PugPlugin](https://github.com/webdiscus/pug-plugin)
 - Asset management for images
 
 ## Table of Contents

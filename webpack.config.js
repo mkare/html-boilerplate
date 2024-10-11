@@ -1,26 +1,12 @@
 const path = require("path");
-// MiniCssExtractPlugin is a plugin that extracts CSS into separate files. It creates a CSS file per JS file which contains CSS.
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// HtmlWebpackPlugin is a plugin that simplifies creation of HTML files to serve your webpack bundles.
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+// PugPlugin is a plugin that simplifies creation of HTML files to serve your webpack bundles.
+const PugPlugin = require("pug-plugin");
 // CleanWebpackPlugin is a plugin that removes/cleans build folders and unused assets when rebuilding.
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-// multipage website
-// Pages array for HtmlWebpackPlugin
-const pages = ["index", "about"];
-
 // Webpack configuration
 module.exports = {
-  // Define dynamically an entry for each page
-  // -------------------------------
-  entry: pages.reduce((config, page) => {
-    config[page] = `./src/views/${page}/${page}.js`;
-    return config;
-  }, {}),
-
   output: {
-    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
     assetModuleFilename: "assets/[name][ext]",
@@ -33,38 +19,35 @@ module.exports = {
   plugins: [
     // Clean dist folder
     new CleanWebpackPlugin(),
-    // Extract css into files
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
+    // Generate multiple html pages and extract css into files
+    new PugPlugin({
+      entry: [
+        // add pages here
+        {
+          import: 'src/views/index/index.pug', // Pug template
+          filename: 'index.html', // output HTML into dist/index.html
+          data: { title: 'Homepage' }, // pass external data into template
+        },
+        {
+          import: 'src/views/about/about.pug',
+          filename: 'about/index.html',
+          data: { title: 'About' },
+        },
+      ],
+      js: {
+        filename: '[name].[contenthash:8].js', // JS output filename
+      },
+      css: {
+        filename: '[name].[contenthash:8].css', // CSS output filename
+      },
     }),
-  ].concat(
-    // Generate multiple html pages
-    // For each page name in `pages` array, create a new HtmlWebpackPlugin
-    // that uses the corresponding html template in the `src/views` folder
-    pages.map(
-      (page) =>
-        new HtmlWebpackPlugin({
-          inject: "body",
-          title: `${page} Page`,
-          filename: page === "index" ? "index.html" : `${page}/index.html`,
-          template: `./src/views/${page}/${page}.pug`, // Pug template
-          chunks: [page], // Inject only the corresponding js file
-        })
-    )
-  ),
+  ],
 
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: "/",
-            },
-          },
           // Translates CSS into CommonJS
           "css-loader",
           // Compiles Sass to CSS
@@ -84,16 +67,6 @@ module.exports = {
         // Webpack 5 asset modules
         type: "asset/resource",
       },
-      {
-        test: /\.pug$/,
-        use: {
-          loader: "@webdiscus/pug-loader",
-          options: {
-            pretty: true,
-            baseDir: path.resolve(__dirname, "src/"),
-          },
-        },
-      },
     ],
   },
 
@@ -111,8 +84,12 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "./dist"),
     },
-    devMiddleware: {
-      writeToDisk: true,
+    // watch ffiles for live reload
+    watchFiles: {
+      paths: ['src/**/*.*'],
+      options: {
+        usePolling: true,
+      },
     },
     open: true,
     compress: true,

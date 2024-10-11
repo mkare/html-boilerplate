@@ -1,6 +1,14 @@
 extends @layouts/base.pug
 
+//- page specifically styles and scripts
+block head
+  //- relative path to SCSS source file
+  link(href="./index.scss" rel="stylesheet")
+  //- relative path to JS source file
+  script(src="./index.js" defer="defer")
+
 block content
   section.container
-    img(src=require("@images/cadillac.jpg"), alt="Cadillac", class="img-fluid")
+    //- pug-plugin resolves source files without `require()` function
+    img(src="@images/cadillac.jpg", alt="Cadillac", class="img-fluid")
     h1#countdown 00:00:00
