@@ -29,6 +29,11 @@ module.exports = {
           data: { title: 'Homepage' }, // pass external data into template
         },
         {
+          import: 'src/views/markdown/index.pug',
+          filename: 'markdown/index.html',
+          data: { title: 'Markdown' },
+        },
+        {
           import: 'src/views/about/about.pug',
           filename: 'about/index.html',
           data: { title: 'About' },
@@ -40,6 +45,26 @@ module.exports = {
       css: {
         filename: '[name].[contenthash:8].css', // CSS output filename
       },
+      // Pug preprocessor options
+      preprocessorOptions: {
+        embedFilters: {
+          // enable using markdown in Pug
+          // peer dependencies: `markdown-it`, `parse5`, `prismjs`
+          markdown: {
+            highlight: {
+              verbose: true,
+              use: 'prismjs', // name of highlighting npm package, must be installed
+            },
+          },
+        },
+      },
+      watchFiles: {
+        // add to watch changes in non default files
+        includes: [/\.(md)$/],
+      },
+      // enable automatic reload after changes in page files (pug, scss)
+      // that do not contain a JS file, e.g. markdown page
+      hotUpdate: true,
     }),
   ],
 

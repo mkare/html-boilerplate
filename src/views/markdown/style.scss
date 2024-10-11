@@ -1,0 +1,14 @@
+// import highlighting styles of the prismjs package
+@use 'prismjs';
+@use "@scss/main.scss";
+
+// view hightlight code with normal readable font
+pre, code {
+  font-family: monospace;
+}
+
+// custom styles for markdown
+blockquote {
+  border-left: 5px solid #f5f2f0;
+  padding-left: 10px;
+}
