@@ -1,0 +1,21 @@
+extends @layouts/base.pug
+
+//- page specifically styles and scripts
+block head
+  //- relative path to SCSS source file
+  link(href="./style.scss" rel="stylesheet")
+
+block content
+  section
+    .container
+      h1.mt-5 Inline markdown text
+      :markdown
+        **Bold** _Italic_ Normal
+        - list item 1
+        - list item 2
+        - list item 3
+
+      h1.mt-5 Include markdown file
+      //- include the markdown file
+      include:markdown ./markdown.md
+
