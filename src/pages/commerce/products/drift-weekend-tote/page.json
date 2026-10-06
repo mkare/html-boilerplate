@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.drift-weekend-tote",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.drift-weekend-tote",
+  "route": "/commerce/products/drift-weekend-tote/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Drift weekend tote — Storefront",
+  "description": "Soft structure, generous volume and a quietly capable strap.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

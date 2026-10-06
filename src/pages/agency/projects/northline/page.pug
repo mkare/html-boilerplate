@@ -1,0 +1,48 @@
+.agency.agency-project-detail
+  include @blocks/agency/cta/cta.pug
+  include ../../_agency-navigation.pug
+  section.agency-section--tight
+    .agency-shell
+      nav.agency-breadcrumbs(aria-label="Breadcrumb")
+        a(href=route("agency.home")) Home
+        span(aria-hidden="true") /
+        a(href=route("agency.projects")) Work
+        span(aria-hidden="true") /
+        span(aria-current="page") Northline House
+      .agency-case-hero
+        div
+          p.agency-eyebrow Place · Strategy · Identity
+          h1 A neighborhood with room to belong.
+          p.agency-lead Northline House is a new collection of homes built around a simple belief: a place feels like home when people feel part of it.
+          .agency-actions
+            a.agency-button(href=route("agency.contact")) Make something together #[span.agency-arrow(aria-hidden="true") →]
+        figure.agency-case-hero__image
+          img(src=require("@pages/agency/assets/northline.svg"), alt="Northline House branding with forest green, warm cream and architectural geometry", width="1200", height="900")
+      dl.agency-case-facts
+        div: dt Client #[dd Northline House]
+        div: dt Services #[dd Strategy, identity]
+        div: dt Year #[dd 2025]
+  section.agency-section.agency-band(aria-labelledby="northline-challenge")
+    .agency-shell.agency-split
+      div
+        p.agency-eyebrow The challenge
+        h2#northline-challenge Make a new place feel familiar.
+      div
+        p Northline had an ambitious plan and a thoughtful team, but no shared story to help people understand what made this neighborhood different. We needed to express the warmth of a real community before its first residents arrived.
+        p We brought residents, local makers and the development team into the same conversation, then looked for common ground in the everyday things that make a place feel lived in.
+  section.agency-section(aria-labelledby="northline-response")
+    .agency-shell.agency-split.agency-split--reverse
+      div
+        p.agency-eyebrow What we made
+        h2#northline-response A visual identity rooted in the landscape.
+        p The final system pairs an open, human wordmark with shapes inspired by the buildings, paths and tree canopy on site. Its palette feels grounded, and its flexible graphic language gives each part of the neighborhood room to be itself.
+        ul.agency-check-list
+          li Positioning and story platform
+          li Naming and verbal identity
+          li Visual identity and art direction
+          li Brand toolkit for future communications
+      figure.agency-art
+        img(src=require("@pages/agency/assets/northline.svg"), alt="Northline House identity system on cream paper with geometric forms", width="1200", height="900", loading="lazy")
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "Thoughtful work starts somewhere", title: "Have a place or idea you want to bring to life?", action: "Start a conversation", href: route("agency.contact") })
+  include ../../_agency-footer.pug

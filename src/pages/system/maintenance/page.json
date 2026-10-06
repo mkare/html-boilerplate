@@ -1,0 +1,15 @@
+{
+  "id": "system.maintenance",
+  "route": "/maintenance/",
+  "requiredByDemos": ["agency", "saas"],
+  "starter": true,
+  "source": "src/pages/system/maintenance/page.pug",
+  "styles": ["src/pages/system/maintenance/page.scss"],
+  "layout": "minimal",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Temporarily unavailable",
+  "description": "This site is temporarily unavailable while scheduled maintenance is in progress.",
+  "robots": "noindex,follow"
+}

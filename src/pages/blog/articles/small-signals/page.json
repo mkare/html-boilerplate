@@ -1,0 +1,18 @@
+{
+  "id": "blog.article.small-signals",
+  "blueprintId": "blog.article",
+  "translationKey": "blog.article.small-signals-better-interfaces",
+  "route": "/blog/small-signals-better-interfaces/",
+  "demoId": "saas",
+  "source": "src/pages/blog/articles/small-signals/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Small signals make better interfaces — Journal — Interface Kit",
+  "description": "Thoughtful labels, focus styles, and feedback details help people understand what a screen will do before they commit.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "article", "jsonLd": "blogPosting" },
+  "robots": "index,follow"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.form-lounge-chair",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.form-lounge-chair",
+  "route": "/commerce/products/form-lounge-chair/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Form lounge chair — Storefront",
+  "description": "A low, sculptural seat made for unhurried reading.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

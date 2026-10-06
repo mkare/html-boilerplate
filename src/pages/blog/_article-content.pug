@@ -1,0 +1,47 @@
+article.blog-article
+  nav.blog-breadcrumb(aria-label="Breadcrumb")
+    ol
+      li
+        a(href=route('blog.archive')) Journal
+      li(aria-current="page")= article.title
+  header.blog-article__header
+    p.blog-eyebrow
+      time(datetime=article.publishedAt)= formatDate(article.publishedAt, article.locale)
+      span(aria-hidden="true") · 
+      = article.author.role
+    h1= article.title
+    p.blog-article__dek= article.description
+    p.blog-article__byline
+      span.blog-avatar(aria-hidden="true")= article.author.name.split(' ').map((part) => part[0]).join('').slice(0, 2)
+      span
+        strong= article.author.name
+        br
+        span.blog-muted= `Updated ${formatDate(article.updatedAt, article.locale)}`
+  figure.blog-article__cover
+    .blog-cover(class=`blog-cover--${article.cover.tone}` role="img" aria-label=article.cover.alt)
+      span.blog-cover__orb.blog-cover__orb--one
+      span.blog-cover__orb.blog-cover__orb--two
+      span.blog-cover__grid
+    figcaption= article.cover.caption
+  .blog-article__body
+    each section in article.content
+      section.blog-article__section
+        h2= section.heading
+        each paragraph in section.paragraphs
+          p= paragraph
+        if section.list && section.list.length
+          ul
+            each item in section.list
+              li= item
+  footer.blog-article__footer
+    h2.blog-article__topics Topics
+    ul.blog-tag-list(aria-label="Article topics")
+      each tag in article.tags
+        li
+          if categoryPageIds && categoryPageIds[tag.slug]
+            a.blog-tag(href=route(categoryPageIds[tag.slug]))= tag.label
+          else
+            span.blog-tag= tag.label
+    a.blog-back-link(href=route('blog.archive'))
+      span(aria-hidden="true") ←
+      |  Back to the journal

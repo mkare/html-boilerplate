@@ -1,0 +1,18 @@
+{
+  "id": "blog.article.accessible-states",
+  "blueprintId": "blog.article",
+  "translationKey": "blog.article.designing-accessible-product-states",
+  "route": "/blog/designing-accessible-product-states/",
+  "demoId": "saas",
+  "source": "src/pages/blog/articles/accessible-states/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Designing accessible product states — Journal — Interface Kit",
+  "description": "Empty, loading, error, and success states are part of the product journey. Give each one clear meaning and a useful next step.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "article", "jsonLd": "blogPosting" },
+  "robots": "index,follow"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.vale-water-bottle",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.vale-water-bottle",
+  "route": "/commerce/products/vale-water-bottle/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Vale water bottle — Storefront",
+  "description": "A weightless, insulated bottle in a soft matte finish.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

@@ -1,0 +1,238 @@
+extends @layouts/base.pug
+
+include @blocks/dashboard/icon/icon.pug
+include @blocks/dashboard/navigation/navigation.pug
+include @blocks/dashboard/kpi-card/kpi-card.pug
+include @blocks/dashboard/activity-item/activity-item.pug
+include @blocks/dashboard/project-row/project-row.pug
+include @blocks/dashboard/report-card/report-card.pug
+include @blocks/dashboard/quick-action/quick-action.pug
+
+block head
+  link(href="./dashboard.scss", rel="stylesheet")
+  script(src="./dashboard.js", defer="defer")
+
+block content
+  .dashboard
+    button.dashboard__backdrop(type="button", data-dashboard-backdrop, aria-label="Close menu", tabindex="-1")
+    .dashboard__shell
+      aside#dashboard-sidebar.dashboard-sidebar(aria-label="Dashboard navigation")
+        .dashboard-sidebar__header
+          a.dashboard-brand(href="#overview", aria-label="Orbit dashboard overview")
+            span.dashboard-brand__mark(aria-hidden="true")
+              span
+              span
+              span
+            span.dashboard-brand__name Orbit
+          button.dashboard-sidebar__close(type="button", data-dashboard-close-menu, aria-label="Close menu")
+            +dashboardIcon('close')
+
+        +dashboardNavigation({ groups: [
+          { label: "Workspace", items: [
+            { href: "#overview", active: true, icon: "grid", label: "Overview" },
+            { href: "#analytics", icon: "chart", label: "Analytics" },
+            { href: "#projects", icon: "folder", label: "Projects", count: "12" },
+            { icon: "users", label: "Customers", feedback: "Customer records are not connected in this static demo." },
+            { icon: "invoice", label: "Invoices", feedback: "Invoices are not connected in this static demo." }
+          ] },
+          { label: "Account", spaced: true, items: [
+            { icon: "gear", label: "Settings", feedback: "Settings are not connected in this static demo." }
+          ] }
+        ] })
+
+        .dashboard-sidebar__bottom
+          .dashboard-plan
+            .dashboard-plan__icon(aria-hidden="true")
+              +dashboardIcon('sparkles')
+            div
+              p.dashboard-plan__eyebrow Growth plan
+              p.dashboard-plan__text 8 days left in trial
+            button.dashboard-plan__link(type="button", data-dashboard-feedback="Plan changes are not connected in this static demo.") Upgrade
+          button.dashboard-profile(type="button", aria-label="Open profile menu")
+            span.dashboard-avatar.dashboard-avatar--profile(aria-hidden="true") MK
+            span.dashboard-profile__copy
+              strong Maya Kline
+              small Admin
+            span.dashboard-profile__more(aria-hidden="true") ···
+
+      .dashboard-app
+        header.dashboard-topbar
+          .dashboard-topbar__left
+            button#dashboard-menu-toggle.dashboard-menu-toggle(type="button", aria-controls="dashboard-sidebar", aria-expanded="false")
+              +dashboardIcon('menu')
+              span.sr-only Open menu
+            .dashboard-breadcrumb(aria-label="Location")
+              span.dashboard-breadcrumb__workspace Acme Inc.
+              span.dashboard-breadcrumb__separator(aria-hidden="true") /
+              strong Overview
+          .dashboard-topbar__actions
+            label.dashboard-search.dashboard-search--global
+              span.sr-only Search dashboard
+              +dashboardIcon('search')
+              input(type="search", placeholder="Search", aria-label="Search dashboard")
+              kbd ⌘ K
+            button.dashboard-icon-button(type="button", aria-label="Notifications")
+              +dashboardIcon('bell')
+              span.dashboard-notification-dot(aria-label="3 unread notifications")
+            button.dashboard-user(type="button", aria-label="Open profile menu")
+              span.dashboard-avatar(aria-hidden="true") MK
+              span.dashboard-user__name Maya
+
+        .dashboard-content
+          section.dashboard-welcome#overview(aria-labelledby="dashboard-title")
+            .dashboard-welcome__copy
+              p.dashboard-eyebrow Tuesday, October 24
+              h1#dashboard-title Good morning, Maya <span aria-hidden="true">✦</span>
+              p.dashboard-welcome__lead Here is what is happening across your workspace today.
+            .dashboard-welcome__actions
+              button.dashboard-primary-action(type="button", aria-controls="dashboard-quick-action", data-dashboard-open-dialog)
+                +dashboardIcon('plus')
+                span Quick action
+              button.dashboard-icon-button.dashboard-icon-button--subtle(type="button", aria-label="Dashboard options")
+                +dashboardIcon('dots')
+
+          section.dashboard-workspace(aria-label="Dashboard data")
+            .dashboard-tabs(role="tablist", aria-label="Dashboard views", data-dashboard-tabs)
+              button#dashboard-tab-overview.dashboard-tab.is-active(type="button", role="tab", aria-selected="true", aria-controls="dashboard-panel-overview", tabindex="0", data-dashboard-tab="dashboard-panel-overview") Overview
+              button#dashboard-tab-activity.dashboard-tab(type="button", role="tab", aria-selected="false", aria-controls="dashboard-panel-activity", tabindex="-1", data-dashboard-tab="dashboard-panel-activity") Activity
+              button#dashboard-tab-reports.dashboard-tab(type="button", role="tab", aria-selected="false", aria-controls="dashboard-panel-reports", tabindex="-1", data-dashboard-tab="dashboard-panel-reports") Reports
+
+            section#dashboard-panel-overview.dashboard-tab-panel(role="tabpanel", aria-labelledby="dashboard-tab-overview")
+              .dashboard-kpis
+                +dashboardKpiCard({ id: "customers", label: "Total revenue", badge: "+14.8%", badgeTone: "up", value: "$84,240", trend: "↗ 12.5%", trendDirection: "up", comparison: "vs. last month" })
+                +dashboardKpiCard({ label: "Active projects", miniIcon: "◌", value: "18", trend: "↗ 4 new", trendDirection: "up", comparison: "this month" })
+                +dashboardKpiCard({ label: "New customers", miniIcon: "◒", value: "2,417", trend: "↗ 8.2%", trendDirection: "up", comparison: "vs. last month" })
+                +dashboardKpiCard({ label: "Conversion rate", badge: "This week", badgeTone: "neutral", value: "7.64%", trend: "↘ 0.7%", trendDirection: "down", comparison: "vs. last week" })
+
+              .dashboard-grid
+                article.dashboard-card.dashboard-card--revenue#analytics
+                  .dashboard-card__header
+                    div
+                      p.dashboard-card__eyebrow Performance
+                      h2 Revenue overview
+                    .dashboard-segmented(role="group", aria-label="Chart time range")
+                      button.is-active(type="button", data-dashboard-period="12 months") 12M
+                      button(type="button", data-dashboard-period="6 months") 6M
+                      button(type="button", data-dashboard-period="30 days") 30D
+                  .dashboard-revenue-summary
+                    div
+                      strong $84,240.00
+                      span.dashboard-revenue-summary__trend ↗ 12.5%
+                    p Compared with $74,875 last period
+                  .dashboard-chart
+                    svg(viewBox="0 0 664 250", role="img", aria-labelledby="dashboard-chart-title dashboard-chart-desc", preserveAspectRatio="none")
+                      title#dashboard-chart-title Revenue trend over twelve months
+                      desc#dashboard-chart-desc A steadily rising purple line with a small dip midway through the period.
+                      defs
+                        linearGradient#dashboard-chart-fill(x1="0", x2="0", y1="0", y2="1")
+                          stop(offset="0%", stop-color="currentColor", stop-opacity="0.24")
+                          stop(offset="100%", stop-color="currentColor", stop-opacity="0")
+                      g.dashboard-chart__grid(aria-hidden="true")
+                        line(x1="0", y1="24", x2="664", y2="24")
+                        line(x1="0", y1="83", x2="664", y2="83")
+                        line(x1="0", y1="142", x2="664", y2="142")
+                        line(x1="0", y1="201", x2="664", y2="201")
+                      path.dashboard-chart__area(d="M0 187 C30 177, 38 146, 72 158 S115 173, 138 132 S179 111, 207 125 S250 151, 277 118 S319 94, 346 109 S391 148, 416 128 S461 93, 487 101 S524 132, 554 90 S606 49, 664 31 V225 H0 Z", fill="url(#dashboard-chart-fill)")
+                      path.dashboard-chart__line(d="M0 187 C30 177, 38 146, 72 158 S115 173, 138 132 S179 111, 207 125 S250 151, 277 118 S319 94, 346 109 S391 148, 416 128 S461 93, 487 101 S524 132, 554 90 S606 49, 664 31")
+                      circle.dashboard-chart__point(cx="487", cy="101", r="5")
+                      circle.dashboard-chart__point(cx="664", cy="31", r="5")
+                    .dashboard-chart__labels(aria-hidden="true")
+                      span Jan
+                      span Mar
+                      span May
+                      span Jul
+                      span Sep
+                      span Nov
+                  p#dashboard-chart-period.dashboard-card__caption Showing revenue for the last 12 months
+
+                article.dashboard-card.dashboard-card--activity
+                  .dashboard-card__header
+                    div
+                      p.dashboard-card__eyebrow Team pulse
+                      h2 Recent activity
+                    a.dashboard-text-link(href="#activity") View all
+                  ol.dashboard-activity
+                    +dashboardActivityItem({ initials: "AS", tone: "violet", datetime: "2026-10-24T09:15", timeLabel: "12 min ago" })
+                      p #[strong Ava Stone] added a new project
+                    +dashboardActivityItem({ initials: "JL", tone: "coral", datetime: "2026-10-24T08:42", timeLabel: "45 min ago" })
+                      p #[strong John Lee] completed Q3 report
+                    +dashboardActivityItem({ initials: "RS", tone: "mint", datetime: "2026-10-24T07:38", timeLabel: "2 hours ago" })
+                      p #[strong Riley Shaw] invited 3 teammates
+                    +dashboardActivityItem({ initials: "EO", tone: "gold", datetime: "2026-10-23T16:20", timeLabel: "Yesterday" })
+                      p #[strong Elena Ortiz] paid an invoice
+
+              article.dashboard-card.dashboard-card--table#projects
+                .dashboard-card__header.dashboard-card__header--table
+                  div
+                    p.dashboard-card__eyebrow Operations
+                    h2 Project pipeline
+                  label.dashboard-table-search
+                    span.sr-only Filter projects
+                    +dashboardIcon('search')
+                    input#dashboard-table-filter(type="search", placeholder="Filter projects", autocomplete="off")
+                p#dashboard-table-status.sr-only(role="status", aria-live="polite") 5 projects shown
+                .dashboard-table-wrap(tabindex="0", aria-label="Project pipeline table")
+                  table.dashboard-table
+                    caption.sr-only Project pipeline
+                    thead
+                      tr
+                        th(scope="col") Project
+                        th(scope="col") Owner
+                        th(scope="col") Status
+                        th(scope="col") Progress
+                        th(scope="col") Due date
+                        th(scope="col")
+                    - const projectRows = []
+                    - projectRows.push({ id: "orbit", initial: "O", tone: "violet", name: "Orbit redesign", category: "Design system", owners: [{ initials: "AS", tone: "violet" }, { initials: "JL", tone: "coral" }], ownersLabel: "Ava Stone and John Lee", status: "In progress", statusTone: "progress", progress: 74, dueDate: "2026-10-28", dueLabel: "Oct 28, 2026", actionLabel: "Open quick action for Orbit redesign" })
+                    - projectRows.push({ id: "canvas", initial: "C", tone: "coral", name: "Canvas campaign", category: "Marketing site", owners: [{ initials: "RS", tone: "mint" }], ownersLabel: "Riley Shaw", status: "In review", statusTone: "review", progress: 92, dueDate: "2026-10-30", dueLabel: "Oct 30, 2026", actionLabel: "Open quick action for Canvas campaign" })
+                    - projectRows.push({ id: "northstar", initial: "N", tone: "mint", name: "Northstar app", category: "Product launch", owners: [{ initials: "EO", tone: "gold" }, { initials: "AS", tone: "violet" }], ownersLabel: "Elena Ortiz and Ava Stone", status: "Complete", statusTone: "complete", progress: 100, dueDate: "2026-10-18", dueLabel: "Oct 18, 2026", actionLabel: "Open quick action for Northstar app" })
+                    - projectRows.push({ id: "echo", initial: "E", tone: "gold", name: "Echo onboarding", category: "Customer success", owners: [{ initials: "JL", tone: "coral" }], ownersLabel: "John Lee", status: "Planned", statusTone: "planned", progress: 28, dueDate: "2026-11-03", dueLabel: "Nov 03, 2026", actionLabel: "Open quick action for Echo onboarding" })
+                    - projectRows.push({ id: "atelier", initial: "A", tone: "navy", name: "Atelier content", category: "Editorial calendar", owners: [{ initials: "MK", tone: "navy" }], ownersLabel: "Maya Kline", status: "In progress", statusTone: "progress", progress: 61, dueDate: "2026-11-12", dueLabel: "Nov 12, 2026", actionLabel: "Open quick action for Atelier content" })
+                    tbody
+                      each project in projectRows
+                        +dashboardProjectRow(project)
+                .dashboard-table-empty#dashboard-table-empty(hidden)
+                  +dashboardIcon('search')
+                  h3 No matching projects
+                  p Try another project name, owner, or status.
+
+            section#dashboard-panel-activity.dashboard-tab-panel.dashboard-tab-panel--secondary(role="tabpanel", aria-labelledby="dashboard-tab-activity", hidden)
+              article.dashboard-card.dashboard-activity-log#activity
+                .dashboard-card__header
+                  div
+                    p.dashboard-card__eyebrow Workspace timeline
+                    h2 All activity
+                  button.dashboard-secondary-action(type="button") Mark all as read
+                ol.dashboard-activity.dashboard-activity--full
+                  +dashboardActivityItem({ initials: "AS", tone: "violet", datetime: "2026-10-24T09:15", timeLabel: "Today at 09:15" })
+                    p #[strong Ava Stone] added #[strong “Orbit redesign”] to the project pipeline.
+                  +dashboardActivityItem({ initials: "JL", tone: "coral", datetime: "2026-10-24T08:42", timeLabel: "Today at 08:42" })
+                    p #[strong John Lee] completed the #[strong “Q3 report”] checklist.
+                  +dashboardActivityItem({ initials: "RS", tone: "mint", datetime: "2026-10-24T07:38", timeLabel: "Today at 07:38" })
+                    p #[strong Riley Shaw] invited 3 new teammates to Acme Inc.
+                  +dashboardActivityItem({ initials: "EO", tone: "gold", datetime: "2026-10-23T16:20", timeLabel: "Yesterday at 16:20" })
+                    p #[strong Elena Ortiz] paid invoice #[strong #INV-2094].
+
+            section#dashboard-panel-reports.dashboard-tab-panel.dashboard-tab-panel--secondary(role="tabpanel", aria-labelledby="dashboard-tab-reports", hidden)
+              .dashboard-report-grid
+                +dashboardReportCard({ eyebrow: "Monthly report", title: "Revenue is trending up", description: "Your workspace generated 12.5% more revenue than the preceding period.", action: "Download report", feedback: "Report downloads are not connected in this static demo." })
+                +dashboardReportCard({ eyebrow: "Team report", title: "86% delivery health", description: "16 of 18 active projects are currently on track for their due date.", action: "Open team report", feedback: "The team report is not connected in this static demo." })
+                +dashboardReportCard({ eyebrow: "Customer report", title: "94% satisfaction score", description: "Customer feedback remained strong across 148 new responses this month.", action: "View feedback", feedback: "Customer feedback is not connected in this static demo." })
+
+    dialog#dashboard-quick-action.dashboard-dialog(data-ui-dialog, aria-labelledby="dashboard-dialog-title", aria-describedby="dashboard-dialog-description")
+      .dashboard-dialog__header
+        .dashboard-dialog__icon(aria-hidden="true")
+          +dashboardIcon('sparkles')
+        form(method="dialog")
+          button.dashboard-dialog__close(type="submit", aria-label="Close quick action dialog")
+            +dashboardIcon('close')
+      h2#dashboard-dialog-title What would you like to do?
+      p#dashboard-dialog-description Start with a common workspace action. This demo confirms the choice without sending data anywhere.
+      .dashboard-quick-actions
+        +dashboardQuickAction({ action: "New project", icon: "folder", tone: "violet", title: "Create a project", description: "Add work to your pipeline" })
+        +dashboardQuickAction({ action: "New invoice", icon: "invoice", tone: "coral", title: "Create an invoice", description: "Send a payment request" })
+        +dashboardQuickAction({ action: "New teammate invite", icon: "users", tone: "mint", title: "Invite a teammate", description: "Grow your workspace" })
+      form.dashboard-dialog__footer(method="dialog")
+        button.dashboard-secondary-action(type="submit") Cancel
+
+    p#dashboard-toast.dashboard-toast(role="status", aria-live="polite", hidden)

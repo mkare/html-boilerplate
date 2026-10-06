@@ -1,0 +1,19 @@
+{
+  "id": "saas.terms",
+  "route": "/terms/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.terms",
+  "source": "src/pages/saas/legal/terms/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Terms of use — Orbit",
+  "description": "An illustrative terms page for the static Orbit product demo.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["footer"], "label": "Terms", "order": 90 },
+  "robots": "noindex,follow"
+}

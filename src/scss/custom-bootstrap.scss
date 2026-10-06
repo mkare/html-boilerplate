@@ -1,32 +1,21 @@
-// Custom.scss
-// Include parts of Bootstrap
-
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// Keep only the documented Bootstrap foundation: reboot, containers, and
+// grid. Navigation and the two list utilities used by templates are project
+// styles, so they do not pull Bootstrap's generated utility surface back in.
 @import "bootstrap/scss/functions";
-
-// 2. Include any default variable overrides here
 @import "variables";
 
-// 3. Include remainder of required Bootstrap stylesheets
+$font-family-base: $font-family-sans-serif;
+$body-bg: $slate-50;
+$body-color: $slate-900;
+$primary: $indigo-600;
+$link-color: $teal-600;
+
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
-
-// 4. Include any default map overrides here
-
-// 5. Include remainder of required parts
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
-
-// 6. Optionally include any other parts as needed
-@import "bootstrap/scss/utilities";
 @import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
 @import "bootstrap/scss/grid";
-@import "bootstrap/scss/helpers";
 @import "bootstrap/scss/nav";
-
-// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "bootstrap/scss/utilities/api";

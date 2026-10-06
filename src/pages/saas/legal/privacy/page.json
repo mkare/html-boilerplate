@@ -1,0 +1,19 @@
+{
+  "id": "saas.privacy",
+  "route": "/privacy/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.privacy",
+  "source": "src/pages/saas/legal/privacy/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Privacy overview — Orbit",
+  "description": "A plain-language privacy overview for the static Orbit product demo.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["footer"], "label": "Privacy", "order": 91 },
+  "robots": "noindex,follow"
+}

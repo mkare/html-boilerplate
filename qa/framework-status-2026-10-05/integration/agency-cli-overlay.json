@@ -1,0 +1,16 @@
+{
+  "recordedAt": "2026-10-05T12:57:25.739099+00:00",
+  "fixture": "/private/tmp/framework-clean-install-38yb73px",
+  "copiedFiles": [
+    {
+      "path": "package.json",
+      "sha256": "d2baf060cc687b77cc1995fb73ae9029b0bdb89567c85f5c267952e71b9cef45"
+    },
+    {
+      "path": "scripts/build-demo.cjs",
+      "sha256": "871a6441cf1a00952f1fc1bb5e13c3fbd826d9323e05d701f001655025dcca8c"
+    }
+  ],
+  "packageChangeLimitedToScripts": true,
+  "lockfilesUntouched": true
+}

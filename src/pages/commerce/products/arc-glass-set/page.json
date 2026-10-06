@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.arc-glass-set",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.arc-glass-set",
+  "route": "/commerce/products/arc-glass-set/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Arc glass set — Storefront",
+  "description": "A four-piece, borosilicate glass ritual for slow mornings.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

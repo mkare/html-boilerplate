@@ -1,0 +1,18 @@
+{
+  "id": "agency.services",
+  "route": "/services/",
+  "demoId": "agency",
+  "translationKey": "agency.services",
+  "starter": true,
+  "source": "src/pages/agency/services/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Services — Fieldwork Studio",
+  "description": "Explore Fieldwork's brand strategy, identity and digital experience services.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

@@ -1,0 +1,77 @@
+extends @layouts/base.pug
+
+block head
+  link(href="./register.scss" rel="stylesheet")
+  script(src="./register.js" defer="defer")
+
+block content
+  include _auth-social.pug
+  section.auth-page.auth-page--register(aria-labelledby="register-title")
+    .container.auth-page__shell
+      aside.auth-showcase(aria-labelledby="register-showcase-title")
+        .auth-showcase__top
+          a.auth-showcase__brand(href=route("legacy.home"), aria-label="Back to home")
+            span.auth-showcase__brand-mark(aria-hidden="true") ◒
+            span Northstar
+        .auth-showcase__content
+          p.auth-eyebrow Fresh start
+          h2#register-showcase-title Where great work begins.
+          p.auth-showcase__copy Organize your projects, collaborate with your team, and make progress visible with a single account.
+          ol.auth-showcase__steps
+            li Enter your details in seconds
+            li Personalize your workspace
+            li Invite your team and start building
+        .auth-showcase__footer
+          blockquote.auth-showcase__quote
+            | “Clarity, not complexity, drives sustainable growth.”
+            cite — Northstar product philosophy
+      .auth-card-wrap
+        .auth-card
+          p.auth-eyebrow Start free
+          h1#register-title Create your account.
+          p.auth-card__lead Get started in moments. No credit card required.
+          form#register-form.auth-form(data-auth-form, data-auth-mode="register")
+            p.auth-demo-note This demo does not create accounts or send data to a server. Without JavaScript, fields remain disabled.
+            fieldset.auth-form__fields(data-auth-fields, disabled)
+              legend.auth-form__legend New account details
+              .auth-field
+                label.auth-label(for="register-name")
+                  | Full name
+                  span.auth-required(aria-hidden="true")  *
+                input#register-name(type="text", name="name", autocomplete="name", placeholder="Ada Lovelace", minlength="2", required)
+              .auth-field
+                label.auth-label(for="register-email")
+                  | Work email
+                  span.auth-required(aria-hidden="true")  *
+                input#register-email(type="email", name="email", autocomplete="email", inputmode="email", placeholder="ada@example.com", required)
+              .auth-field
+                label.auth-label(for="register-password")
+                  | Password
+                  span.auth-required(aria-hidden="true")  *
+                .auth-password
+                  input#register-password(type="password", name="password", autocomplete="new-password", placeholder="At least 8 characters", minlength="8", required, aria-describedby="register-password-hint")
+                  button.auth-password__toggle(type="button", aria-controls="register-password", aria-pressed="false", aria-label="Show password", data-password-toggle, disabled)
+                    span(data-password-toggle-label) Show
+                p#register-password-hint.auth-hint Use at least 8 characters; choose a long, memorable phrase.
+              .auth-field
+                label.auth-label(for="register-password-confirm")
+                  | Confirm password
+                  span.auth-required(aria-hidden="true")  *
+                .auth-password
+                  input#register-password-confirm(type="password", name="password-confirmation", autocomplete="new-password", placeholder="Re-enter your password", required, data-matches="password", data-match-message="#register-password-match", aria-describedby="register-password-match")
+                  button.auth-password__toggle(type="button", aria-controls="register-password-confirm", aria-pressed="false", aria-label="Show password", data-password-toggle, disabled)
+                    span(data-password-toggle-label) Show
+                p#register-password-match.auth-match-message(aria-live="polite")
+              .auth-consent
+                input#register-terms(type="checkbox", name="terms", required, aria-describedby="register-terms-copy")
+                span#register-terms-copy
+                  label(for="register-terms") I accept the terms of service and privacy policy.
+                  | Terms link is not configured in this demo starter.
+              button.auth-submit(type="submit", data-submit-button, data-pending-label="Creating account")
+                span(data-submit-label) Create account
+                span.auth-submit__spinner(aria-hidden="true")
+            p#register-feedback.auth-feedback(role="status", aria-live="polite", data-auth-feedback)
+          +socialAuth
+          p.auth-card__footer
+            | Already have an account? 
+            a.auth-text-link(href=route("legacy.auth.login")) Sign in

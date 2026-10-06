@@ -1,0 +1,15 @@
+.ui-select { display: grid; min-width: 0; gap: 0.45rem; }
+.ui-select__label { color: var(--color-text, #0f172a); font-size: 0.875rem; font-weight: 700; }
+.ui-select__control {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 2.5rem 0.65rem 0.85rem;
+  color: var(--color-text, #0f172a);
+  background-color: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: var(--radius-sm, 0.5rem);
+  font: inherit;
+}
+.ui-select__control:focus-visible { border-color: var(--color-accent, #0369a1); outline: 3px solid color-mix(in srgb, var(--color-accent, #0369a1) 22%, transparent); outline-offset: 1px; }
+.ui-select__control:disabled { color: var(--color-muted, #475569); background-color: var(--color-surface-subtle, #f1f5f9); cursor: not-allowed; }
+.ui-select__hint { color: var(--color-muted, #475569); font-size: 0.8rem; line-height: 1.5; }

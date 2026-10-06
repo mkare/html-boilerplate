@@ -1,0 +1,18 @@
+{
+  "id": "agency.service.brand-strategy",
+  "route": "/services/brand-strategy/",
+  "demoId": "agency",
+  "translationKey": "agency.service.brand-strategy",
+  "starter": true,
+  "source": "src/pages/agency/services/brand-strategy/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Brand strategy & identity — Fieldwork Studio",
+  "description": "A closer look at Fieldwork's strategy and identity process, deliverables and ways of working.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

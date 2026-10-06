@@ -1,0 +1,92 @@
+
+include @blocks/marketing/kicker/kicker.pug
+include @blocks/marketing/logo-strip/logo-strip.pug
+include @blocks/marketing/product-preview/product-preview.pug
+include @blocks/marketing/feature-card/feature-card.pug
+include @blocks/marketing/newsletter-signup/newsletter-signup.pug
+include @blocks/marketing/testimonial-card/testimonial-card.pug
+
+- const uiIconSprite = require('@images/ui-icons.svg')
+
+.marketing
+  section.marketing-hero(aria-labelledby="saas-home-title")
+    .container.marketing-hero__inner
+      .marketing-hero__copy
+        +marketingKicker({ label: saas.home.kicker })
+        h1#saas-home-title= saas.home.title
+        p.marketing-hero__lede= saas.home.description
+        .marketing-hero__actions
+          a.marketing-button.marketing-button--primary(href=route('saas.auth.create-account'))
+            = saas.home.primaryAction
+            span(aria-hidden="true") →
+          a.marketing-button.marketing-button--quiet(href=route('saas.features'))= saas.home.secondaryAction
+        dl.marketing-hero__proof
+          div
+            dt 12k+
+            dd teams planning with clarity
+          div
+            dt 4.9/5
+            dd average customer rating
+          div
+            dt 32%
+            dd less time in status meetings
+      .marketing-hero__art(aria-hidden="true")
+        +marketingProductPreview({ workspace: 'Orbit / product', avatar: 'AL', shipped: '78% on track', focus: 'Focus this week', focusItem: 'Improve invite flow', research: 'Research notes', insightCount: '4 open insights', shipping: 'Shipping pace', ready: 'Ready for review', note: 'The team is aligned' })
+
+  +marketingLogoStrip({ label: 'Trusted by thoughtful teams at', items: ['LUMA', 'northstar', 'VERSE', 'allén', 'ASTRA', 'framed.'] })
+
+  section.feature-section#product-highlights(aria-labelledby="home-features-title")
+    .container
+      .section-intro
+        +marketingKicker({ label: 'Built for momentum' })
+        h2#home-features-title A lighter way to run serious work.
+        p One shared place for the small rituals that move a product forward. Useful by default and flexible when it matters.
+      .feature-grid
+        +marketingFeatureCard({ eyebrow: 'Clear priorities', title: 'Turn a noisy backlog into one next move.', description: 'Give every bet an owner, a reason, and a visible path to done. Your team sees what matters before the next check-in.', iconTone: 'violet', featured: true, bullets: ['Improve invite flow', 'Capture onboarding notes'] })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-check')
+        +marketingFeatureCard({ eyebrow: 'Signal, not noise', title: 'See the work without chasing updates.', description: 'Small, legible project signals make the right conversation obvious.', iconTone: 'orange' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-signal')
+        +marketingFeatureCard({ eyebrow: 'Built-in confidence', title: 'Keep decisions close to the evidence.', description: 'Link research, feedback, and product context where choices are made.', iconTone: 'mint' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-shield')
+    .container
+      a.marketing-text-link(href=route('saas.features'))
+        | Explore all product features
+        span(aria-hidden="true") →
+
+  section.testimonial-section(aria-labelledby="saas-story-title")
+    .container.testimonial-section__inner
+      .testimonial-section__statement
+        +marketingKicker({ label: 'Made for thoughtful teams' })
+        h2#saas-story-title More clarity, fewer meetings, happier makers.
+        if !starterMode
+          a.marketing-text-link(href=route('blog.archive'))
+            | Read the product journal
+            span(aria-hidden="true") →
+        else
+          a.marketing-text-link(href=route('saas.features'))
+            | Explore how Orbit works
+            span(aria-hidden="true") →
+      +marketingTestimonialCard({ initials: 'RA', ratingLabel: 'Five out of five stars', ratingText: '★ ★ ★ ★ ★', quote: '“The team finally has enough context to make a decision without another meeting. Orbit feels like the quietest person in the room, and the most useful.”', author: 'Rhea Alvarez', role: 'VP Product, Northstar' })
+
+  section.faq-section(aria-labelledby="saas-home-faq-title")
+    .container.faq-section__inner
+      .section-intro
+        +marketingKicker({ label: 'A good place to begin' })
+        h2#saas-home-faq-title Want to see if Orbit fits?
+        p Read the practical details, then start with a workspace that stays yours.
+        a.marketing-text-link(href=route('saas.faq'))
+          | Visit the FAQ
+          span(aria-hidden="true") →
+      .faq-list
+        details(open)
+          summary Can I try Orbit before choosing a plan?
+          p Yes. The Starter plan is free, and team plans include a 14-day trial. This static demo does not create an account or send data.
+        details
+          summary Does Orbit replace our delivery tools?
+          p Orbit keeps priorities, evidence, and decisions connected. Teams can keep the delivery tools that already work for them.
+
+  if !starterMode
+    +marketingNewsletterSignup({ idPrefix: 'orbit-notes', title: 'A monthly note for product people who care about craft.', description: 'Useful frameworks and team rituals, with no product spam.', note: 'Demo only: an address entered here is checked in your browser and is not sent or stored.', kicker: 'A calmer inbox', emailLabel: 'Work email address', placeholder: 'you@company.com', action: 'Try the demo form' })

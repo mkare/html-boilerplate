@@ -1,0 +1,29 @@
+mixin responsivePicture(image, options)
+  - const settings = options || {}
+  - const sizes = settings.sizes
+  - const alt = settings.alt
+  - const className = settings.className
+  - if (!image || typeof image !== 'object') throw new TypeError('responsivePicture requires an image record.')
+  - if (typeof sizes !== 'string' || !sizes.trim()) throw new TypeError('responsivePicture requires a non-empty sizes string.')
+  - if (typeof alt !== 'string') throw new TypeError('responsivePicture requires an alt string.')
+  - if (className !== undefined && typeof className !== 'string') throw new TypeError('responsivePicture className must be a string when provided.')
+  - const intrinsicWidth = image.intrinsicWidth || image.width
+  - const intrinsicHeight = image.intrinsicHeight || image.height
+  - if (!Number.isSafeInteger(intrinsicWidth) || intrinsicWidth <= 0 || !Number.isSafeInteger(intrinsicHeight) || intrinsicHeight <= 0) throw new TypeError('responsivePicture requires positive intrinsic width and height.')
+  - const fallback = image.fallback
+  - if (!fallback || !['jpeg', 'png'].includes(fallback.format) || typeof fallback.src !== 'string' || !fallback.src) throw new TypeError('responsivePicture requires a resolved jpeg/png fallback src.')
+  - const candidatesToSrcset = (candidates, label) => {
+  -   if (!Array.isArray(candidates) || candidates.length === 0) throw new TypeError(`responsivePicture requires ${label} candidates.`)
+  -   return candidates.map((candidate) => {
+  -     if (!candidate || typeof candidate.src !== 'string' || !candidate.src || !Number.isSafeInteger(candidate.width) || candidate.width <= 0) throw new TypeError(`responsivePicture has an invalid ${label} candidate.`)
+  -     return `${candidate.src} ${candidate.width}w`
+  -   }).join(', ')
+  - }
+  - const fallbackSrcset = candidatesToSrcset(fallback.srcset, 'fallback')
+  picture(class=className)
+    each format in ['avif', 'webp']
+      - const descriptor = image.formats && image.formats[format]
+      if descriptor
+        - if (descriptor.type !== `image/${format}`) throw new TypeError(`responsivePicture ${format} source has an invalid type.`)
+        source(type=descriptor.type, srcset=candidatesToSrcset(descriptor.srcset, format), sizes=sizes)
+    img(src=fallback.src, srcset=fallbackSrcset, sizes=sizes, alt=alt, width=intrinsicWidth, height=intrinsicHeight, loading=image.priority === true ? 'eager' : 'lazy', fetchpriority=image.priority === true ? 'high' : null)

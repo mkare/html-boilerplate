@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Field Notes editorial campaign</title>
+  <desc id="desc">A botanical editorial cover with a bright coral sun and layered green leaves.</desc>
+  <rect width="1200" height="900" fill="#dfe4d5"/>
+  <rect x="120" y="72" width="960" height="756" fill="#f7f2e6"/>
+  <circle cx="790" cy="334" r="190" fill="#e99d7e"/>
+  <path d="M270 720c75-260 226-399 433-452-2 195-61 342-178 442-76 65-161 90-255 78z" fill="#2d6650"/>
+  <path d="M450 769c27-232 162-386 404-463-9 203-91 352-247 448-54 33-107 49-157 48z" fill="#66856b"/>
+  <path d="M296 697c152-142 288-250 456-356" fill="none" stroke="#d9e0ca" stroke-width="8" stroke-linecap="round"/>
+  <path d="M502 760c75-139 169-256 320-371" fill="none" stroke="#d9e0ca" stroke-width="7" stroke-linecap="round"/>
+  <text x="170" y="160" fill="#1b4338" font-family="Arial,sans-serif" font-size="22" letter-spacing="6">FIELDWORK / JOURNAL</text>
+  <text x="173" y="236" fill="#1b4338" font-family="Georgia,serif" font-size="57" letter-spacing="-2">THE SHAPE</text>
+  <text x="173" y="300" fill="#1b4338" font-family="Georgia,serif" font-size="57" letter-spacing="-2">OF GROWTH</text>
+</svg>

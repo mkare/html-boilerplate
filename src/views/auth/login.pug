@@ -1,0 +1,65 @@
+extends @layouts/base.pug
+
+block head
+  link(href="./login.scss" rel="stylesheet")
+  script(src="./login.js" defer="defer")
+
+block content
+  include _auth-social.pug
+  section.auth-page.auth-page--login(aria-labelledby="login-title")
+    .container.auth-page__shell
+      aside.auth-showcase(aria-labelledby="login-showcase-title")
+        .auth-showcase__top
+          a.auth-showcase__brand(href=route("legacy.home"), aria-label="Back to home")
+            span.auth-showcase__brand-mark(aria-hidden="true") ◒
+            span Northstar
+        .auth-showcase__content
+          p.auth-eyebrow Everything in place
+          h2#login-showcase-title Pick up right where you left off.
+          p.auth-showcase__copy Securely access your projects, notes, and team updates.
+          ul.auth-showcase__points
+            li Single sign-on for all your workspaces
+            li Synced progress across devices
+            li Robust, accessible account security
+        .auth-showcase__footer
+          blockquote.auth-showcase__quote
+            | “A focused workspace where momentum never breaks.”
+            cite — Northstar user community
+      .auth-card-wrap
+        .auth-card
+          p.auth-eyebrow Secure access
+          h1#login-title Welcome back.
+          p.auth-card__lead Sign in to your account with your email and password.
+          form#login-form.auth-form(data-auth-form, data-auth-mode="login")
+            p.auth-demo-note This demo is not connected to a server. Without JavaScript, fields remain disabled and no credentials are sent.
+            fieldset.auth-form__fields(data-auth-fields, disabled)
+              legend.auth-form__legend Account credentials
+              .auth-field
+                label.auth-label(for="login-email")
+                  | Email address
+                  span.auth-required(aria-hidden="true")  *
+                input#login-email(type="email", name="email", autocomplete="email", inputmode="email", placeholder="you@example.com", required, aria-describedby="login-email-hint")
+                p#login-email-hint.auth-hint Use the email address associated with your account.
+              .auth-field
+                .auth-field__label-row
+                  label.auth-label(for="login-password")
+                    | Password
+                    span.auth-required(aria-hidden="true")  *
+                  a.auth-text-link(href=route("legacy.auth.forgot-password")) Forgot password?
+                .auth-password
+                  input#login-password(type="password", name="password", autocomplete="current-password", placeholder="Enter your password", minlength="8", required)
+                  button.auth-password__toggle(type="button", aria-controls="login-password", aria-pressed="false", aria-label="Show password", data-password-toggle, disabled)
+                    span(data-password-toggle-label) Show
+              .auth-options
+                label.auth-check(for="login-remember")
+                  input#login-remember(type="checkbox", name="remember")
+                  span Remember me on this device
+                a.auth-text-link(href=route("legacy.auth.forgot-password")) Need help?
+              button.auth-submit(type="submit", data-submit-button, data-pending-label="Verifying credentials")
+                span(data-submit-label) Sign in
+                span.auth-submit__spinner(aria-hidden="true")
+            p#login-feedback.auth-feedback(role="status", aria-live="polite", data-auth-feedback)
+          +socialAuth
+          p.auth-card__footer
+            | Don’t have an account? 
+            a.auth-text-link(href=route("legacy.auth.register")) Create account

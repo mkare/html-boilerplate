@@ -1,0 +1,9 @@
+{
+  "globs": ["README.md", "docs/**/*.md", "!docs/reviews/**", "src/**/*.docs.md"],
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD033": false,
+    "MD041": false,
+  },
+}

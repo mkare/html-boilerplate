@@ -1,0 +1,116 @@
+extends @layouts/base.pug
+
+block head
+  link(href="./templates.scss" rel="stylesheet")
+  script(src="./templates.js" defer="defer")
+
+block content
+  section.template-hero
+    .page-shell
+      p.eyebrow Multipurpose starter kit
+      h1 Ship polished interfaces without rebuilding the basics.
+      p.template-hero__lead A growing set of detailed page blueprints powered by the same semantic HTML, reusable tokens and focused JavaScript.
+      .ui-cluster
+        a.button.button--primary(href=route("legacy.components")) Browse components
+        a.button.button--ghost(href="#template-grid") Explore templates
+      .template-hero__metrics
+        .ui-card
+          span.stat-label Page blueprints
+          strong.stat-value 06
+        .ui-card
+          span.stat-label Interactive patterns
+          strong.stat-value 40+
+        .ui-card
+          span.stat-label External UI dependencies
+          strong.stat-value 0
+  section.page-shell.section
+    .template-toolbar
+      .ui-stack
+        p.eyebrow Template gallery
+        h2 Pick a starting point
+      label.template-search(for="template-search")
+        span.sr-only Filter templates
+        input#template-search.form-control(type="search", placeholder="Search templates…", autocomplete="off")
+    .template-filters(role="group", aria-label="Filter templates")
+      button.is-active(type="button", data-template-filter="all") All
+      button(type="button", data-template-filter="product") Product
+      button(type="button", data-template-filter="business") Business
+      button(type="button", data-template-filter="content") Content
+    .template-grid#template-grid
+      article.template-card(data-template-category="product", data-template-name="component library ui kit")
+        .template-card__preview.template-card__preview--library
+          span UI
+          span UI
+          span UI
+          span UI
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Product
+            span.ui-pill Documentation
+          h3 Component Library
+          p All component states in one living reference.
+          a.ui-link(href=route("legacy.components")) Open library →
+      article.template-card(data-template-category="business", data-template-name="admin dashboard analytics")
+        .template-card__preview.template-card__preview--dashboard
+          i
+          b
+          b
+          b
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Business
+            span.ui-pill Data
+          h3 Admin Dashboard
+          p Metrics, activity, tables and quick actions.
+          a.ui-link(href=route("legacy.dashboard")) Open dashboard →
+      article.template-card(data-template-category="product", data-template-name="ecommerce storefront shop cart")
+        .template-card__preview.template-card__preview--store
+          i
+          i
+          i
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Product
+            span.ui-pill Commerce
+          h3 Storefront
+          p Filtering, cart state and product quick views.
+          a.ui-link(href=route("legacy.commerce")) Open storefront →
+      article.template-card(data-template-category="business", data-template-name="authentication login registration forgot password")
+        .template-card__preview.template-card__preview--auth
+          span
+          span
+          span
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Business
+            span.ui-pill Auth
+          h3 Auth Flows
+          p Login, registration and password reset screens.
+          a.ui-link(href=route("legacy.auth.login")) Open login →
+      article.template-card(data-template-category="content", data-template-name="marketing blog saas landing pricing faq")
+        .template-card__preview.template-card__preview--marketing
+          i
+          i
+          i
+          i
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Content
+            span.ui-pill Marketing
+          h3 SaaS Marketing
+          p Pricing, testimonials, FAQ and newsletter form.
+          a.ui-link(href=route("legacy.marketing")) Open marketing →
+      article.template-card(data-template-category="content", data-template-name="documentation markdown content prose")
+        .template-card__preview.template-card__preview--docs
+          b
+          b
+          b
+          b
+        .template-card__body
+          .ui-cluster
+            span.ui-pill Content
+            span.ui-pill Docs
+          h3 Documentation
+          p Markdown processing and readable long-form content.
+          a.ui-link(href=route("legacy.markdown")) Open docs →
+    p#empty-templates.empty-templates(hidden) No templates match that filter.

@@ -1,0 +1,24 @@
+mixin uiLink(options = {})
+  - const props = assertProps('ui-link', options, { type: 'object', required: ['href', 'label'], properties: { href: { type: 'string', minLength: 1 }, label: { type: 'string', minLength: 1 }, ariaLabel: { type: 'string' } }, additionalProperties: false })
+  - const href = props.href.trim()
+  - const schemeMatch = href.match(/^([a-z][a-z\d+.-]*):/i)
+  - const allowedSchemes = new Set(['http', 'https', 'mailto', 'tel'])
+  - const scheme = schemeMatch?.[1].toLowerCase()
+  - const isHttpUrl = scheme === 'http' || scheme === 'https'
+  - const isActionUrl = scheme === 'mailto' || scheme === 'tel'
+  - let externalUrl = null
+  - if (isHttpUrl) {
+  -   try {
+  -     externalUrl = new URL(href)
+  -   } catch {
+  -     externalUrl = null
+  -   }
+  - }
+  - const incompleteExternalUrl = isHttpUrl ? (!/^https?:\/\//i.test(href) || !externalUrl?.hostname || externalUrl.username || externalUrl.password) : false
+  - const emptyActionUrl = isActionUrl ? !href.slice(schemeMatch[0].length).trim() : false
+  - const emptyAriaLabel = props.ariaLabel !== undefined ? !props.ariaLabel.trim() : false
+  - const unsupportedScheme = schemeMatch ? !allowedSchemes.has(scheme) : false
+  - if (!href || !props.label.trim() || emptyAriaLabel || /[\u0000-\u001f\u007f\\]/.test(href) || href.startsWith('//') || unsupportedScheme || incompleteExternalUrl || emptyActionUrl) throw new Error('ui-link requires a visible label and a safe relative URL, fragment, http(s), mailto, or tel URL.')
+  a.ui-link(href=href, aria-label=props.ariaLabel)
+    span= props.label
+    span.ui-link__arrow(aria-hidden="true") →

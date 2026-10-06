@@ -1,0 +1,18 @@
+{
+  "id": "blog.archive.page2",
+  "blueprintId": "blog.archive",
+  "translationKey": "blog.archive",
+  "route": "/blog/page/2/",
+  "demoId": "saas",
+  "source": "src/pages/blog/archive-page-2/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Journal — Page 2 — Interface Kit",
+  "description": "More notes on design systems, accessible interfaces, and product craft.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "website", "pagination": true },
+  "robots": "index,follow"
+}

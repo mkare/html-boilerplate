@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Fieldwork studio moodboard</title>
+  <desc id="desc">A warm studio moodboard with forest green shapes, soft coral and cream paper forms.</desc>
+  <rect width="1200" height="1100" fill="#e9e8dc"/>
+  <path d="M124 93h704v774H124z" fill="#f8f5ed"/>
+  <path d="M177 151h598v346H177z" fill="#1f5b4b"/>
+  <path d="M177 151h598v346H177z" fill="url(#grain)" opacity=".15"/>
+  <circle cx="652" cy="320" r="116" fill="#e7a185"/>
+  <path d="M177 503h283v306H177z" fill="#e7a185"/>
+  <path d="M473 503h302v306H473z" fill="#d5ddc5"/>
+  <path d="M546 706c51-129 97-155 170-190v293H546z" fill="#739579"/>
+  <path d="M862 179h228v634H862z" fill="#efe1ca"/>
+  <path d="M901 230h150v8H901zm0 29h106v5H901zm0 20h126v5H901zm0 248h150v8H901zm0 29h106v5H901z" fill="#37564c" opacity=".72"/>
+  <path d="M952 403c38 33 56 69 51 108-47-3-81-20-102-50-18-26-22-58-13-94 26 5 48 16 64 36z" fill="#719578"/>
+  <circle cx="960" cy="425" r="10" fill="#f5f0e3"/>
+  <path d="M895 775h162" stroke="#37564c" stroke-width="5" stroke-linecap="round"/>
+  <path d="M890 846h178" stroke="#37564c" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+  <defs>
+    <pattern id="grain" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r="1" fill="#fff"/><circle cx="13" cy="11" r="1" fill="#fff"/>
+    </pattern>
+  </defs>
+</svg>

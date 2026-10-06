@@ -1,17 +1,52 @@
 extends @layouts/base.pug
 
-//- page specifically styles and scripts
 block head
-  //- relative path to SCSS source file
   link(href="./about.scss" rel="stylesheet")
-  //- relative path to JS source file
   script(src="./about.js" defer="defer")
 
 block content
-  section
-    .container
-      h1.mt-5 About Page
-      p This is the about page.
-      p
-        a(href='/') Go Back to Home
-      #app
+  section.about-hero
+    .page-shell
+      p.eyebrow About the kit
+      h1 A calm system for complex products.
+      p Our goal is not to make every interface look the same. It is to remove the repetitive decisions so teams can focus on the parts that matter.
+  section.page-shell.section
+    .principles-grid
+      article.ui-card
+        span.principle-number 01
+        h2 Semantic first
+        p Start with native HTML elements. Layer in JavaScript only when an interaction genuinely needs it.
+      article.ui-card
+        span.principle-number 02
+        h2 Intentional defaults
+        p Spacing, color, type and focus behavior should be useful before a custom class is written.
+      article.ui-card
+        span.principle-number 03
+        h2 Progressive enhancement
+        p Navigation, forms and content remain understandable when JavaScript is unavailable.
+  section.page-shell.section.about-release
+    .about-release__heading
+      p.eyebrow Release notes
+      h2 What ships in this starter
+    .about-release__body
+      .release-list
+        article.release-item
+          time(datetime="2026-09-22") Sep 22, 2026
+          .release-item__body
+            h3 Component system
+            p Shared primitives for cards, forms, data tables, feedback states, navigation and actions.
+            span.status-badge.status-badge--success Current
+        article.release-item
+          time(datetime="2026-09-22") Sep 22, 2026
+          .release-item__body
+            h3 Page blueprints
+            p Ready-to-adapt template families for product, business, commerce, authentication and content work.
+            span.status-badge.status-badge--success Current
+        article.release-item
+          time(datetime="2026-09-22") Sep 22, 2026
+          .release-item__body
+            h3 Accessibility baseline
+            p Visible focus, skip navigation, labelled inputs, real dialogs and keyboard-aware interactions.
+            span.status-badge.status-badge--success Current
+      button#copy-stack.button.button--ghost(type="button") Copy stack summary
+      p#copy-feedback.copy-feedback(role="status", aria-live="polite")

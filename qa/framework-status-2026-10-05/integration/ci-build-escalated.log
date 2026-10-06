@@ -1,0 +1,228 @@
+yarn run v1.22.22
+$ yarn check:architecture && yarn check:manifest-wrapper && yarn check:collections && yarn check:autoprefixer && yarn check:commerce && yarn check:profile-contracts && yarn check:locales && yarn check:watch && yarn check:overrides && yarn build && yarn check:dist && yarn check:reproducible && yarn check:fonts && yarn check:accessibility && yarn check:profile && yarn check:phase2 && yarn check:release
+$ node qa/check-architecture.cjs
+architecture source boundaries passed: 121 source files checked.
+$ node qa/phase-1/check-manifest-wrapper.cjs
+Phase 1 manifest/wrapper contracts passed: 51 catalog pages (39 generated wrappers), schema recursion/layout/theme enums, data precedence, legacy dashboard compatibility.
+$ node qa/check-collections.cjs
+collection acceptance passed: 0/1/N/N+1 pagination, publication filtering, Turkish slugs, collision and date checks.
+$ node qa/check-autoprefixer.cjs
+Autoprefixer acceptance passed: 5 shared queries resolve 53 browser targets; Webpack uses the same implicit .browserslistrc.
+$ node --test qa/commerce/*.test.mjs
+TAP version 13
+# Subtest: migrates atelier-store-cart-v1 into the versioned cart key
+ok 1 - migrates atelier-store-cart-v1 into the versioned cart key
+  ---
+  duration_ms: 1.023125
+  type: 'test'
+  ...
+# Subtest: keeps unknown catalog IDs when loading, adding, and reloading a cart
+ok 2 - keeps unknown catalog IDs when loading, adding, and reloading a cart
+  ---
+  duration_ms: 0.280916
+  type: 'test'
+  ...
+# Subtest: reports denied storage reads and keeps later cart changes in memory
+ok 3 - reports denied storage reads and keeps later cart changes in memory
+  ---
+  duration_ms: 0.100459
+  type: 'test'
+  ...
+# Subtest: reports denied storage writes and keeps cart changes in memory
+ok 4 - reports denied storage writes and keeps cart changes in memory
+  ---
+  duration_ms: 0.077875
+  type: 'test'
+  ...
+# Subtest: catalog lookup failure does not clear saved or unknown cart lines
+ok 5 - catalog lookup failure does not clear saved or unknown cart lines
+  ---
+  duration_ms: 0.319167
+  type: 'test'
+  ...
+# Subtest: detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+ok 6 - detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+  ---
+  duration_ms: 1.274416
+  type: 'test'
+  ...
+# Subtest: detail submit clamps the submitted value before adding it
+ok 7 - detail submit clamps the submitted value before adding it
+  ---
+  duration_ms: 0.17825
+  type: 'test'
+  ...
+# Subtest: missing catalog product disables add and reports that it is unavailable
+ok 8 - missing catalog product disables add and reports that it is unavailable
+  ---
+  duration_ms: 0.123209
+  type: 'test'
+  ...
+# Subtest: a rejected cart add reports the inline retry message
+ok 9 - a rejected cart add reports the inline retry message
+  ---
+  duration_ms: 0.083792
+  type: 'test'
+  ...
+# Subtest: storage denial keeps the add in memory and explains the visit-only bag
+ok 10 - storage denial keeps the add in memory and explains the visit-only bag
+  ---
+  duration_ms: 0.185458
+  type: 'test'
+  ...
+# Subtest: filter URL state restores on history back and forward
+ok 11 - filter URL state restores on history back and forward
+  ---
+  duration_ms: 26.760708
+  type: 'test'
+  ...
+# Subtest: cart persists across catalog route navigation and a page reload
+ok 12 - cart persists across catalog route navigation and a page reload
+  ---
+  duration_ms: 2.359041
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 80.827667
+$ node qa/phase-5/check-contracts.cjs
+Phase 5 manifest contracts passed: preview 51 pages, SaaS customer 21, starter 10; invalid locale, normalized IDs/outputs, missing translation target, selected-home, and route-mount assertions verified.
+$ node qa/phase-5/check-locales.cjs
+Locale contracts passed: default locale config, demo mount, customer root/subpath, reciprocal hreflang, visible switcher fixture, and no synthetic translations.
+$ node qa/phase-1/check-watch.cjs
+Manifest watcher acceptance passed: add, route rename, invalid JSON retention, repair, remove, and synchronized primary navigation.
+$ node qa/overrides/check-project-overrides.cjs
+Isolated production integration passed: temporary real-root overlay compiled to HTML/CSS/assets; malformed brand/theme/menu/Sass fell back on rebuild while the valid custom page remained.
+Project override QA passed: defaults, brand/logo containment, semantic tokens, compiled custom Sass, route-backed navigation, page discovery, malformed fallback, repair refresh, and isolated production integration.
+$ webpack build --mode production
+assets by path assets/ 144 KiB
+  assets by info 64.9 KiB [immutable] 7 assets
+  assets by path assets/css/pages/*.css 79.3 KiB
+    assets by chunk 48.8 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 2 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15.3 KiB
+  asset index.html 13.6 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 9 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 283 KiB
+  modules by path ./.generated/pages/*.pug 179 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 5.93 KiB [built] [code generated]
+    + 19 modules
+  modules by path ./src/ 102 KiB 8 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 55.7 KiB (asset) 168 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 4.46 KiB (asset) 84 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/images/compass.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1537 ms
+$ node qa/check-dist.cjs
+check:dist passed: 21 HTML files, 35 output files, basePath /.
+$ node qa/check-reproducible.cjs
+$ webpack build --mode production
+assets by path assets/ 144 KiB
+  assets by info 64.9 KiB [immutable] 7 assets
+  assets by path assets/css/pages/*.css 79.3 KiB
+    assets by chunk 48.8 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 2 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15.3 KiB
+  asset index.html 13.6 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 9 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 283 KiB
+  modules by path ./.generated/pages/*.pug 179 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 5.93 KiB [built] [code generated]
+    + 19 modules
+  modules by path ./src/ 102 KiB 8 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 55.7 KiB (asset) 168 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 4.46 KiB (asset) 84 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/images/compass.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1480 ms
+$ webpack build --mode production
+assets by path assets/ 144 KiB
+  assets by info 64.9 KiB [immutable] 7 assets
+  assets by path assets/css/pages/*.css 79.3 KiB
+    assets by chunk 48.8 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 2 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15.3 KiB
+  asset index.html 13.6 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 9 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 283 KiB
+  modules by path ./.generated/pages/*.pug 179 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 5.93 KiB [built] [code generated]
+    + 19 modules
+  modules by path ./src/ 102 KiB 8 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 55.7 KiB (asset) 168 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 4.46 KiB (asset) 84 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/images/compass.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1495 ms
+reproducible build passed: 35 files, SHA-256 8f2845dc81ac97af9f360ff29c4cf7a5f30490cfdfdbb1407c9d29edf7072851, BUILD_NOW 2026-10-03T12:00:00.000Z.
+$ node qa/check-font-assets.cjs
+Font assets passed: 52516 bytes source WOFF2; OFL and local subset CSS verified; hashed distribution files verified.
+$ node qa/accessibility/check-markup.cjs
+Accessibility markup checks passed for 21 pages: lang, landmark, skip link, heading order, image alternatives, control names/labels, and ARIA references. This is a static subset of WCAG checks, not a full conformance claim.
+$ node qa/phase-5/check-profile.cjs
+Phase 5 profile check passed: customer-production, demo saas, basePath /; 21 HTML routes (20 package pages), selected home /; internal package links and metadata verified.
+$ node qa/phase-2/check-shell.cjs
+Phase 2 shell full checks passed: CSS ownership, external font policy, manifest-fed navigation, storage denial, system theme updates, multiple shell instances, Escape/focus, sticky cleanup, tabs/dialog/toast keyboard and lifecycle, auth fallback, and dist shell links.
+$ node qa/release/check-release.cjs
+Release acceptance step: qa/release/test-preview-http.cjs
+HTTP preview helper fixture passed: root/subpath routes and CSS/JS/font requests served exact bytes; missing paths returned 404 without fallback.
+Release acceptance step: qa/release/test-scaffolds.cjs
+Release acceptance step: qa/release/test-release-cli.cjs
+Release acceptance step: qa/release/rehearse-upgrade.cjs
+Release acceptance step: scripts/package-release.cjs
+Release acceptance step: scripts/package-release.cjs
+Release acceptance step: qa/release/smoke-extracted.cjs
+Release acceptance step: qa/release/check-csp.cjs
+Release acceptance step: HTTP smoke for extracted SaaS root
+Release acceptance step: scripts/package-release.cjs
+Release acceptance step: qa/release/smoke-extracted.cjs
+Release acceptance step: qa/release/check-csp.cjs
+Release acceptance step: HTTP smoke for extracted SaaS subpath
+Release acceptance step: scripts/package-release.cjs
+Release acceptance step: qa/release/smoke-extracted.cjs
+Release acceptance step: qa/release/check-csp.cjs
+Release acceptance step: HTTP smoke for extracted Agency root
+Release acceptance passed: scaffolds, upgrade fixture, and deterministic SaaS archive SHA-256 99cf13a43049cf5391b390d2bfc56d49a227b0267c24a2934d7c369b01a2a71d; extracted SaaS root/subpath and Agency root bundles passed link, assets, checksum, license, CSP, metadata, and budget checks.
+HTTP preview smoke passed for SaaS root (/): 2 HTML routes, 4 CSS, 3 JS, 1 fonts; unknown route and asset returned 404 without SPA fallback.
+HTTP preview smoke passed for SaaS subpath (/preview/theme/): 2 HTML routes, 4 CSS, 3 JS, 1 fonts; unknown route and asset returned 404 without SPA fallback.
+HTTP preview smoke passed for Agency root (/): 2 HTML routes, 4 CSS, 0 JS, 1 fonts; unknown route and asset returned 404 without SPA fallback.
+SaaS root: 21 routes; HTML raw/gzip=199193/57829 B, CSS=81217/19696 B, JS=9352/3986 B, fonts=52516/52537 B, images=4564/1908 B; largest raster=none (all emitted images are SVG); budget failures=0.
+SaaS subpath: 21 routes; HTML raw/gzip=207443/58235 B, CSS=81245/19707 B, JS=9366/3998 B, fonts=52516/52537 B, images=4564/1908 B; largest raster=none (all emitted images are SVG); budget failures=0.
+Agency root: 9 routes; HTML raw/gzip=64525/19997 B, CSS=57775/13144 B, JS=0/0 B, fonts=52516/52537 B, images=6488/2901 B; largest raster=none (all emitted images are SVG); budget failures=0.
+Done in 67.53s.

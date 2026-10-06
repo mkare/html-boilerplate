@@ -1,0 +1,26 @@
+include ../_post-card.pug
+.blog-page
+  nav.blog-breadcrumb(aria-label="Breadcrumb")
+    ol
+      li
+        a(href=route('blog.archive')) Journal
+      li(aria-current="page")= category.label
+  header.blog-subhero
+    p.blog-eyebrow Browse by topic
+    h1= category.label
+    p.blog-hero__lede= categoryDescription
+  section.blog-listing(aria-labelledby="category-list-title")
+    .blog-section-heading
+      div
+        p.blog-eyebrow Topic archive
+        h2#category-list-title= 'Notes tagged “' + category.label + '”'
+      p.blog-result-count= `${categoryPosts.length} published articles`
+    if categoryPosts.length
+      .blog-card-grid
+        each post in categoryPosts
+          +postCard(post)
+    else
+      .blog-empty
+        h2 No published articles in this topic yet
+        p Visit the journal for the latest notes.
+    a.blog-inline-link.blog-category-back(href=route(archivePageRoutes['1'])) ← Browse all articles

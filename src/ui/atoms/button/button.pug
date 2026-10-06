@@ -1,0 +1,5 @@
+mixin uiButton(options = {})
+  - const props = assertProps('ui-button', options, { type: 'object', required: ['label'], properties: { label: { type: 'string' }, variant: { type: 'string', enum: ['primary', 'secondary', 'ghost', 'danger'] }, size: { type: 'string', enum: ['sm', 'md', 'lg'] }, type: { type: 'string', enum: ['button', 'submit', 'reset'] }, disabled: { type: 'boolean' }, actionMessage: { type: 'string' }, ariaLabel: { type: 'string' } }, additionalProperties: false })
+  - const variant = props.variant || 'primary'
+  - const size = props.size || 'md'
+  button.ui-button(class=`ui-button--${variant} ui-button--${size}`, type=props.type || 'button', disabled=Boolean(props.disabled), aria-label=props.ariaLabel, data-demo-action=props.actionMessage ? true : undefined, data-demo-message=props.actionMessage)&attributes(attributes)=props.label

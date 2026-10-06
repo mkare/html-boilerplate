@@ -1,0 +1,22 @@
+mixin postCard(post)
+  article.blog-card
+    a.blog-card__art-link(href=route(post.pageId) aria-label=`Read article: ${post.title}`)
+      span.blog-cover(class=`blog-cover--${post.cover.tone}` aria-hidden="true")
+        span.blog-cover__orb.blog-cover__orb--one
+        span.blog-cover__orb.blog-cover__orb--two
+        span.blog-cover__grid
+    .blog-card__body
+      p.blog-card__eyebrow
+        time(datetime=post.publishedAt)= formatDate(post.publishedAt, post.locale)
+        span(aria-hidden="true") · 
+        = post.author.name
+      h2.blog-card__title
+        a(href=route(post.pageId))= post.title
+      p.blog-card__description= post.description
+      ul.blog-tag-list(aria-label="Topics")
+        each tag in post.tags
+          li
+            if categoryPageIds && categoryPageIds[tag.slug]
+              a.blog-tag(href=route(categoryPageIds[tag.slug]))= tag.label
+            else
+              span.blog-tag= tag.label

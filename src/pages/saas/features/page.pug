@@ -1,0 +1,82 @@
+
+include @blocks/marketing/kicker/kicker.pug
+include @blocks/marketing/feature-card/feature-card.pug
+
+- const uiIconSprite = require('@images/ui-icons.svg')
+
+.marketing
+  section.marketing-hero(aria-labelledby="features-title")
+    .container.marketing-hero__inner
+      .marketing-hero__copy
+        +marketingKicker({ label: saas.features.kicker })
+        h1#features-title= saas.features.title
+        p.marketing-hero__lede= saas.features.description
+        .marketing-hero__actions
+          a.marketing-button.marketing-button--primary(href=route('saas.auth.create-account')) Create a free workspace
+          a.marketing-button.marketing-button--quiet(href=route('saas.pricing')) Compare plans
+      .marketing-hero__art(aria-hidden="true")
+        .product-window
+          .product-window__topbar
+            .window-dots: i: i: i
+            span.product-window__workspace Orbit / product system
+            span.product-window__avatar AL
+          .product-window__body
+            .product-window__sidebar
+              span.product-window__brand o.
+              span.product-window__nav.product-window__nav--active
+              span.product-window__nav
+              span.product-window__nav
+            .product-window__content
+              .product-window__heading
+                .product-window__title-lines: i: i
+                span.product-window__pill Roadmap aligned
+              .product-window__cards
+                article.mini-card.mini-card--violet
+                  span.mini-card__eyebrow This week
+                  strong Clarify the next bet
+                article.mini-card.mini-card--plain
+                  span.mini-card__eyebrow Evidence
+                  strong 4 useful signals
+                  .mini-card__chart: i: i: i: i: i
+                article.mini-card.mini-card--wide
+                  span.mini-card__eyebrow Team focus
+                  .mini-card__progress: i
+
+  section.feature-section(aria-labelledby="feature-grid-title")
+    .container
+      .section-intro
+        +marketingKicker({ label: 'One connected product practice' })
+        h2#feature-grid-title Keep the whole decision in view.
+        p Orbit keeps the why beside the what: enough structure to build confidence without adding another system to maintain.
+      .feature-grid
+        +marketingFeatureCard({ eyebrow: 'Priorities', title: 'Make the next move visible.', description: 'Turn ideas into owned bets with a clear reason, useful context, and a small definition of done.', iconTone: 'violet', featured: true, bullets: ['A roadmap your team can explain', 'Decisions linked to the work'] })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-check')
+        +marketingFeatureCard({ eyebrow: 'Evidence', title: 'Keep learning near the decision.', description: 'Collect research and feedback where they can change the plan, not in another forgotten folder.', iconTone: 'mint' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-search')
+        +marketingFeatureCard({ eyebrow: 'Team rituals', title: 'Replace status theater with useful signals.', description: 'Short check-ins show what changed, what is blocked, and where another perspective would help.', iconTone: 'orange' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-signal')
+        +marketingFeatureCard({ eyebrow: 'Shared context', title: 'Give every collaborator the same starting point.', description: 'Project notes, owners, and links travel together so people spend less time asking where things stand.', iconTone: 'blue' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-team')
+        +marketingFeatureCard({ eyebrow: 'Progress', title: 'Notice the pattern, not just the deadline.', description: 'A calm historical view helps teams learn from the way work moves over time.', iconTone: 'rose' })
+          svg(viewBox="0 0 24 24", fill="none", focusable="false")
+            use(href=uiIconSprite + '#feature-trend')
+  section.testimonial-section(aria-labelledby="feature-confidence-title")
+    .container.testimonial-section__inner
+      .testimonial-section__statement
+        +marketingKicker({ label: 'Designed to stay useful' })
+        h2#feature-confidence-title Less ceremony. Better conversations.
+        p The product stays lightweight as your team grows: clear context, flexible rituals, and decisions that remain easy to revisit.
+      figure.testimonial-card
+        blockquote “We spend less time reconstructing context and more time asking the question that actually matters.”
+        figcaption
+          strong Rhea Alvarez
+          span VP Product, Northstar
+  section.faq-section(aria-label="Explore Orbit")
+    .container.section-intro
+      h2 See how Orbit fits your team.
+      p Compare the plans or get answers before starting.
+      a.marketing-text-link(href=route('saas.pricing')) View plans #[span(aria-hidden="true") →]

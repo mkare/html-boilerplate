@@ -1,0 +1,18 @@
+{
+  "id": "blog.category.design",
+  "blueprintId": "blog.category",
+  "translationKey": "blog.category.design",
+  "route": "/blog/category/design/",
+  "demoId": "saas",
+  "source": "src/pages/blog/category-design/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Design systems — Journal — Interface Kit",
+  "description": "Articles about design systems, shared decisions, and building consistent interfaces.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "robots": "index,follow"
+}

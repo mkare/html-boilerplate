@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.field-notebook",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.field-notebook",
+  "route": "/commerce/products/field-notebook/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Field notebook — Storefront",
+  "description": "Dot-grid pages inside a linen cover that gets better with age.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

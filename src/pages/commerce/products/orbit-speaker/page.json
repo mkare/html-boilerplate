@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.orbit-speaker",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.orbit-speaker",
+  "route": "/commerce/products/orbit-speaker/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Orbit speaker — Storefront",
+  "description": "Pocket-sized sound with a full, room-filling presence.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

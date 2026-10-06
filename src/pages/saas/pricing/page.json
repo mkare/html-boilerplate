@@ -1,0 +1,20 @@
+{
+  "id": "saas.pricing",
+  "route": "/pricing/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.pricing",
+  "source": "src/pages/saas/pricing/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "script": "src/views/marketing/marketing.js",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Plans and pricing — Orbit",
+  "description": "Choose a product workspace that fits how you work, from a free personal plan to a connected team plan.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["main", "footer"], "label": "Pricing", "order": 20 },
+  "robots": "index,follow"
+}

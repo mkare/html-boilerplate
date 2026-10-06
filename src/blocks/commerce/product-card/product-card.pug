@@ -1,0 +1,64 @@
+mixin commerceProductCard(options = {})
+  - const props = assertProps('block-commerce-product-card', options, { type: 'object', required: ['product', 'detailHref', 'price'], properties: { product: { type: 'object' }, detailHref: { type: 'string', minLength: 1 }, price: { type: 'string', minLength: 1 }, compareAtPrice: { type: 'string' } }, additionalProperties: false })
+  - const product = assertProps('block-commerce-product-card.product', props.product, { type: 'object', required: ['id', 'name', 'description', 'category', 'rating', 'reviews', 'art', 'tone', 'shadow', 'stock', 'isNew'], properties: { id: { type: 'string', minLength: 1 }, name: { type: 'string', minLength: 1 }, description: { type: 'string' }, category: { type: 'string', minLength: 1 }, rating: { type: 'string', minLength: 1 }, reviews: { type: 'number', minimum: 0 }, art: { type: 'string', minLength: 1 }, tone: { type: 'string', minLength: 1 }, shadow: { type: 'string', minLength: 1 }, stock: { type: 'string', enum: ['ready', 'limited'] }, isNew: { type: 'boolean' } }, additionalProperties: true })
+  -
+    const href = props.detailHref
+    const scheme = /^([a-z][a-z0-9+.-]*):/i.exec(href)
+    const hasUnsafeCharacters = /[\s\u007f\\]/.test(href)
+    const safeRelativeHref = !scheme && !href.startsWith('//') && !hasUnsafeCharacters
+    let safeExplicitHref = false
+    if (scheme && !hasUnsafeCharacters) {
+      const protocol = scheme[1].toLowerCase()
+      const destination = href.slice(scheme[0].length)
+      if ((protocol === 'http' || protocol === 'https') && /^https?:\/\//i.test(href)) {
+        const authority = href.slice(href.indexOf('//') + 2).split(/[/?#]/, 1)[0]
+        if (authority) {
+          try {
+            const parsedHref = new URL(href)
+            safeExplicitHref = parsedHref.protocol === `${protocol}:` && Boolean(parsedHref.hostname)
+          } catch {
+            safeExplicitHref = false
+          }
+        }
+      } else if (protocol === 'mailto' || protocol === 'tel') {
+        safeExplicitHref = destination.length > 0 && !destination.startsWith('//')
+      }
+    }
+    if (!safeRelativeHref && !safeExplicitHref) throw new Error('block-commerce-product-card detailHref must be a safe relative URL or use http, https, mailto, or tel')
+  - if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.id)) throw new Error('block-commerce-product-card product.id must be a lowercase slug')
+  - if (!/^[a-z0-9-]+$/.test(product.art)) throw new Error('block-commerce-product-card product.art must be a CSS-safe token')
+  - if (!/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(product.tone) || !/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(product.shadow)) throw new Error('block-commerce-product-card tone and shadow must be 3, 4, 6, or 8 digit hex colors')
+  article.store-product(data-product-id=product.id)
+    .store-product__visual-wrap
+      .store-product__art(class=`store-product__art--${product.art}`, style=`--product-tone: ${product.tone}; --product-shadow: ${product.shadow};`, aria-hidden="true")
+        span.store-product__art-shadow
+        span.store-product__art-object
+      .store-product__labels
+        if product.isNew
+          span.store-product__label New
+        if product.stock === 'limited'
+          span.store-product__label.store-product__label--quiet Low stock
+      button.store-product__quick(type="button", data-quick-view=product.id, aria-label=`Quick view ${product.name}`)
+        svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+          circle(cx="12" cy="12" r="3.5")
+          path(d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z")
+        span.sr-only Quick view
+    .store-product__details
+      .store-product__meta
+        span= product.category
+        span.store-product__rating(aria-label=`Rated ${product.rating} out of 5 from ${product.reviews} reviews`)
+          span(aria-hidden="true") ★
+          |  #{product.rating}
+      h3
+        button(type="button", data-quick-view=product.id)= product.name
+      p.store-product__description= product.description
+      a.store-text-link.store-product__detail-link(href=props.detailHref) Product details
+      .store-product__buy
+        .store-product__prices
+          strong= props.price
+          if props.compareAtPrice
+            s= props.compareAtPrice
+        button.store-add-button(type="button", data-add-product=product.id, aria-label=`Add ${product.name} to bag`)
+          span Add
+          svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true")
+            path(d="M12 5v14M5 12h14")

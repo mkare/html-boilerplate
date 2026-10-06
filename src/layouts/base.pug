@@ -1,15 +1,11 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(href="@images/favicon.svg" rel="icon")
-    //- the title is the external variable passed in Webpack config via PugPlugin
-    title= title
-    block head
-  body
-    main#siteMain
-      //- reusable components
-      include @components/header.pug
-      block content
-      include @components/footer.pug
+//- Compatibility adapter for legacy page `extends` statements.
+//- Removal floor: 2.0.0 after legacy page records are migrated; see docs/migrations/upgrade-guide.md.
+extends @layouts/document.pug
+
+block layoutHeader
+  if !["minimal", "agency"].includes(shellLayout)
+    include @components/header.pug
+
+block layoutFooter
+  if ["site", "storefront", "docs"].includes(shellLayout)
+    include @layouts/site-footer.pug

@@ -1,0 +1,3 @@
+if Array.isArray(hreflangAlternates)
+  each alternate in hreflangAlternates
+    link(rel="alternate", hreflang=alternate.locale, href=alternate.href)

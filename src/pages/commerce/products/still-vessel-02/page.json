@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.still-vessel-02",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.still-vessel-02",
+  "route": "/commerce/products/still-vessel-02/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Still vessel 02 — Storefront",
+  "description": "A hand-finished object for a branch, a bloom or simply itself.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

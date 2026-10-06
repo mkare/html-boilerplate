@@ -1,0 +1,21 @@
+mixin marketingPlanCard(options = {})
+  - const props = assertProps('block-marketing-plan-card', options, { type: 'object', required: ['id', 'audience', 'name', 'description', 'monthly', 'yearly', 'period', 'billingCopy', 'action', 'features'], properties: { id: { type: 'string', minLength: 1 }, audience: { type: 'string', minLength: 1 }, name: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 }, monthly: { type: 'string' }, yearly: { type: 'string' }, period: { type: 'string', minLength: 1 }, billingCopy: { type: 'string', minLength: 1 }, action: { type: 'string', minLength: 1 }, actionTone: { type: 'string', enum: ['primary', 'outline'] }, mark: { type: 'string' }, markTone: { type: 'string', enum: ['violet', 'orange'] }, popular: { type: 'boolean' }, tag: { type: 'string' }, currency: { type: 'string' }, features: { type: 'array' } }, additionalProperties: false })
+  - if (!Array.isArray(props.features) || props.features.length === 0 || props.features.some((item) => typeof item !== 'string' || !item.trim())) throw new Error('block-marketing-plan-card features must be non-empty strings')
+  article.plan-card(class=props.popular ? 'plan-card--popular' : undefined, data-plan=props.id)
+    if props.popular
+      p.plan-card__tag= props.tag || 'Most loved'
+    .plan-card__heading
+      div
+        p.plan-card__eyebrow= props.audience
+        h2= props.name
+      span.plan-card__mark(class=props.markTone ? `plan-card__mark--${props.markTone}` : undefined, aria-hidden="true")= props.mark || '○'
+    p.plan-card__description= props.description
+    p.plan-card__price
+      span.plan-card__currency= props.currency || '$'
+      span.plan-card__amount(data-price, data-monthly=props.monthly, data-yearly=props.yearly)= props.monthly
+      span.plan-card__period(data-period-copy)= props.period
+    p.plan-card__billing(data-billing-copy)= props.billingCopy
+    a.marketing-button(class=props.actionTone === 'primary' ? 'marketing-button--primary' : 'marketing-button--outline', href="#newsletter")= props.action
+    ul.plan-card__list(role="list")
+      each item in props.features
+        li= item

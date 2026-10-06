@@ -1,0 +1,24 @@
+mixin dashboardProjectRow(options = {})
+  - const props = assertProps('block-dashboard-project-row', options, { type: 'object', required: ['id', 'initial', 'tone', 'name', 'category', 'owners', 'ownersLabel', 'status', 'statusTone', 'progress', 'dueDate', 'dueLabel', 'actionLabel'], properties: { id: { type: 'string', minLength: 1 }, initial: { type: 'string', minLength: 1 }, tone: { type: 'string', enum: ['violet', 'coral', 'mint', 'gold', 'navy'] }, name: { type: 'string', minLength: 1 }, category: { type: 'string', minLength: 1 }, owners: { type: 'array' }, ownersLabel: { type: 'string', minLength: 1 }, status: { type: 'string', minLength: 1 }, statusTone: { type: 'string', enum: ['progress', 'review', 'complete', 'planned'] }, progress: { type: 'number', minimum: 0, maximum: 100 }, dueDate: { type: 'string', minLength: 1 }, dueLabel: { type: 'string', minLength: 1 }, actionLabel: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  - if (!Array.isArray(props.owners) || props.owners.some((owner) => !owner || typeof owner.initials !== 'string' || !['violet', 'coral', 'mint', 'gold', 'navy'].includes(owner.tone))) throw new Error('block-dashboard-project-row owners need initials and a valid tone')
+  tr(id=`project-${props.id}`, data-dashboard-row)
+    th(scope="row")
+      a.dashboard-project(href=`#project-${props.id}`)
+        span(class=`dashboard-project__mark dashboard-project__mark--${props.tone}`)= props.initial
+        span
+          strong= props.name
+          small= props.category
+    td
+      .dashboard-owners(role="img", aria-label=props.ownersLabel)
+        each owner in props.owners
+          span(class=`dashboard-avatar dashboard-avatar--tiny dashboard-avatar--${owner.tone}`, aria-hidden="true")= owner.initials
+    td
+      span(class=`dashboard-status dashboard-status--${props.statusTone}`)= props.status
+    td
+      .dashboard-progress(aria-label=`${props.progress}% complete`)
+        span(style=`--dashboard-progress: ${props.progress}%`)
+        small= `${props.progress}%`
+    td: time(datetime=props.dueDate)= props.dueLabel
+    td
+      button.dashboard-row-action(type="button", aria-controls="dashboard-quick-action", data-dashboard-open-dialog, aria-label=props.actionLabel)
+        +dashboardIcon('dots')

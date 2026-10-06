@@ -1,0 +1,7 @@
+mixin marketingStats(items)
+  - if (!Array.isArray(items) || items.length === 0 || items.some((item) => !item || typeof item.value !== 'string' || !item.value.trim() || typeof item.label !== 'string' || !item.label.trim())) throw new Error('block-marketing-stats items require value and label text')
+  dl.marketing-stats
+    each item in items
+      div
+        dt= item.value
+        dd= item.label

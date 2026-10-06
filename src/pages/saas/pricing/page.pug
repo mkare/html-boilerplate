@@ -1,0 +1,36 @@
+
+include @blocks/marketing/kicker/kicker.pug
+include @blocks/marketing/pricing-switch/pricing-switch.pug
+include @blocks/marketing/plan-card/plan-card.pug
+include @blocks/marketing/newsletter-signup/newsletter-signup.pug
+
+.marketing
+  section.pricing-section#pricing(aria-labelledby="pricing-title")
+    .container
+      .section-intro.section-intro--center
+        +marketingKicker({ label: saas.pricing.kicker })
+        h1#pricing-title= saas.pricing.title
+        p= saas.pricing.description
+        +marketingPricingSwitch({ idPrefix: 'orbit-pricing', label: 'Billing period', monthly: 'Monthly', yearly: 'Yearly', savings: 'Save 20%' })
+      .pricing-grid
+        +marketingPlanCard({ id: 'starter', audience: 'For individuals', name: 'Starter', description: 'Build a confident product practice from day one.', monthly: '0', yearly: '0', period: '/ month', billingCopy: 'Free forever', action: 'Start free', mark: '○', features: ['Personal projects and notes', 'Weekly planning rituals', 'Community templates'] })
+        +marketingPlanCard({ id: 'team', audience: 'For growing teams', name: 'Team', description: 'One shared place for the work that moves your roadmap.', monthly: '18', yearly: '14', period: '/ member / month', billingCopy: 'Billed monthly', action: 'Try Team free', actionTone: 'primary', mark: '✦', markTone: 'violet', popular: true, tag: 'Most loved', features: ['Everything in Starter', 'Up to 30 collaborators', 'Insight and feedback hub', 'Progress snapshots'] })
+        +marketingPlanCard({ id: 'scale', audience: 'For connected organizations', name: 'Scale', description: 'Extend a thoughtful system across every product team.', monthly: '42', yearly: '34', period: '/ member / month', billingCopy: 'Billed monthly', action: 'Explore the demo', mark: '↗', markTone: 'orange', features: ['Everything in Team', 'Unlimited workspaces', 'Advanced permissions', 'Priority support'] })
+  section.faq-section(aria-labelledby="pricing-details-title")
+    .container.faq-section__inner
+      .section-intro
+        +marketingKicker({ label: 'Straightforward by design' })
+        h2#pricing-details-title Questions about plans?
+        p The plan descriptions are illustrative product content. This site is a static demo: no account or paid plan can be started here.
+        a.marketing-text-link(href=route('saas.faq')) Read the FAQ #[span(aria-hidden="true") →]
+      .faq-list
+        details(open)
+          summary Can I change plans later?
+          p A production Orbit workspace would let an owner adjust a plan as a team’s needs change. The controls on this page only preview billing-period prices.
+        details
+          summary Is yearly pricing charged monthly?
+          p The displayed yearly amount is a monthly equivalent. A real service would show the full billing amount and terms before checkout.
+        details
+          summary Is a payment method required for the trial?
+          p This example does not collect payment details. It is a product concept page, not a connected service.
+  +marketingNewsletterSignup({ idPrefix: 'newsletter', title: 'Want to see Orbit in context?', description: 'Try the sign-in and account routes to review the static product flow.', note: 'This is an unconnected demo. No email address is sent or saved.', kicker: 'Next step', emailLabel: 'Work email address', placeholder: 'you@company.com', action: 'Demo form' })

@@ -1,0 +1,21 @@
+{
+  "id": "saas.home",
+  "route": "/",
+  "demoId": "saas",
+  "demoHome": true,
+  "starter": true,
+  "translationKey": "saas.home",
+  "source": "src/pages/saas/home/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "script": "src/views/marketing/marketing.js",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Orbit — A calmer way to build products",
+  "description": "Plan, ship, and learn together in one thoughtful workspace for growing product teams.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["footer"], "label": "Home", "order": 5 },
+  "robots": "index,follow"
+}

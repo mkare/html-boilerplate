@@ -1,0 +1,4 @@
+// Core owns Bootstrap's reduced foundation and project-wide resets.
+@use "variables" as *;
+@import "custom-bootstrap";
+@import "base";

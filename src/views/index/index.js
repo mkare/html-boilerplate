@@ -1,43 +1,82 @@
-import Base from "@js/layouts/base";
+const previewTabs = [...document.querySelectorAll("[data-preview-tab]")];
+const previewPanels = [...document.querySelectorAll(".home-preview__panel")];
 
-Base();
-console.log("Hello World!");
-// countdown timer updates #countdown every second
-// countdown starts 1 hour before the event
-// format: 00:00:00
-// when countdown reaches 0, hide #countdown and show #live
-// when #live is shown, start the live stream
-// when #live is shown, hide #countdown
+const activatePreviewTab = (tab, shouldFocus = false) => {
+  const panelId = tab.getAttribute("aria-controls");
 
-let countdown = document.getElementById("countdown");
-let live = document.getElementById("live");
-let countdownInterval = null;
-let countdownTime = 3900;
+  previewTabs.forEach((item) => {
+    const isActive = item === tab;
+    item.classList.toggle("is-active", isActive);
+    item.setAttribute("aria-selected", String(isActive));
+    item.tabIndex = isActive ? 0 : -1;
+  });
 
-function updateCountdown() {
-  let hours = ("0" + Math.floor(countdownTime / 3600)).slice(-2);
-  let minutes = ("0" + Math.floor((countdownTime % 3600) / 60)).slice(-2);
-  let seconds = ("0" + (countdownTime % 60)).slice(-2);
+  previewPanels.forEach((panel) => {
+    panel.hidden = panel.id !== panelId;
+  });
 
-  countdown.innerHTML = `
-    <span>${hours[0]}</span>
-    <span>${hours[1]}</span>
-    <span>:</span>
-    <span>${minutes[0]}</span>
-    <span>${minutes[1]}</span>
-    <span>:</span>
-    <span>${seconds[0]}</span>
-    <span>${seconds[1]}</span>
-  `;
+  if (shouldFocus) tab.focus();
+};
 
-  if (countdownTime <= 0) {
-    clearInterval(countdownInterval);
-    countdown.classList.add("hidden");
-    live.classList.remove("hidden");
+previewTabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => activatePreviewTab(tab));
+  tab.addEventListener("keydown", (event) => {
+    if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+
+    event.preventDefault();
+    const nextIndex = event.key === "Home"
+      ? 0
+      : event.key === "End"
+        ? previewTabs.length - 1
+        : (index + (event.key === "ArrowRight" ? 1 : -1) + previewTabs.length) % previewTabs.length;
+
+    activatePreviewTab(previewTabs[nextIndex], true);
+  });
+});
+
+const starterForm = document.getElementById("home-starter-form");
+const starterFormStatus = document.getElementById("home-form-status");
+
+starterForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!starterForm.checkValidity()) {
+    starterForm.reportValidity();
+    if (starterFormStatus) starterFormStatus.textContent = "Please enter a project name to continue.";
+    return;
   }
 
-  countdownTime--;
-}
+  const projectName = new FormData(starterForm).get("project");
+  if (starterFormStatus) starterFormStatus.textContent = `Draft ready for ${projectName}. You can now select a suitable template to proceed.`;
+});
 
-countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown();
+const countdown = document.getElementById("countdown");
+const livePanel = document.getElementById("live");
+
+if (countdown && livePanel) {
+  const duration = Number(countdown.dataset.countdownSeconds) || 0;
+  const endAt = Date.now() + duration * 1000;
+
+  const renderCountdown = () => {
+    const remaining = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+    const hours = Math.floor(remaining / 3600);
+    const minutes = Math.floor((remaining % 3600) / 60);
+    const seconds = remaining % 60;
+    const display = [hours, minutes, seconds].map((value) => String(value).padStart(2, "0")).join(":");
+
+    countdown.textContent = display;
+    countdown.setAttribute("aria-label", `Time remaining until event: ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+
+    if (remaining > 0) return true;
+
+    countdown.hidden = true;
+    livePanel.hidden = false;
+    return false;
+  };
+
+  if (renderCountdown()) {
+    const countdownInterval = window.setInterval(() => {
+      if (!renderCountdown()) window.clearInterval(countdownInterval);
+    }, 1000);
+  }
+}

@@ -1,0 +1,17 @@
+@use "@scss/variables" as *;
+
+@import "./auth-shared";
+
+.auth-page--register .auth-showcase {
+  background: linear-gradient(145deg, #1e3a8a 0%, #172554 55%, #0f172a 100%);
+}
+
+.auth-page--register .auth-showcase__steps li::before {
+  border-color: rgba(#c7d2fe, 0.52);
+  color: #e0e7ff;
+}
+
+.auth-page--register .auth-showcase__points li::before {
+  background: #99f6e4;
+  box-shadow: 0 0 0 0.3rem rgba(#99f6e4, 0.12);
+}

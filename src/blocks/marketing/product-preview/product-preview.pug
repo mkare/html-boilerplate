@@ -1,0 +1,49 @@
+mixin marketingProductPreview(options = {})
+  - const props = assertProps('block-marketing-product-preview', options, { type: 'object', properties: { workspace: { type: 'string' }, avatar: { type: 'string' }, shipped: { type: 'string' }, focus: { type: 'string' }, focusItem: { type: 'string' }, research: { type: 'string' }, insightCount: { type: 'string' }, shipping: { type: 'string' }, ready: { type: 'string' }, note: { type: 'string' } }, additionalProperties: false })
+  .product-window
+    .product-window__topbar
+      .window-dots
+        i
+        i
+        i
+      span.product-window__workspace= props.workspace || 'orbit / product'
+      span.product-window__avatar= props.avatar || 'AL'
+    .product-window__body
+      .product-window__sidebar
+        span.product-window__brand o.
+        span.product-window__nav.product-window__nav--active
+        span.product-window__nav
+        span.product-window__nav
+        span.product-window__nav
+      .product-window__content
+        .product-window__heading
+          .product-window__title-lines
+            i
+            i
+          span.product-window__pill= props.shipped || '78% shipped'
+        .product-window__cards
+          article.mini-card.mini-card--violet
+            span.mini-card__eyebrow= props.focus || 'Focus this week'
+            strong= props.focusItem || 'Mobile handoff'
+            .mini-card__people
+              span AA
+              span MA
+              span +2
+          article.mini-card.mini-card--plain
+            span.mini-card__eyebrow= props.research || 'Research'
+            strong= props.insightCount || '4 open insights'
+            .mini-card__chart
+              i
+              i
+              i
+              i
+              i
+          article.mini-card.mini-card--wide
+            span.mini-card__eyebrow= props.shipping || 'Shipping pace'
+            .mini-card__progress
+              i
+    .product-window__float-card
+      span.product-window__float-icon(aria-hidden="true") ✓
+      div
+        strong= props.ready || 'Ready to ship'
+        small= props.note || 'Everyone is aligned'

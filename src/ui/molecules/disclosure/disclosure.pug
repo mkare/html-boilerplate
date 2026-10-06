@@ -1,0 +1,7 @@
+mixin uiDisclosure(options = {})
+  - const props = assertProps('ui-disclosure', options, { type: 'object', required: ['summary'], properties: { summary: { type: 'string' }, open: { type: 'boolean' }, id: { type: 'string' } }, additionalProperties: false })
+  details.ui-disclosure(id=props.id, open=Boolean(props.open))
+    summary.ui-disclosure__summary= props.summary
+    .ui-disclosure__content
+      if block
+        block

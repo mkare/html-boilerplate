@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "demo": "agency",
+  "profile": "release-html",
+  "basePath": "/",
+  "buildNow": "2026-10-03T12:00:00.000Z",
+  "source": "2026-10-05 clean-installed isolated release-html build; required shared theme runtime and accessibility palette/target corrections. Prior Session C measurement preserved in agency-session-c.json.",
+  "pages": {
+    "agency.about": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.contact": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.home": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.not-found": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.project.northline": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.projects": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.service.brand-strategy": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    },
+    "agency.services": {
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "saas.auth.create-account",
+  "route": "/create-account/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.auth.create-account",
+  "source": "src/pages/saas/auth/create-account/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/auth/auth.scss"],
+  "layout": "auth",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Create an account — Orbit",
+  "description": "A static Orbit account creation screen for reviewing the product flow.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "robots": "noindex,follow"
+}

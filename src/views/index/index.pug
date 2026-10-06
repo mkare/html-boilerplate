@@ -1,14 +1,274 @@
 extends @layouts/base.pug
 
-//- page specifically styles and scripts
 block head
-  //- relative path to SCSS source file
   link(href="./index.scss" rel="stylesheet")
-  //- relative path to JS source file
   script(src="./index.js" defer="defer")
 
 block content
-  section.container
-    //- pug-plugin resolves source files without `require()` function
-    img(src="@images/cadillac.jpg", alt="Cadillac", class="img-fluid")
-    h1#countdown 00:00:00
+  section.home-hero(aria-labelledby="home-title")
+    .page-shell.home-hero__layout
+      .home-hero__content
+        p.eyebrow Multipurpose UI kit
+        h1#home-title Turn every idea into an organized interface.
+        p.home-hero__lead Page templates, accessible HTML components, and small yet effective interactions working with the same design language. We provide the finished feel, not just a starting line.
+        .home-hero__actions
+          a.button.button--primary(href=route("legacy.templates")) Explore templates
+          a.button.button--ghost(href=route("legacy.components")) Open UI Library
+        dl.home-hero__stats(aria-label="Kit summary")
+          .home-hero__stat
+            dt 06
+            dd Page templates
+          .home-hero__stat
+            dt 40+
+            dd UI patterns
+          .home-hero__stat
+            dt 0
+            dd UI dependencies
+      .home-hero__visual(aria-hidden="true")
+        .home-workspace
+          .home-workspace__top
+            .home-workspace__identity
+              span.home-workspace__mark
+              span.home-workspace__wordmark Studio
+            .home-workspace__window-actions
+              i
+              i
+              i
+          .home-workspace__body
+            aside.home-workspace__sidebar
+              span.home-workspace__nav-line.home-workspace__nav-line--active
+              span.home-workspace__nav-line
+              span.home-workspace__nav-line
+              span.home-workspace__nav-line
+            .home-workspace__main
+              .home-workspace__headline
+                span
+                b
+              .home-workspace__metrics
+                .home-workspace__metric
+                  i
+                  b
+                  span
+                .home-workspace__metric
+                  i
+                  b
+                  span
+                .home-workspace__metric
+                  i
+                  b
+                  span
+              .home-workspace__chart
+                .home-workspace__chart-copy
+                  span
+                  b
+                .home-workspace__chart-bars
+                  i
+                  i
+                  i
+                  i
+                  i
+                  i
+                  i
+              .home-workspace__list
+                .home-workspace__row
+                  i
+                  span
+                  b
+                .home-workspace__row
+                  i
+                  span
+                  b
+                .home-workspace__row
+                  i
+                  span
+                  b
+
+  section.home-templates.page-shell.section(aria-labelledby="template-title")
+    .home-section-heading
+      .home-section-heading__copy
+        p.eyebrow Starting points
+        h2#template-title Start with the page you need.
+        p Every template shares the same tokens, spacing rhythm, and accessible behaviors. You never reinvent the design as your pages grow.
+      a.ui-link(href=route("legacy.templates")) All templates →
+    .home-template-grid
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--library(aria-hidden="true")
+          i UI
+          i UI
+          i UI
+          i UI
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill System
+            span.ui-pill Docs
+          h3
+            a(href=route("legacy.components")) UI Library
+          p Consolidate components, states, and HTML5 examples into a single reference.
+          a.ui-link(href=route("legacy.components")) Open library →
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--dashboard(aria-hidden="true")
+          i
+          .home-template-card__dash-main
+            b
+            span
+            span
+            span
+            span
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill Business
+            span.ui-pill Data
+          h3
+            a(href=route("legacy.dashboard")) Dashboard
+          p Organize KPIs, activity, data tables, and quick actions in a unified view.
+          a.ui-link(href=route("legacy.dashboard")) Open dashboard →
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--store(aria-hidden="true")
+          i
+          i
+          i
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill Commerce
+            span.ui-pill Product
+          h3
+            a(href=route("legacy.commerce")) Storefront
+          p Build product discovery, filtering, cart, and quick-view customer flows.
+          a.ui-link(href=route("legacy.commerce")) Open store →
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--marketing(aria-hidden="true")
+          b
+          i
+          i
+          i
+          i
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill Content
+            span.ui-pill Growth
+          h3
+            a(href=route("legacy.marketing")) Marketing
+          p Tell your story with hero sections, pricing tiers, social proof, and FAQs.
+          a.ui-link(href=route("legacy.marketing")) Open landing →
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--auth(aria-hidden="true")
+          i
+          span
+          span
+          b
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill Auth
+            span.ui-pill Flow
+          h3
+            a(href=route("legacy.auth.login")) Auth flows
+          p Connect sign in, registration, and password recovery flows consistently.
+          a.ui-link(href=route("legacy.auth.login")) Open flows →
+      article.home-template-card
+        .home-template-card__preview.home-template-card__preview--docs(aria-hidden="true")
+          b
+          i
+          i
+          i
+          i
+        .home-template-card__body
+          .ui-cluster
+            span.ui-pill Content
+            span.ui-pill Markdown
+          h3
+            a(href=route("legacy.markdown")) Documentation
+          p Publish long-form content with readable hierarchy and clean typography.
+          a.ui-link(href=route("legacy.markdown")) Open documentation →
+
+  section.home-system.section(aria-labelledby="system-title")
+    .page-shell
+      .home-section-heading.home-section-heading--wide
+        .home-section-heading__copy
+          p.eyebrow Single design language
+          h2#system-title One system, diverse product surfaces.
+          p This kit solves information architecture, visual hierarchy, and interface behavior from a shared foundation rather than page by page.
+      .home-system__layout
+        .home-preview
+          .home-preview__tabs(role="tablist" aria-label="Component preview type")
+            button#preview-tab-product.home-preview__tab.is-active(type="button" role="tab" aria-selected="true" aria-controls="preview-panel-product" tabindex="0" data-preview-tab) Product
+            button#preview-tab-data.home-preview__tab(type="button" role="tab" aria-selected="false" aria-controls="preview-panel-data" tabindex="-1" data-preview-tab) Data
+            button#preview-tab-form.home-preview__tab(type="button" role="tab" aria-selected="false" aria-controls="preview-panel-form" tabindex="-1" data-preview-tab) Form
+          .home-preview__canvas
+            section#preview-panel-product.home-preview__panel(role="tabpanel" aria-labelledby="preview-tab-product" tabindex="0")
+              article.preview-product-card
+                .preview-product-card__media(aria-hidden="true")
+                  span New arrival
+                  i
+                .preview-product-card__body
+                  .ui-cluster
+                    span.status-badge.status-badge--success In stock
+                    span.preview-rating ★ 4.9
+                  h3 Orbit desk lamp
+                  p Adjustable warm-light desk lamp.
+                  .preview-product-card__footer
+                    strong $128
+                    a.button.button--secondary(href=route("legacy.commerce")) View product
+            section#preview-panel-data.home-preview__panel(role="tabpanel" aria-labelledby="preview-tab-data" tabindex="0" hidden)
+              article.preview-data-card
+                .preview-data-card__header
+                  div
+                    span.preview-kicker Weekly activity
+                    h3 Design system adoption
+                  span.status-badge.status-badge--success +18.4%
+                .preview-data-card__chart(aria-hidden="true")
+                  i
+                  i
+                  i
+                  i
+                  i
+                  i
+                  i
+                .preview-data-card__footer
+                  span 1,264 component renders
+                  a.ui-link(href=route("legacy.dashboard")) View details →
+            section#preview-panel-form.home-preview__panel(role="tabpanel" aria-labelledby="preview-tab-form" tabindex="0" hidden)
+              form#home-starter-form.preview-form(novalidate)
+                .preview-form__heading
+                  span.preview-kicker Ready to ship
+                  h3 Create new project
+                  p Get your system ready with a few essential details.
+                .form-field
+                  label(for="home-project-name") Project name
+                  input#home-project-name.form-control(type="text" name="project" placeholder="e.g. Atlas" autocomplete="organization" required)
+                .form-field
+                  label(for="home-project-type") Starter type
+                  select#home-project-type.form-control(name="type")
+                    option Dashboard
+                    option Storefront
+                    option Marketing
+                button.button.button--primary(type="submit") Create draft
+                p#home-form-status.preview-form__status(role="status" aria-live="polite")
+        .home-system__proof
+          article.home-proof-card
+            span.home-proof-card__number 01
+            h3 Native HTML, semantic first.
+            p Real buttons, labeled inputs, and native elements like dialog and details are defaults across the system.
+          article.home-proof-card
+            span.home-proof-card__number 02
+            h3 Tokens first, details follow.
+            p Color, spacing, radius, and elevation decisions never repeat; every page carries the same core language.
+          article.home-proof-card
+            span.home-proof-card__number 03
+            h3 JavaScript only where needed.
+            p Interactions ship with keyboard support; content and primary flows remain fully understandable without JavaScript.
+
+  section.home-event.section(aria-labelledby="event-title")
+    .page-shell
+      .home-event__shell
+        .home-event__content
+          p.eyebrow Live walkthrough
+          h2#event-title See how the system connects together.
+          p We demonstrate how new templates, UI patterns, and accessible behaviors operate seamlessly in a concise walkthrough.
+          a.button.button--secondary(href=route("legacy.templates")) View template gallery
+        .home-event__timer-wrap
+          p.home-event__timer-label Time until stream
+          #countdown.home-event__timer(data-countdown-seconds="3900" role="timer" aria-live="off" aria-label="Time until event") 01:05:00
+          #live.home-event__live(role="status" aria-live="polite" hidden)
+            strong We are live.
+            span The session has started; explore the examples now.
+            a.ui-link(href=route("legacy.components")) Go to UI Library →

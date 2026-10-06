@@ -1,0 +1,19 @@
+{
+  "id": "saas.faq",
+  "route": "/faq/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.faq",
+  "source": "src/pages/saas/faq/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Frequently asked questions — Orbit",
+  "description": "Answers about Orbit’s team workflows, product fit, privacy, and the static demonstration.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["footer"], "label": "FAQ", "order": 25 },
+  "robots": "index,follow"
+}

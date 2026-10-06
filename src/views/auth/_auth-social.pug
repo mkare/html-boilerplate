@@ -1,0 +1,14 @@
+mixin socialAuth
+  p.auth-social-note External identity providers are not configured in this demo.
+  .auth-divider(role="separator", aria-label="or")
+    span or
+  .auth-social(aria-label="Alternative sign-in options")
+    button.auth-social__button(type="button", data-social-login, data-provider="Google", disabled)
+      span.auth-social__mark.auth-social__mark--google(aria-hidden="true") G
+      span Google
+    button.auth-social__button(type="button", data-social-login, data-provider="Apple", disabled)
+      span.auth-social__mark.auth-social__mark--apple(aria-hidden="true") A
+      span Apple
+    button.auth-social__button(type="button", data-social-login, data-provider="GitHub", disabled)
+      span.auth-social__mark.auth-social__mark--github(aria-hidden="true") GH
+      span GitHub

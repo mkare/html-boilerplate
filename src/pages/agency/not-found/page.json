@@ -1,0 +1,18 @@
+{
+  "id": "agency.not-found",
+  "route": "/not-found/",
+  "demoId": "agency",
+  "translationKey": "agency.not-found",
+  "starter": true,
+  "source": "src/pages/agency/not-found/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Page not found — Fieldwork Studio",
+  "description": "The Fieldwork Studio page you requested could not be found.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "noindex,follow",
+  "head": { "canonical": "self" }
+}

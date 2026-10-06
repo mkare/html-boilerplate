@@ -1,0 +1,252 @@
+Scanning 52 catalog-preview manifest routes from http://127.0.0.1:4173/
+axe-core 4.13.0; tags: wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa; modes: light, dark
+[light] / — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /markdown/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /markdown/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /about/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /about/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /components/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /components/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[light] /components/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /components/: 0 violation(s), 3 incomplete/manual review item(s)
+[light] /templates/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /templates/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /auth/login/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /auth/login/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /auth/login/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /auth/register/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /auth/register/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /auth/register/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /auth/forgot-password/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /auth/forgot-password/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /dashboard/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /dashboard/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[light] /dashboard/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /dashboard/: 0 violation(s), 3 incomplete/manual review item(s)
+[light] /commerce/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[light] /commerce/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/: 0 violation(s), 3 incomplete/manual review item(s)
+[light] /marketing/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /marketing/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/about/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/about/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/contact/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/contact/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /demos/agency/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /demos/agency/not-found/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/not-found/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/projects/northline/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/projects/northline/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/projects/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/projects/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/services/brand-strategy/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/services/brand-strategy/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/agency/services/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/agency/services/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /commerce/catalog/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/catalog/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[light] /commerce/catalog/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/catalog/: 0 violation(s), 3 incomplete/manual review item(s)
+[light] /commerce/products/arc-glass-set/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/arc-glass-set/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/arc-glass-set/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/drift-weekend-tote/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/drift-weekend-tote/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/drift-weekend-tote/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/field-notebook/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/field-notebook/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/field-notebook/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/fold-desk-clock/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/fold-desk-clock/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/fold-desk-clock/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/form-lounge-chair/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/form-lounge-chair/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/form-lounge-chair/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/halo-serving-tray/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/halo-serving-tray/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/halo-serving-tray/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/orbit-speaker/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/orbit-speaker/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/orbit-speaker/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/orion-table-lamp/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/orion-table-lamp/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/orion-table-lamp/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/still-vessel-02/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/still-vessel-02/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/still-vessel-02/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /commerce/products/vale-water-bottle/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[light] /commerce/products/vale-water-bottle/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /commerce/products/vale-water-bottle/: 0 violation(s), 2 incomplete/manual review item(s)
+[light] /demos/saas/create-account/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/create-account/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/reset-password/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/reset-password/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/sign-in/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/sign-in/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/faq/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/faq/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/features/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/features/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/privacy/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/privacy/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/terms/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/terms/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/pricing/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/pricing/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /maintenance/: 0 violation(s), 0 incomplete/manual review item(s)
+[light] /demos/saas/blog/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/page/2/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/page/2/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/category/accessibility/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/category/accessibility/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/category/design/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/category/design/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/category/research/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/category/research/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/category/teams/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/category/teams/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/category/workflow/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/category/workflow/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/practical-guide-to-design-tokens/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/practical-guide-to-design-tokens/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/designing-accessible-product-states/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/designing-accessible-product-states/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/calm-workflow-for-product-teams/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/calm-workflow-for-product-teams/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /demos/saas/blog/small-signals-better-interfaces/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /demos/saas/blog/small-signals-better-interfaces/: 0 violation(s), 1 incomplete/manual review item(s)
+[light] /404/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[light] /404/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] / — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /markdown/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /markdown/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /about/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /about/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /components/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /components/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[dark] /components/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /components/: 0 violation(s), 3 incomplete/manual review item(s)
+[dark] /templates/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /templates/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /auth/login/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /auth/login/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /auth/login/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /auth/register/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /auth/register/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /auth/register/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /auth/forgot-password/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /auth/forgot-password/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /dashboard/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /dashboard/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[dark] /dashboard/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /dashboard/: 0 violation(s), 3 incomplete/manual review item(s)
+[dark] /commerce/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[dark] /commerce/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/: 0 violation(s), 3 incomplete/manual review item(s)
+[dark] /marketing/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /marketing/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/about/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/about/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/contact/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/contact/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /demos/agency/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /demos/agency/not-found/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/not-found/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/projects/northline/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/projects/northline/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/projects/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/projects/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/services/brand-strategy/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/services/brand-strategy/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/agency/services/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/agency/services/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /commerce/catalog/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/catalog/ — manual review: aria-valid-attr-value: ARIA attributes must conform to valid values
+[dark] /commerce/catalog/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/catalog/: 0 violation(s), 3 incomplete/manual review item(s)
+[dark] /commerce/products/arc-glass-set/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/arc-glass-set/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/arc-glass-set/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/drift-weekend-tote/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/drift-weekend-tote/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/drift-weekend-tote/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/field-notebook/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/field-notebook/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/field-notebook/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/fold-desk-clock/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/fold-desk-clock/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/fold-desk-clock/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/form-lounge-chair/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/form-lounge-chair/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/form-lounge-chair/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/halo-serving-tray/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/halo-serving-tray/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/halo-serving-tray/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/orbit-speaker/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/orbit-speaker/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/orbit-speaker/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/orion-table-lamp/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/orion-table-lamp/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/orion-table-lamp/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/still-vessel-02/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/still-vessel-02/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/still-vessel-02/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /commerce/products/vale-water-bottle/ — manual review: aria-prohibited-attr: Elements must only use permitted ARIA attributes
+[dark] /commerce/products/vale-water-bottle/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /commerce/products/vale-water-bottle/: 0 violation(s), 2 incomplete/manual review item(s)
+[dark] /demos/saas/create-account/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/create-account/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/reset-password/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/reset-password/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/sign-in/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/sign-in/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/faq/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/faq/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/features/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/features/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/privacy/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/privacy/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/terms/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/terms/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/pricing/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/pricing/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /maintenance/: 0 violation(s), 0 incomplete/manual review item(s)
+[dark] /demos/saas/blog/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/page/2/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/page/2/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/category/accessibility/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/category/accessibility/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/category/design/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/category/design/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/category/research/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/category/research/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/category/teams/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/category/teams/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/category/workflow/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/category/workflow/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/practical-guide-to-design-tokens/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/practical-guide-to-design-tokens/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/designing-accessible-product-states/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/designing-accessible-product-states/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/calm-workflow-for-product-teams/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/calm-workflow-for-product-teams/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /demos/saas/blog/small-signals-better-interfaces/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /demos/saas/blog/small-signals-better-interfaces/: 0 violation(s), 1 incomplete/manual review item(s)
+[dark] /404/ — manual review: color-contrast: Elements must meet minimum color contrast ratio thresholds
+[dark] /404/: 0 violation(s), 1 incomplete/manual review item(s)
+
+Summary: 104 route/scheme scans, 0 violation(s), 144 incomplete/manual review item(s), 0 navigation/scan error(s).

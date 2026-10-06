@@ -1,0 +1,34 @@
+mixin commerceCartDrawer(options = {})
+  - const props = assertProps('block-commerce-cart-drawer', options, { type: 'object', properties: { kicker: { type: 'string', minLength: 1 }, title: { type: 'string', minLength: 1 }, emptyTitle: { type: 'string', minLength: 1 }, emptyDescription: { type: 'string', minLength: 1 }, shippingMessage: { type: 'string', minLength: 1 }, subtotalLabel: { type: 'string', minLength: 1 }, notice: { type: 'string', minLength: 1 }, checkoutLabel: { type: 'string', minLength: 1 }, closeLabel: { type: 'string', minLength: 1 }, keepBrowsingLabel: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  - const copy = { kicker: 'Your selection', title: 'Bag', emptyTitle: 'Your bag is waiting.', emptyDescription: 'Bring home the pieces that make the everyday feel considered.', shippingMessage: 'You are $150 away from complimentary shipping.', subtotalLabel: 'Subtotal', notice: 'Order totals, taxes and shipping are not calculated in this demo.', checkoutLabel: 'Checkout preview', closeLabel: 'Close shopping bag', keepBrowsingLabel: 'Keep browsing', ...props }
+  dialog.store-cart#store-cart(aria-labelledby="store-cart-title")
+    .store-cart__head
+      .store-cart__title
+        p.store-card-kicker= copy.kicker
+        h2#store-cart-title
+          | #{copy.title}
+          = ' '
+          span(data-cart-count) 0
+      form.store-dialog-close(method="dialog")
+        button(type="submit", aria-label=copy.closeLabel)
+          svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+            path(d="m6 6 12 12M18 6 6 18")
+    .store-cart__body
+      p.store-cart__announcement#store-cart-announcement(role="status", aria-live="polite")
+      .store-cart__items#store-cart-items
+      .store-cart__empty#store-cart-empty
+        .store-cart__empty-symbol(aria-hidden="true") ◌
+        h3= copy.emptyTitle
+        p= copy.emptyDescription
+        form(method="dialog")
+          button.store-button.store-button--soft(type="submit")= copy.keepBrowsingLabel
+    .store-cart__footer#store-cart-footer(hidden)
+      .store-shipping-message
+        p#store-shipping-copy= copy.shippingMessage
+        .store-shipping-progress(role="progressbar", aria-valuemin="0", aria-valuemax="150", aria-valuenow="0", aria-label="Progress toward complimentary shipping")
+          span#store-shipping-progress
+      .store-cart__subtotal
+        span= copy.subtotalLabel
+        strong#store-cart-subtotal $0
+      p= copy.notice
+      button.store-button.store-button--ink.store-button--wide(type="button", data-demo-checkout)= copy.checkoutLabel

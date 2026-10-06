@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "demo": "agency",
+  "profile": "release-html",
+  "basePath": "/",
+  "buildNow": "2026-10-04T00:00:00.000Z",
+  "source": "Session C extracted release measurement; page-level unique linked CSS/JS gzip bytes.",
+  "pages": {
+    "agency.about": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.contact": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.home": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.not-found": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.project.northline": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.projects": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.service.brand-strategy": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    },
+    "agency.services": {
+      "cssGzipBytes": 12766,
+      "jsGzipBytes": 0
+    }
+  }
+}

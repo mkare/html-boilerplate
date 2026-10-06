@@ -1,0 +1,7 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-dist.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+check:dist passed: 9 HTML files, 21 output files, basePath /.
+Done in 0.29s.

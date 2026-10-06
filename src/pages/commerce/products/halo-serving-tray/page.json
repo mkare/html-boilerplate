@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.halo-serving-tray",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.halo-serving-tray",
+  "route": "/commerce/products/halo-serving-tray/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Halo serving tray — Storefront",
+  "description": "A gently rounded tray for coffee, keys and everything between.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

@@ -1,0 +1,40 @@
+
+include @ui/atoms/button/button.pug
+include @ui/molecules/field/field.pug
+
+.agency.agency-contact
+  include ../_agency-navigation.pug
+  header.agency-page-hero.agency-shell
+    p.agency-eyebrow Start with a hello
+    h1 Tell us what you’re thinking about.
+    p.agency-lead Whether you have a clear brief or just the beginning of an idea, we’re happy to start there.
+  section.agency-section--tight
+    .agency-shell.agency-contact-grid
+      aside
+        p.agency-eyebrow A good first step
+        h2 Share a little context.
+        p We’ll use the first conversation to understand what’s changing, what you hope to make possible and whether we’re the right people to help.
+        ul.agency-check-list
+          li New brand and identity projects
+          li Website and digital experience work
+          li Workshops, advice and early questions
+        p(style="margin-top: 2rem") Fieldwork Studio #[br] Independent, working everywhere
+      .agency-contact-card
+        h2 A short note is plenty.
+        p#contact-demo-note.agency-form-note(role="note") Static demo only: this form is not connected and does not send or store your information.
+        form.agency-form(aria-describedby="contact-demo-note")
+          fieldset(disabled="disabled")
+            legend.sr-only Contact form fields
+            .agency-form__grid
+              +uiField({ id: "agency-name", name: "name", label: "Your name", autocomplete: "name", placeholder: "Alex Morgan" })
+              +uiField({ id: "agency-email", name: "email", label: "Email address", type: "email", autocomplete: "email", placeholder: "alex@example.com" })
+              label.agency-form__wide(for="agency-project") What are you thinking about?
+                select#agency-project(name="project-type")
+                  option(value="") Choose a project type
+                  option(value="identity") Brand strategy or identity
+                  option(value="digital") Website or digital experience
+                  option(value="other") Something else
+              label.agency-form__wide(for="agency-message") A little more about it
+                textarea#agency-message(name="message", rows="5", placeholder="What are you hoping to make possible?")
+            +uiButton({ label: "Send note", variant: "primary", type: "button", disabled: true })
+  include ../_agency-footer.pug

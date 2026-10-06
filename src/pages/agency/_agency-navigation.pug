@@ -1,0 +1,15 @@
+nav.agency-nav(aria-label="Fieldwork Studio", data-component="site-header")
+  .agency-nav__inner
+    a.agency-brand(href=route("agency.home"), aria-label="Fieldwork Studio home")
+      span.agency-brand__mark(aria-hidden="true") F
+      span
+        strong Fieldwork
+        small Independent creative studio
+    ul.agency-nav__links
+      li: a(href=route("agency.about"), aria-current=pageId === "agency.about" ? "page" : undefined) About
+      li: a(href=route("agency.services"), aria-current=(pageId === "agency.services" || pageId === "agency.service.brand-strategy") ? "page" : undefined) Services
+      li: a(href=route("agency.projects"), aria-current=(pageId === "agency.projects" || pageId === "agency.project.northline") ? "page" : undefined) Work
+    a.agency-nav__contact(href=route("agency.contact")) Let’s talk
+    button.agency-theme-toggle.theme-toggle(type="button", aria-label="Use dark theme", aria-pressed="false")
+      span(aria-hidden="true") ◐
+    include @content/locales/switcher.pug

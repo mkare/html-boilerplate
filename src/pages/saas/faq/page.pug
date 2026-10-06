@@ -1,0 +1,43 @@
+
+include @blocks/marketing/kicker/kicker.pug
+include @blocks/marketing/faq-list/faq-list.pug
+
+.marketing
+  section.marketing-hero(aria-labelledby="faq-page-title")
+    .container.marketing-hero__inner
+      .marketing-hero__copy
+        +marketingKicker({ label: saas.faq.kicker })
+        h1#faq-page-title= saas.faq.title
+        p.marketing-hero__lede= saas.faq.description
+        .marketing-hero__actions
+          a.marketing-button.marketing-button--primary(href=route('saas.pricing')) See plans
+          a.marketing-button.marketing-button--quiet(href=route('saas.auth.sign-in')) Open sign in
+      .marketing-hero__art
+        .testimonial-card
+          p.feature-card__eyebrow Need a quick answer?
+          h2 Start with your team’s actual workflow.
+          p A good product should make the work clearer before it asks you to change how your team works.
+  section.faq-section(aria-labelledby="faq-list-title")
+    .container.faq-section__inner
+      .section-intro
+        +marketingKicker({ label: 'Clear answers' })
+        h2#faq-list-title The details teams ask about.
+        p These answers describe the Orbit product concept shown in this demo. No live service or account is connected.
+      +marketingFaqList([
+        { question: 'What is Orbit?', answer: 'Orbit is a concept for a shared product workspace that connects priorities, evidence, team rituals, and progress.' },
+        { question: 'Who is Orbit for?', answer: 'It is designed for product teams that want a clear view of what matters and why, without adding extra status work.' },
+        { question: 'Does Orbit replace our project-management tool?', answer: 'No. The concept is a decision layer around delivery tools: it keeps priorities, context, and product learning easy to find.' },
+        { question: 'Can I invite people outside my company?', answer: 'The product concept includes guest collaboration so research partners and stakeholders can see only the spaces they need.' },
+        { question: 'How does the free trial work?', answer: 'Team and Scale plans are shown with a 14-day trial in this concept. The forms and account routes are static demonstrations and do not start a trial.' },
+        { question: 'What happens to information entered on these pages?', answer: 'Nothing is sent or stored. The account forms are disabled and the marketing form displays a local demo-only response.' },
+        { question: 'Can I use Orbit on a phone?', answer: 'The page layouts are responsive. This repository demonstrates front-end presentation only and has no connected workspace service.' },
+        { question: 'Where can I find product notes?', answer: 'The Journal collects articles about accessible interfaces, design systems, and thoughtful product workflows.' }
+      ])
+  section.testimonial-section(aria-labelledby="faq-cta-title")
+    .container.testimonial-section__inner
+      .testimonial-section__statement
+        +marketingKicker({ label: 'Ready when you are' })
+        h2#faq-cta-title Explore the product at your own pace.
+        a.marketing-text-link(href=route('saas.auth.create-account')) Review the account demo #[span(aria-hidden="true") →]
+      figure.testimonial-card
+        p We keep this experience static on purpose: forms stay disabled, no network requests are made, and sample details remain in the browser.

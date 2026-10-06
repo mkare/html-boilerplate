@@ -1,0 +1,7 @@
+mixin marketingFaqList(items)
+  - if (!Array.isArray(items) || items.length === 0 || items.some((item) => !item || typeof item.question !== 'string' || !item.question.trim() || typeof item.answer !== 'string' || !item.answer.trim())) throw new Error('block-marketing-faq-list items require question and answer text')
+  .faq-list
+    each item, index in items
+      details(open=index === 0 ? true : undefined)
+        summary= item.question
+        p= item.answer

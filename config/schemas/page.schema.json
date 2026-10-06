@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/page.schema.json",
+  "title": "Static page manifest record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "route", "source", "title", "locale"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+    "blueprintId": { "type": "string", "minLength": 1 },
+    "translationKey": { "type": "string", "minLength": 1 },
+    "translationLocales": { "type": "array", "items": { "type": "string", "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$" }, "minItems": 2 },
+    "demoId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "demoHome": { "type": "boolean" },
+    "starter": { "type": "boolean" },
+    "requiredByDemos": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" } },
+    "route": { "type": "string", "minLength": 1 },
+    "source": { "type": "string", "minLength": 1 },
+    "layout": { "type": "string", "enum": ["site", "auth", "dashboard", "storefront", "docs", "minimal", "agency", "legacy"] },
+    "theme": { "type": "string", "enum": ["default", "commerce"] },
+    "locale": { "type": "string", "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$" },
+    "direction": { "enum": ["ltr", "rtl"] },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string" },
+    "data": { "type": "string" },
+    "styles": { "type": "array", "items": { "type": "string" } },
+    "script": { "type": "string" },
+    "head": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "canonical": { "enum": ["self"] },
+        "openGraphType": { "enum": ["website", "article", "product"] },
+        "previousPageId": { "type": "string", "minLength": 1 },
+        "pagination": { "type": "boolean" },
+        "jsonLd": { "enum": ["blogPosting"] },
+        "preload": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["href", "as"],
+            "properties": {
+              "href": { "type": "string", "minLength": 1 },
+              "as": { "enum": ["font", "image", "script", "style", "fetch"] },
+              "type": { "type": "string", "minLength": 1 },
+              "crossorigin": { "enum": ["anonymous", "use-credentials"] }
+            }
+          }
+        }
+      }
+    },
+    "navigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "groups": { "type": "array", "items": { "enum": ["main", "footer", "blueprint"] }, "minItems": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "order": { "type": "number" }
+      }
+    },
+    "gallery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "preview"],
+      "properties": {
+        "category": { "type": "string", "minLength": 1 },
+        "preview": { "type": "boolean" }
+      }
+    },
+    "robots": { "type": "string", "pattern": "^(index|noindex),(follow|nofollow)$" },
+    "collection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "data", "baseRoute", "archiveTemplateId", "archiveNextTemplateId", "categoryTemplateId", "articleTemplateId", "ownedIdPrefixes"],
+      "properties": {
+        "type": { "enum": ["blog"] },
+        "data": { "type": "string", "minLength": 1 },
+        "pageSize": { "type": "integer", "minimum": 1 },
+        "baseRoute": { "type": "string", "minLength": 1 },
+        "archiveTemplateId": { "type": "string", "minLength": 1 },
+        "archiveNextTemplateId": { "type": "string", "minLength": 1 },
+        "categoryTemplateId": { "type": "string", "minLength": 1 },
+        "articleTemplateId": { "type": "string", "minLength": 1 },
+        "categoryIdPrefix": { "type": "string", "minLength": 1 },
+        "ownedIdPrefixes": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+      }
+    }
+  }
+}

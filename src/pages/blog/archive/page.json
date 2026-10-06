@@ -1,0 +1,31 @@
+{
+  "id": "blog.archive",
+  "blueprintId": "blog.archive",
+  "translationKey": "blog.archive",
+  "route": "/blog/",
+  "demoId": "saas",
+  "source": "src/pages/blog/archive/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Journal — Interface Kit",
+  "description": "Notes on design systems, accessible interfaces, and calm product workflows.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "website", "pagination": true },
+  "navigation": { "groups": ["main", "footer"], "label": "Journal", "order": 45 },
+  "collection": {
+    "type": "blog",
+    "data": "src/content/blog/posts.cjs",
+    "pageSize": 2,
+    "baseRoute": "/blog/",
+    "archiveTemplateId": "blog.archive",
+    "archiveNextTemplateId": "blog.archive.page2",
+    "categoryTemplateId": "blog.category.design",
+    "articleTemplateId": "blog.article.tokens-guide",
+    "categoryIdPrefix": "blog.category.",
+    "ownedIdPrefixes": ["blog.archive.page", "blog.category.", "blog.article."]
+  },
+  "robots": "index,follow"
+}

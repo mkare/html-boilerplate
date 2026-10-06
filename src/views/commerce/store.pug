@@ -1,0 +1,92 @@
+extends @layouts/base.pug
+
+block head
+  - const canonicalUrl = `${siteUrl || ''}${route('legacy.commerce')}`
+  link(href="./store.scss" rel="stylesheet")
+  link(rel="canonical" href=canonicalUrl)
+  meta(property="og:type" content="website")
+  meta(property="og:title" content=title)
+  meta(property="og:description" content="Thoughtfully made everyday pieces for home, desk, living, and travel.")
+  meta(property="og:url" content=canonicalUrl)
+  script(src="./store.js" defer="defer")
+
+block content
+  - const catalogPage = 1
+  - const pageProducts = products.slice(0, pageSize)
+  .storefront
+    section.store-utility(aria-label="Store announcements")
+      .store-shell.store-utility__inner
+        p Complimentary shipping over $150
+        a(href="#catalog") Explore the collection
+
+    section.store-hero
+      .store-shell.store-hero__grid
+        .store-hero__copy
+          p.store-eyebrow Objects for everyday rituals
+          h1 Less noise. More room for living.
+          p.store-hero__lead Thoughtfully made essentials with honest materials, tactile forms and a quietly optimistic point of view.
+          .store-hero__actions
+            a.store-button.store-button--ink(href="#catalog") Shop new arrivals
+            a.store-text-link(href="#edit") Read the autumn edit
+              span(aria-hidden="true") ↗
+          dl.store-hero__proof
+            div
+              dt 48h
+              dd dispatch on stocked pieces
+            div
+              dt 30 days
+              dd considered returns
+            div
+              dt 4.9/5
+              dd from 2,000+ kind reviews
+        .store-hero__scene(aria-label="Featured Orion table lamp and Arc glass set")
+          .store-hero__sun(aria-hidden="true")
+          .store-hero__arch(aria-hidden="true")
+          .store-hero__table(aria-hidden="true")
+          .store-hero__lamp(aria-hidden="true")
+            span
+          .store-hero__glass(aria-hidden="true")
+          .store-hero__tag
+            span New in
+            strong Orion lamp
+            button(type="button", data-quick-view="orion-table-lamp", aria-label="Quick view Orion table lamp") View piece
+
+    section.store-featured.store-shell#edit(aria-labelledby="featured-title")
+      .store-section-heading
+        .store-section-heading__copy
+          p.store-eyebrow The small details
+          h2#featured-title Made to stay in rotation.
+        p Everything begins with one question: will you want to reach for it again tomorrow?
+      .store-editorial-grid
+        article.store-editorial-card.store-editorial-card--clay
+          .store-editorial-card__art.store-editorial-card__art--tote(aria-hidden="true")
+            span
+          .store-editorial-card__content
+            p.store-card-kicker Everyday carry
+            h3 Designed for the in-between.
+            button.store-text-link(type="button", data-category-jump="travel") Shop travel pieces
+              span(aria-hidden="true") →
+        article.store-editorial-card.store-editorial-card--blue
+          .store-editorial-card__art.store-editorial-card__art--clock(aria-hidden="true")
+            span
+          .store-editorial-card__content
+            p.store-card-kicker Work, softened
+            h3 A desk that feels like yours.
+            button.store-text-link(type="button", data-category-jump="desk") Shop desk objects
+              span(aria-hidden="true") →
+
+    include _catalog.pug
+
+    section.store-newsletter.store-shell(aria-labelledby="newsletter-title")
+      .store-newsletter__shape(aria-hidden="true")
+      .store-newsletter__copy
+        p.store-eyebrow Occasional notes
+        h2#newsletter-title A little good stuff, now and then.
+        p New objects, studio stories and no more than two emails a month.
+      form.store-newsletter__form(data-newsletter-form novalidate)
+        label.sr-only(for="newsletter-email") Your email address
+        input#newsletter-email(type="email", placeholder="you@example.com", autocomplete="email", required)
+        button.store-button.store-button--lime(type="submit") Subscribe
+        p.store-newsletter__status(role="status", aria-live="polite")
+
+  include _catalog-dialogs.pug

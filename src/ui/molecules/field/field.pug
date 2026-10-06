@@ -1,0 +1,8 @@
+mixin uiField(options = {})
+  - const props = assertProps('ui-field', options, { type: 'object', required: ['id', 'name', 'label'], properties: { id: { type: 'string' }, name: { type: 'string' }, label: { type: 'string' }, type: { type: 'string', enum: ['text', 'email', 'password', 'search', 'tel', 'url'] }, autocomplete: { type: 'string' }, placeholder: { type: 'string' }, hint: { type: 'string' }, required: { type: 'boolean' } }, additionalProperties: false })
+  - const hintId = props.hint ? `${props.id}-hint` : undefined
+  .ui-field
+    label(for=props.id)= props.label
+    input.ui-field__control(id=props.id, name=props.name, type=props.type || 'text', autocomplete=props.autocomplete, placeholder=props.placeholder, required=Boolean(props.required), aria-describedby=hintId)
+    if props.hint
+      small.ui-field__hint.helper-text(id=hintId)= props.hint

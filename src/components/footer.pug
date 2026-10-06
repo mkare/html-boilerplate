@@ -1,36 +1,39 @@
 
--
-  const pageList = {
-    "Home" : "/",
-    "About" : "/about",
-    "Contact" : "/contact",
-    "Blog" : "/blog",
-  }
-  const footerList = {
-    "Lorem, ipsum dolor." : "#",
-    "Cupiditate, possimus et." : "#",
-    "Quos, error sint?" : "#",
-    "Cupiditate, exercitationem nihil?" : "#",
-    "Dolore, earum cum." : "#",
-  }
-  const socialMediaList = {
-    instagram : "https://www.instagram.com/",
-    facebook : "https://www.facebook.com/",
-    twitter : "https://twitter.com/",
-    youtube : "https://www.youtube.com/",
-  }
+- var pageNavItems = Array.isArray(footerNavigation) ? footerNavigation : []
+- var blueprintNavItems = Array.isArray(blueprintNavigation) ? blueprintNavigation : []
+- var externalNavItems = Array.isArray(externalNavigation) ? externalNavigation : []
+- var homeRoutePageId = typeof homePageId === "string" && homePageId ? homePageId : "legacy.home"
+- var packageBrand = typeof demoBrand === "string" && demoBrand ? demoBrand : "Interface Kit"
+- var packageLogo = typeof brandLogoSrc === "string" && brandLogoSrc ? brandLogoSrc : require('@images/compass.svg')
 
-footer.footer
-  .container.d-flex.flex-column.flex-lg-row.my-5
-    ul.nav.flex-column.my-3.my-lg-0
-      each val, key in pageList
-        li.nav-item
-          a.nav-link(href=val) #{key}
-    ul.nav.flex-column.my-3.my-lg-0
-      each val, key in footerList
-        li.nav-item
-          a.nav-link(href=val) #{key}
-    ul.nav.social-media.justify-content-center
-      each val, key in socialMediaList
-        li.nav-item
-          a.nav-link(href=val) #{key}
+footer.footer(data-component="site-footer")
+  .container.footer__inner
+    .footer__brand
+      a.footer__logo(href=route(homeRoutePageId))
+        img(src=packageLogo, alt='', width='32', height='32')
+        span= packageBrand
+      p Purposeful building blocks and ready-to-adapt page blueprints for modern web products.
+    .footer__links
+      p.footer__title Explore
+      ul.nav
+        each val in pageNavItems
+          li.nav-item
+            a.nav-link.footer-link(href=route(val.pageId))= val.label
+    .footer__links
+      p.footer__title Blueprints
+      ul.nav
+        each val in blueprintNavItems
+          li.nav-item
+            a.nav-link.footer-link(href=route(val.pageId))= val.label
+    .footer__links
+      p.footer__title Elsewhere
+      ul.nav.social-media
+        each val in externalNavItems
+          li.nav-item
+            a.nav-link.footer-link(href=val.href, target='_blank', rel='noreferrer')= val.label
+    .footer__bottom
+      p.footer__copyright
+        | ©
+        span(data-current-year)
+        span= ' ' + packageBrand
+      p Built with semantic HTML, scoped SCSS and progressive enhancement.

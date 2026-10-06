@@ -1,0 +1,19 @@
+{
+  "id": "agency.home",
+  "route": "/",
+  "demoId": "agency",
+  "demoHome": true,
+  "translationKey": "agency.home",
+  "starter": true,
+  "source": "src/pages/agency/home/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Fieldwork Studio — Independent creative agency",
+  "description": "Fieldwork is an independent creative studio building thoughtful brands and digital experiences.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

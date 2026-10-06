@@ -1,0 +1,9 @@
+# Content Security Policy for first-paint theme behavior
+
+Each package includes `CSP-HEADER.txt`, a ready-to-install HTTP `Content-Security-Policy` response header computed from that package's exact HTML bytes. The document layout sets `data-color-scheme` before it requests the core/theme stylesheets. The release computes SHA-256 hashes for every inline script/style/style attribute present in its HTML and includes those hashes in the relevant directives.
+
+The policy defaults to same-origin resources, blocks objects and external base URLs, limits forms to same-origin, blocks framing, and disallows both `unsafe-inline` and `unsafe-eval`. Inline styling, if present, is allowed only by exact hashes (`style-src-attr 'unsafe-hashes'`). The theme's first-paint script is allowed by its exact `script-src` hash; it is not moved to a nonce or broadened inline exception.
+
+Install the entire header from `CSP-HEADER.txt` at the static host/CDN. Do not put `frame-ancestors` in a `<meta>` element; the supplied value is for the HTTP header. If the host applies its own CSP, merge directives deliberately and retain the package's hash entries. Do not expose build environment variables through the header or manifest.
+
+After changing HTML, inline script bytes, theme bootstrap, or inline style attributes, rebuild and use the regenerated header. `node qa/release/check-csp.cjs <extracted-release-root>` confirms the first-paint theme script appears before the first stylesheet request on every styled packaged page and that emitted hashes match the header. The build-generated `system.404` is a deliberately minimal, unstyled fallback and is exempt from the theme-bootstrap ordering check; it contains no inline script. The check does not test a specific CDN's header configuration or browser console; verify that at the actual host before deployment.

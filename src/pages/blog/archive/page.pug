@@ -1,0 +1,30 @@
+- const currentPage = pageNumber || 1
+include ../_post-card.pug
+include ../_pagination.pug
+.blog-page
+  header.blog-hero
+    .blog-hero__copy
+      p.blog-eyebrow Field notes for thoughtful digital products
+      h1 A clearer way to make things that matter.
+      p.blog-hero__lede Practical notes on design systems, accessibility, and the everyday craft of building calm product experiences.
+    .blog-hero__aside(aria-hidden="true")
+      span.blog-hero__sun
+      span.blog-hero__orbit.blog-hero__orbit--one
+      span.blog-hero__orbit.blog-hero__orbit--two
+      span.blog-hero__orbit.blog-hero__orbit--three
+      span.blog-hero__note 01 / observe
+  section.blog-listing(aria-labelledby="blog-list-title")
+    .blog-section-heading
+      div
+        p.blog-eyebrow The journal
+        h2#blog-list-title Recent writing
+      p.blog-result-count= `${visiblePosts.length} published articles`
+    if pagePosts.length
+      .blog-card-grid
+        each post in pagePosts
+          +postCard(post)
+    else
+      .blog-empty
+        h2 A new collection is taking shape
+        p Check back soon for notes from the team.
+    +blogPagination(currentPage, totalPages)

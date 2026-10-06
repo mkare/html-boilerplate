@@ -1,0 +1,20 @@
+.form-field { display: grid; gap: 0.45rem; }
+.form-field > label, .form-legend { color: var(--color-text); font-size: 0.88rem; font-weight: $font-weight-bold; }
+.form-control {
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.7rem 0.85rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:focus { border-color: var(--color-accent); outline: 0; box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 16%, transparent); }
+  &:invalid:not(:placeholder-shown) { border-color: var(--color-danger); }
+}
+
+textarea.form-control { min-height: 7rem; resize: vertical; }
+.form-hint { margin: 0; color: var(--color-muted); font-size: 0.78rem; }
+.form-error { min-height: 1.2rem; margin: 0; color: var(--color-danger); font-size: 0.8rem; }

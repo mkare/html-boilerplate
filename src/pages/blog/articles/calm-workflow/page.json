@@ -1,0 +1,18 @@
+{
+  "id": "blog.article.calm-workflow",
+  "blueprintId": "blog.article",
+  "translationKey": "blog.article.calm-workflow-for-product-teams",
+  "route": "/blog/calm-workflow-for-product-teams/",
+  "demoId": "saas",
+  "source": "src/pages/blog/articles/calm-workflow/page.pug",
+  "data": "src/content/blog/posts.cjs",
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "A calmer workflow for product teams — Journal — Interface Kit",
+  "description": "Simple agreements around handoff, review, and ownership reduce avoidable rework while leaving room for exploration.",
+  "styles": ["src/pages/blog/blog.scss"],
+  "head": { "canonical": "self", "openGraphType": "article", "jsonLd": "blogPosting" },
+  "robots": "index,follow"
+}

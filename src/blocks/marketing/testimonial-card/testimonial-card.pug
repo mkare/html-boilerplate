@@ -1,0 +1,15 @@
+mixin marketingTestimonialCard(options = {})
+  - const props = assertProps('block-marketing-testimonial-card', options, { type: 'object', required: ['initials', 'ratingLabel', 'ratingText', 'quote', 'author', 'role'], properties: { initials: { type: 'string', minLength: 1 }, wrapInitials: { type: 'boolean' }, ratingLabel: { type: 'string', minLength: 1 }, ratingText: { type: 'string', minLength: 1 }, quote: { type: 'string', minLength: 1 }, author: { type: 'string', minLength: 1 }, role: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  figure.testimonial-card
+    .testimonial-card__top
+      .testimonial-card__avatar(aria-hidden="true")
+        if props.wrapInitials
+          span= props.initials
+        else
+          = props.initials
+      .testimonial-card__rating(role="img", aria-label=props.ratingLabel)
+        span(aria-hidden="true")= props.ratingText
+    blockquote= props.quote
+    figcaption
+      strong= props.author
+      span= props.role

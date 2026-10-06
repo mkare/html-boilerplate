@@ -1,0 +1,17 @@
+{
+  "id": "commerce.catalog",
+  "blueprintId": "commerce.catalog",
+  "route": "/commerce/catalog/",
+  "source": "src/pages/commerce/catalog/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "The collection — Page 2 — Storefront",
+  "description": "Continue exploring considered pieces for home, desk, living, and travel.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/catalog.js",
+  "head": { "canonical": "self", "openGraphType": "website", "previousPageId": "legacy.commerce" },
+  "robots": "index,follow"
+}

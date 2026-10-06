@@ -1,0 +1,7 @@
+mixin agencyCta(options = {})
+  - const props = assertProps('block-agency-cta', options, { type: 'object', required: ['eyebrow', 'title', 'action', 'href'], properties: { eyebrow: { type: 'string', minLength: 1 }, title: { type: 'string', minLength: 1 }, action: { type: 'string', minLength: 1 }, href: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  .agency-shell.agency-cta
+    div
+      p.agency-eyebrow= props.eyebrow
+      h2= props.title
+    a.agency-button(href=props.href) #{props.action} #[span.agency-arrow(aria-hidden="true") →]

@@ -1,0 +1,71 @@
+mixin commerceCatalogFilter(options = {})
+  - const props = assertProps('block-commerce-catalog-filter', options, { type: 'object', required: ['categories', 'colors'], properties: { categories: { type: 'array' }, colors: { type: 'array' } }, additionalProperties: false })
+  - if (!block) throw new Error('block-commerce-catalog-filter requires a nested product results block')
+  - const categories = props.categories.map((category) => assertProps('block-commerce-catalog-filter.category', category, { type: 'object', required: ['label', 'value'], properties: { label: { type: 'string', minLength: 1 }, value: { type: 'string', minLength: 1 } }, additionalProperties: false }))
+  - const colors = props.colors.map((color) => assertProps('block-commerce-catalog-filter.color', color, { type: 'object', required: ['label', 'value', 'swatch'], properties: { label: { type: 'string', minLength: 1 }, value: { type: 'string', minLength: 1 }, swatch: { type: 'string', minLength: 1 } }, additionalProperties: false }))
+  - if (!categories.some((category) => category.value === 'all')) throw new Error('block-commerce-catalog-filter requires an all category')
+  - if (categories.some((category) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category.value)) || colors.some((color) => !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(color.value) || !/^[a-z0-9-]+$/.test(color.swatch))) throw new Error('block-commerce-catalog-filter values must be CSS-safe lowercase tokens')
+  .store-category-rail(role="toolbar", aria-label="Shop by collection")
+    each category in categories
+      button.store-chip(type="button", class=category.value === 'all' ? 'is-selected' : '', data-category-chip=category.value, aria-pressed=category.value === 'all' ? 'true' : 'false')= category.label
+
+  .store-catalog__toolbar
+    .store-search
+      label.sr-only(for="store-search-input") Search the collection
+      svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+        circle(cx="11" cy="11" r="6.5")
+        path(d="m16 16 4 4")
+      input#store-search-input(type="search", placeholder="Search pieces", autocomplete="off", data-store-search)
+    .store-toolbar-actions
+      button.store-filter-trigger(type="button", data-filter-toggle, aria-expanded="false", aria-controls="store-filter-panel")
+        svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+          path(d="M4 7h16M7 12h10M10 17h4")
+        | Filters
+      label.store-sort(for="store-sort")
+        span Sort
+        select#store-sort(data-store-sort)
+          option(value="featured") Featured
+          option(value="newest") New arrivals
+          option(value="price-low") Price: low to high
+          option(value="price-high") Price: high to low
+
+  .store-catalog__layout
+    aside.store-filter-panel#store-filter-panel(aria-label="Product filters")
+      form#store-filter-form
+        .store-filter-panel__heading
+          h3 Filter by
+          button.store-filter-reset(type="button", data-reset-filters) Clear all
+        fieldset.store-filter-group
+          legend Collection
+          each category in categories
+            if category.value !== 'all'
+              label.store-check
+                input(type="checkbox", value=category.value, data-filter-category)
+                span.store-check__box(aria-hidden="true")
+                span= category.label
+        fieldset.store-filter-group
+          legend Colour
+          each color in colors
+            label.store-check
+              input(type="checkbox", value=color.value, data-filter-color)
+              span.store-check__box(aria-hidden="true")
+              span.store-colour-swatch(class=`store-colour-swatch--${color.swatch}`, aria-hidden="true")
+              span= color.label
+        fieldset.store-filter-group
+          legend Availability
+          label.store-check
+            input(type="checkbox", value="ready", data-filter-stock)
+            span.store-check__box(aria-hidden="true")
+            span Ready to dispatch
+        fieldset.store-filter-group.store-filter-group--range
+          legend Budget
+          .store-price-range
+            label(for="store-price-range")
+              span Up to
+              output#store-price-range-output(for="store-price-range") $160
+            input#store-price-range(type="range", min="25", max="160", value="160", step="5", data-filter-price)
+            .store-price-range__labels(aria-hidden="true")
+              span $25
+              span $160+
+    if block
+      block

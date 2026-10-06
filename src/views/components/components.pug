@@ -1,0 +1,770 @@
+extends @layouts/base.pug
+
+include @ui/atoms/button/button.pug
+include @ui/atoms/badge/badge.pug
+include @ui/atoms/link/link.pug
+include @ui/molecules/alert/alert.pug
+include @ui/molecules/card/card.pug
+include @ui/molecules/choice-group/choice-group.pug
+include @ui/molecules/disclosure/disclosure.pug
+include @ui/molecules/field/field.pug
+include @ui/molecules/pagination/pagination.pug
+include @ui/molecules/select/select.pug
+
+block head
+  link(href="./components.scss", rel="stylesheet")
+  script(src="./components.js", defer="defer")
+
+block content
+  .docs-page
+    section.docs-hero(aria-labelledby="docs-title")
+      .page-shell.docs-hero__grid
+        .docs-hero__copy
+          p.eyebrow Interface Kit / UI Library
+          h1#docs-title A calm, capable system for everyday product work.
+          p.docs-hero__lead A living library of semantic HTML patterns with a compact visual language: cool neutrals, soft indigo, deliberate spacing, and behavior that works before JavaScript is added.
+          .docs-hero__actions
+            a.button.button--primary(href="#foundations") Explore the system
+            button.button.button--secondary(
+              type="button",
+              data-copy-target="quick-start-code",
+              data-copy-label="Quick start markup"
+            )
+              span(aria-hidden="true") ⧉
+              | Copy quick start
+          .docs-hero__meta(aria-label="Library summary")
+            span.status-dot(aria-hidden="true")
+            span 38 patterns · native HTML first · keyboard-ready
+        aside.docs-hero__card(aria-label="Library principles")
+          p.docs-hero__card-label System principles
+          ul.docs-principles
+            li
+              span.docs-principles__number 01
+              span Semantic structure before decoration
+            li
+              span.docs-principles__number 02
+              span One token set across every template
+            li
+              span.docs-principles__number 03
+              span Responsive from the smallest viewport
+          .docs-hero__card-footer
+            span.docs-presence(aria-hidden="true")
+            | Living documentation
+
+    section.docs-intro(aria-labelledby="quick-start-title")
+      .page-shell
+        .docs-intro__panel
+          .docs-intro__copy
+            p.eyebrow Get started
+            h2#quick-start-title Build from a small, predictable vocabulary.
+            p Start with native elements, apply a component class only where it clarifies intent, then compose patterns into page-level templates. Every sample below is meant to be copied, adapted, and kept boring in the best way.
+          pre.docs-intro__code(tabindex="0", aria-label="Quick start HTML example")
+            code#quick-start-code
+              | &lt;button class="button button--primary" type="button"&gt;Save changes&lt;/button&gt;
+
+    .page-shell.docs-layout
+      aside.docs-sidebar(aria-label="Component navigation")
+        p.docs-sidebar__title On this page
+        nav.docs-sidebar__nav(aria-label="Component sections")
+          a(href="#foundations", aria-current="page", data-doc-nav="foundations") Foundations
+          a(href="#layouts", data-doc-nav="layouts") Layouts
+          a(href="#actions", data-doc-nav="actions") Actions
+          a(href="#forms", data-doc-nav="forms") Forms
+          a(href="#navigation", data-doc-nav="navigation") Navigation
+          a(href="#media", data-doc-nav="media") Media
+          a(href="#feedback", data-doc-nav="feedback") Feedback
+          a(href="#content", data-doc-nav="content") Content
+          a(href="#data", data-doc-nav="data") Data display
+          a(href="#overlays", data-doc-nav="overlays") Overlays
+        details.docs-sidebar__note
+          summary Need a convention?
+          p Prefer the native element that already describes the job. Add ARIA only when native HTML cannot express the relationship.
+
+      article.docs-content
+        section#foundations.doc-section(aria-labelledby="foundations-title", data-doc-section)
+          .section-heading
+            p.eyebrow 01 / Foundations
+            h2#foundations-title Type, color, and surfaces
+            p The shared vocabulary is intentionally small. Tokens describe a role, not a one-off visual decision, so templates remain recognisable as they grow.
+          .foundation-grid
+            .docs-example.docs-example--tokens
+              .docs-example__header
+                .docs-example__heading
+                  p.sample-card__label Color & surface tokens
+                  h3 One quiet palette, many clear roles.
+                button.copy-button(
+                  type="button",
+                  data-copy-target="foundation-token-code",
+                  data-copy-label="Foundation token recipe"
+                )
+                  span.copy-button__icon(aria-hidden="true") ⧉
+                  span Copy code
+              .token-grid(role="list", aria-label="Core interface tokens")
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #f7f8fc", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-canvas
+                    small #F7F8FC
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #ffffff", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-surface
+                    small #FFFFFF
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #4f46e5", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-accent
+                    small #4F46E5
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #e0e7ff", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-accent-soft
+                    small #E0E7FF
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #1e293b", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-ink
+                    small #1E293B
+                .token-chip(role="listitem")
+                  span.token-chip__swatch(style="--token-swatch: #d9deea", aria-hidden="true")
+                  span.token-chip__content
+                    code --ui-border
+                    small #D9DEEA
+              .docs-example__code
+                pre.code-sample(tabindex="0", aria-label="Foundation token CSS example")
+                  code#foundation-token-code
+                    | .surface {
+                    |
+                    | background: var(--ui-surface);
+                    |
+                    | border: 1px solid var(--ui-border);
+                    |
+                    | border-radius: var(--ui-radius-lg);
+                    |
+                    | box-shadow: var(--ui-shadow-card);
+                    | }
+            .docs-anatomy
+              p.sample-card__label Component anatomy
+              h3 Buttons communicate priority at a glance.
+              .anatomy-stage(aria-label="Button anatomy diagram")
+                span.anatomy-stage__marker.anatomy-stage__marker--one(aria-hidden="true") 1
+                span.anatomy-stage__marker.anatomy-stage__marker--two(aria-hidden="true") 2
+                span.anatomy-stage__marker.anatomy-stage__marker--three(aria-hidden="true") 3
+                button.button.button--primary(type="button") Save changes
+              ol.anatomy-list
+                li
+                  span 1
+                  div
+                    strong Intent
+                    p Use the accent fill only for the primary next step.
+                li
+                  span 2
+                  div
+                    strong Label
+                    p Lead with a verb and make the outcome unambiguous.
+                li
+                  span 3
+                  div
+                    strong Target
+                    p Keep a minimum 44px touch target and visible focus ring.
+          .type-specimen
+            .type-specimen__sample
+              p.sample-card__label Typography scale
+              h3 A sturdy hierarchy makes every screen easier to scan.
+              p Body copy uses a readable measure, while metadata remains quiet but never faint.
+            dl.type-specimen__tokens
+              div
+                dt Display
+                dd clamp(2.75rem, 7vw, 6rem)
+              div
+                dt Heading
+                dd clamp(1.8rem, 4vw, 3rem)
+              div
+                dt Body
+                dd 1rem / 1.6
+
+        section#layouts.doc-section(aria-labelledby="layouts-title", data-doc-section)
+          .section-heading
+            p.eyebrow 02 / Layouts
+            h2#layouts-title Compose with simple primitives
+            p Use a small group of layout behaviors instead of creating page-specific spacing rules. They make responsive states easier to reason about and review.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Stack, cluster & split
+                h3 Three arrangements cover most interface composition.
+              button.copy-button(
+                type="button",
+                data-copy-target="layout-code",
+                data-copy-label="Layout primitive markup"
+              )
+                span.copy-button__icon(aria-hidden="true") ⧉
+                span Copy code
+            .layout-primitives
+              .layout-primitive
+                p.layout-primitive__name Stack
+                .layout-demo.layout-demo--stack(aria-label="Stack layout example")
+                  span Layout item
+                  span Layout item
+                  span Layout item
+              .layout-primitive
+                p.layout-primitive__name Cluster
+                .layout-demo.layout-demo--cluster(aria-label="Cluster layout example")
+                  span Filter
+                  span Assigned to me
+                  span Updated today
+              .layout-primitive
+                p.layout-primitive__name Split
+                .layout-demo.layout-demo--split(aria-label="Split layout example")
+                  span Project overview
+                  button.button.button--ghost(
+                    type="button",
+                    data-demo-action,
+                    data-demo-message="Split-layout action triggered"
+                  ) View all
+            .docs-example__code
+              pre.code-sample(tabindex="0", aria-label="Layout primitive HTML example")
+                code#layout-code
+                  | Enable JavaScript to show the rendered HTML for these layout examples.
+
+        section#actions.doc-section(aria-labelledby="actions-title", data-doc-section)
+          .section-heading
+            p.eyebrow 03 / Actions
+            h2#actions-title Buttons, links, and tabs
+            p Actions have clear hierarchy, visible focus states, and comfortable hit areas. Use a link for navigation and a button for an in-page action.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Button variants
+                h3 Make the primary next step unmistakable.
+              button.copy-button(
+                type="button",
+                data-copy-target="button-code",
+                data-copy-label="Button markup"
+              )
+                span.copy-button__icon(aria-hidden="true") ⧉
+                span Copy code
+            #button-variant-preview.docs-example__preview.component-row(
+              role="group",
+              aria-label="Button variants"
+            )
+              +uiButton({ label: "Primary action", variant: "primary", actionMessage: "Primary action triggered" })
+              +uiButton({ label: "Secondary", variant: "secondary", actionMessage: "Secondary action triggered" })
+              +uiButton({ label: "Ghost button", variant: "ghost", actionMessage: "Ghost action triggered" })
+              +uiButton({ label: "Destructive", variant: "danger", actionMessage: "Destructive action requires confirmation in production" })
+              +uiButton({ label: "Disabled", variant: "primary", disabled: true })
+              button.icon-button(
+                type="button",
+                aria-label="Add item",
+                data-demo-action,
+                data-demo-message="New item action triggered"
+              )
+                span(aria-hidden="true") +
+              button.icon-button(
+                type="button",
+                aria-label="More options",
+                data-demo-action,
+                data-demo-message="More options action triggered"
+              )
+                span(aria-hidden="true") ···
+            p.helper-text A concise label is more useful than an icon alone. Icon-only buttons always need an accessible name.
+            .docs-example__code
+              pre.code-sample(tabindex="0", aria-label="Button markup example")
+                code#button-code
+                  | +uiButton({ label: "Primary action", variant: "primary" })
+            p#button-code-status.helper-text The Pug invocation is shown without JavaScript; JavaScript replaces it with HTML rendered by the live examples.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Tabs
+                h3 A roving tab stop keeps keyboard navigation efficient.
+              button.copy-button(
+                type="button",
+                data-copy-target="tabs-code",
+                data-copy-label="Tabs markup"
+              )
+                span.copy-button__icon(aria-hidden="true") ⧉
+                span Copy code
+            .tabs-example-source
+              .component-tabs(role="tablist", aria-label="Component tab example")
+                button#component-preview-tab.tab-button.is-active(
+                  type="button",
+                  role="tab",
+                  aria-selected="true",
+                  aria-controls="component-preview-panel",
+                  tabindex="0",
+                  data-tab="component-preview-panel"
+                ) Overview
+                button#component-details-tab.tab-button(
+                  type="button",
+                  role="tab",
+                  aria-selected="false",
+                  aria-controls="component-details-panel",
+                  tabindex="-1",
+                  data-tab="component-details-panel"
+                ) Details
+              #component-preview-panel.tab-panel(
+                role="tabpanel",
+                aria-labelledby="component-preview-tab",
+                tabindex="0"
+              ) This is a compact, keyboard-friendly tab pattern. Use Left and Right Arrow, Home, or End to move between tabs.
+              #component-details-panel.tab-panel(
+                role="tabpanel",
+                aria-labelledby="component-details-tab",
+                tabindex="0",
+                hidden
+              ) Each tab controls one panel, and the selected state is exposed to assistive technology.
+            .docs-example__code
+              pre.code-sample(tabindex="0", aria-label="Tab HTML example")
+                code#tabs-code Enable JavaScript to show the rendered HTML for this tab example.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Independent tab instance
+                h3 A second tab group keeps its own state.
+            .component-tabs(role="tablist", aria-label="Independent status tabs")
+              button#status-tab-ready.tab-button.is-active(
+                type="button",
+                role="tab",
+                aria-selected="true",
+                aria-controls="status-panel-ready",
+                tabindex="0"
+              ) Ready
+              button#status-tab-planned.tab-button(
+                type="button",
+                role="tab",
+                aria-selected="false",
+                aria-controls="status-panel-planned",
+                tabindex="-1"
+              ) Planned
+            #status-panel-ready.tab-panel(
+              role="tabpanel",
+              aria-labelledby="status-tab-ready",
+              tabindex="0"
+            ) This group is independent of the preview/code tabs above.
+            #status-panel-planned.tab-panel(
+              role="tabpanel",
+              aria-labelledby="status-tab-planned",
+              tabindex="0",
+              hidden
+            ) The second instance uses unique tab and panel IDs.
+
+        section#forms.doc-section(aria-labelledby="forms-title", data-doc-section)
+          .section-heading
+            p.eyebrow 04 / Forms
+            h2#forms-title Inputs that explain themselves
+            p Labels, hints, validation, and native controls work together without decoration that competes with the task.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Validation & controls
+                h3 Explain the format before an error is possible.
+              button.copy-button(
+                type="button",
+                data-copy-target="form-code",
+                data-copy-label="Form markup"
+              )
+                span.copy-button__icon(aria-hidden="true") ⧉
+                span Copy code
+            form#demo-form.demo-form(novalidate, aria-describedby="form-required-note form-status")
+              p#form-required-note.form-required-note Fields marked with an asterisk are required.
+              .form-grid
+                .field
+                  label(for="full-name")
+                    | Full name
+                    span.field__required(aria-hidden="true") *
+                  input#full-name(
+                    type="text",
+                    name="full-name",
+                    placeholder="Ada Lovelace",
+                    autocomplete="name",
+                    required,
+                    minlength="2",
+                    aria-describedby="full-name-hint full-name-error"
+                  )
+                  small#full-name-hint.helper-text Your name as it appears publicly.
+                  p#full-name-error.field-error(role="alert", hidden)
+                .field
+                  label(for="email")
+                    | Email address
+                    span.field__required(aria-hidden="true") *
+                  input#email(
+                    type="email",
+                    name="email",
+                    placeholder="ada@example.com",
+                    autocomplete="email",
+                    required,
+                    aria-describedby="email-hint email-error"
+                  )
+                  small#email-hint.helper-text We only use this for account updates.
+                  p#email-error.field-error(role="alert", hidden)
+                .field
+                  label(for="role") Role
+                  input#role(
+                    type="text",
+                    list="role-options",
+                    placeholder="Choose a role",
+                    aria-describedby="role-hint"
+                  )
+                  datalist#role-options
+                    option(value="Designer")
+                    option(value="Developer")
+                    option(value="Product manager")
+                  small#role-hint.helper-text Suggestions remain editable.
+                .field
+                  label(for="topic")
+                    | Topic
+                    span.field__required(aria-hidden="true") *
+                  select#topic(name="topic", required, aria-describedby="topic-error")
+                    option(value="", selected, disabled) Choose a topic
+                    option(value="Component design") Component design
+                    option(value="Accessibility") Accessibility
+                    option(value="Performance") Performance
+                  p#topic-error.field-error(role="alert", hidden)
+              fieldset
+                legend Preferences
+                .choice-row
+                  label.choice(for="email-updates")
+                    input#email-updates(type="checkbox", name="email-updates", checked)
+                    span Email updates
+                  label.choice(for="product-research")
+                    input#product-research(type="checkbox", name="product-research")
+                    span Product research
+                  label.choice(for="frequency-weekly")
+                    input#frequency-weekly(type="radio", name="frequency", value="weekly", checked)
+                    span Weekly
+                  label.choice(for="frequency-monthly")
+                    input#frequency-monthly(type="radio", name="frequency", value="monthly")
+                    span Monthly
+              .range-field
+                label(for="confidence") Confidence
+                input#confidence(
+                  type="range",
+                  min="0",
+                  max="100",
+                  value="72",
+                  aria-describedby="confidence-output"
+                )
+                output#confidence-output(for="confidence") 72%
+              .form-actions
+                button.button.button--primary(type="submit") Validate form
+                button.button.button--ghost(type="reset") Reset
+              p#form-status.form-status(role="status", aria-live="polite", aria-atomic="true")
+            .docs-example__code
+              pre.code-sample(tabindex="0", aria-label="Form HTML example")
+                code#form-code Enable JavaScript to show the rendered HTML for this form example.
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Shared field API
+                h3 Labels and hints stay connected to their controls.
+              p.helper-text The `uiField` mixin validates its props during the build.
+            .form-grid
+              +uiField({ id: "shared-field-name", name: "name", label: "Full name", autocomplete: "name", hint: "Use the name shown to your team.", required: true })
+              +uiField({ id: "shared-field-email", name: "email", label: "Email address", type: "email", autocomplete: "email", hint: "We only use this for account updates.", required: true })
+              +uiSelect({
+  id: "shared-select-topic",
+  name: "topic",
+  label: "Topic",
+  placeholder: "Choose a topic",
+  options: [
+    { value: "design", label: "Design systems" },
+    { value: "accessibility", label: "Accessibility" },
+  ],
+  hint: "Choose the closest match.",
+  required: true,
+})
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Shared checkbox and radio groups
+                h3 Native controls retain their expected keyboard behavior.
+            .sample-grid.sample-grid--two
+              +uiChoiceGroup({
+  idPrefix: "shared-topic-preferences",
+  name: "topic-preferences",
+  legend: "Topics",
+  type: "checkbox",
+  items: [
+    { value: "design", label: "Design systems", checked: true },
+    { value: "research", label: "User research" },
+  ],
+  hint: "Choose any that interest you.",
+  orientation: "vertical",
+})
+              +uiChoiceGroup({
+  idPrefix: "shared-update-frequency",
+  name: "update-frequency",
+  legend: "Update frequency",
+  type: "radio",
+  items: [
+    { value: "weekly", label: "Weekly", checked: true },
+    { value: "monthly", label: "Monthly" },
+  ],
+  hint: "Select one frequency.",
+  required: true,
+  orientation: "vertical",
+})
+
+        section#navigation.doc-section(aria-labelledby="navigation-title", data-doc-section)
+          .section-heading
+            p.eyebrow 05 / Navigation
+            h2#navigation-title Orientation without noise
+            p Navigation components preserve context while keeping the interface direct. Current location should be discoverable visually and programmatically.
+          .sample-grid.sample-grid--two
+            .docs-example
+              .docs-example__header
+                .docs-example__heading
+                  p.sample-card__label Breadcrumbs & pagination
+                  h3 Show place and progress.
+              nav.breadcrumbs(aria-label="Breadcrumb")
+                a(href="#foundations") Library
+                span(aria-hidden="true") /
+                a(href="#actions") Components
+                span(aria-hidden="true") /
+                span(aria-current="page") Navigation
+              +uiPagination({
+  label: "Pagination example",
+  items: [
+    { label: "Previous", disabled: true },
+    { label: "1", current: true },
+    { label: "2", href: "#actions" },
+    { label: "3", href: "#forms" },
+    { label: "…", disabled: true },
+    { label: "8", href: "#media" },
+    { label: "Next", href: "#media" },
+  ],
+})
+            .docs-example
+              .docs-example__header
+                .docs-example__heading
+                  p.sample-card__label Menu
+                  h3 Let native disclosure carry the state.
+              details.menu-popover(data-menu)
+                summary.button.button--ghost More options
+                .menu-popover__panel(role="menu", aria-label="Component options")
+                  button(
+                    type="button",
+                    role="menuitem",
+                    data-demo-action,
+                    data-demo-message="Edit component action triggered"
+                  ) Edit component
+                  button(
+                    type="button",
+                    role="menuitem",
+                    data-demo-action,
+                    data-demo-message="Duplicate component action triggered"
+                  ) Duplicate
+                  hr
+                  button(
+                    type="button",
+                    role="menuitem",
+                    data-demo-action,
+                    data-demo-message="Archive is a destructive action — request confirmation in production"
+                  ) Archive
+          .docs-example
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Disclosure
+                h3 Native details keeps content available without JavaScript.
+            +uiDisclosure({ summary: "Why use native disclosure?" })
+              p It provides a keyboard-operable expanded state without requiring a JavaScript controller.
+
+        section#media.doc-section(aria-labelledby="media-title", data-doc-section)
+          .section-heading
+            p.eyebrow 06 / Media
+            h2#media-title Cards, avatars, and timelines
+            p Repeated information becomes easy to scan when relationships are expressed through a small number of familiar visual patterns.
+          .sample-grid.sample-grid--three
+            article.profile-card
+              .avatar.avatar--large(aria-label="Ada Lovelace") AL
+              .profile-card__body
+                h3 Ada Lovelace
+                p Product engineer · London
+                .avatar-stack(role="group", aria-label="Four collaborators")
+                  span.avatar(aria-hidden="true") GH
+                  span.avatar(aria-hidden="true") KJ
+                  span.avatar(aria-hidden="true") +4
+            +uiCard({ variant: "raised", eyebrow: "Design systems", title: "Build systems people want to use.", description: "Make repeated interface work clear, accessible, and consistent." })
+              .media-card__visual(aria-hidden="true")
+                span 03
+              +uiLink({ href: route("legacy.markdown"), label: "Read documentation" })
+            .timeline-card
+              p.sample-card__label Release activity
+              ol.timeline
+                li
+                  time(datetime="2026-09-22T09:12") 09:12
+                  span New component published
+                li
+                  time(datetime="2026-09-22T10:48") 10:48
+                  span Accessibility review passed
+                li
+                  time(datetime="2026-09-22T12:05") 12:05
+                  span Changelog updated
+
+        section#feedback.doc-section(aria-labelledby="feedback-title", data-doc-section)
+          .section-heading
+            p.eyebrow 07 / Feedback
+            h2#feedback-title Status, alerts, and empty states
+            p Feedback appears close to its cause, uses language that explains what happened, and never relies on color alone.
+          .sample-grid.sample-grid--three
+            +uiAlert({ variant: "info", icon: "i", title: "Heads up", message: "Your workspace is synced." })
+            +uiAlert({ variant: "success", icon: "✓", title: "Done", message: "Changes saved successfully." })
+            +uiAlert({ variant: "error", icon: "!", title: "Something went wrong", message: "Try again in a moment." })
+          .docs-example.empty-state
+            span.empty-state__icon(aria-hidden="true") ◌
+            h3 Nothing here yet
+            p Your saved components will appear in this space.
+            button.button.button--secondary(
+              type="button",
+              data-demo-action,
+              data-demo-message="Create your first component action triggered"
+            ) Create your first
+
+        section#content.doc-section(aria-labelledby="content-title", data-doc-section)
+          .section-heading
+            p.eyebrow 08 / Content
+            h2#content-title Content primitives
+            p Good content does not need a component for every sentence. Native HTML gives editorial interfaces useful structure by default.
+          .docs-example.content-sample
+            .docs-example__header
+              .docs-example__heading
+                p.sample-card__label Reading experience
+                h3 Let semantic elements do their job.
+              button.copy-button(
+                type="button",
+                data-copy-target="content-code",
+                data-copy-label="Content markup"
+              )
+                span.copy-button__icon(aria-hidden="true") ⧉
+                span Copy code
+            #content-example-source.prose
+              p Published on #[time(datetime="2026-09-22") September 22, 2026] · 6 min read
+              h3 The details are the design
+              p Use a strong typographic hierarchy to make content scannable. You can highlight #[mark important words], explain #[abbr(title="HyperText Markup Language") HTML] concepts, and keep inline code like #[code aria-label="A JavaScript function named ariaLabel"] ariaLabel.
+              blockquote
+                p “Good design is as little design as possible.”
+                cite — Dieter Rams
+              figure.prose-figure
+                .prose-figure__visual(aria-hidden="true") 12
+                figcaption A figure keeps a visual and its explanation together.
+              details
+                summary Show implementation notes
+                p Native disclosure is accessible by default and needs very little JavaScript.
+              ul
+                li Clear hierarchy
+                li Short paragraphs
+                li Useful defaults
+            .docs-example__code
+              pre.code-sample(tabindex="0", aria-label="Content HTML example")
+                code#content-code Enable JavaScript to show the rendered HTML for this content example.
+
+        section#data.doc-section(aria-labelledby="data-title", data-doc-section)
+          .section-heading
+            p.eyebrow 09 / Data display
+            h2#data-title Tables, metrics, and progress
+            p Use the element that carries the relationship: a table for comparisons, progress for completion, and a meter for a known range.
+          .sample-grid.sample-grid--three
+            .metric-card
+              span.metric-card__label Monthly active users
+              strong 24,892
+              span.metric-card__trend
+                span(aria-hidden="true") ↑
+                |
+                | 12.8% from last month
+            .metric-card
+              span.metric-card__label Conversion target
+              strong 84%
+              progress(value="84", max="100", aria-label="84 percent of conversion target reached") 84%
+            .metric-card
+              span.metric-card__label Storage used
+              strong 68%
+              meter(
+                min="0",
+                max="100",
+                low="30",
+                high="80",
+                optimum="20",
+                value="68",
+                aria-label="68 percent storage used"
+              ) 68%
+          .docs-example.table-wrap
+            table
+              caption Recent component activity
+              thead
+                tr
+                  th(scope="col") Component
+                  th(scope="col") Status
+                  th(scope="col") Updated
+                  th(scope="col") Owner
+              tbody
+                tr
+                  th(scope="row") Button
+                  td
+                    +uiBadge({ variant: "success", label: "Ready", dot: true })
+                  td 2 min ago
+                  td A. Lovelace
+                tr
+                  th(scope="row") Modal
+                  td
+                    +uiBadge({ variant: "warning", label: "Review", dot: true })
+                  td 1 hour ago
+                  td G. Hopper
+                tr
+                  th(scope="row") Data table
+                  td
+                    +uiBadge({ variant: "neutral", label: "Draft", dot: true })
+                  td Yesterday
+                  td K. Johnson
+
+        section#overlays.doc-section(aria-labelledby="overlays-title", data-doc-section)
+          .section-heading
+            p.eyebrow 10 / Overlays
+            h2#overlays-title Dialogs and notifications
+            p Use an overlay for a focused decision, not for ordinary navigation. The native dialog element handles focus containment and Escape-to-close behavior for us.
+          .docs-example.overlay-demo
+            .overlay-demo__copy
+              p.sample-card__label Native dialog & live region
+              h3 Feedback is brief, clear, and reversible where possible.
+              p The dialog restores focus to its trigger after it closes. The toast is announced without interrupting reading.
+            .component-row
+              button#open-dialog.button.button--primary(
+                type="button",
+                aria-controls="component-dialog"
+              ) Open dialog
+              button#show-toast.button.button--secondary(type="button") Show toast
+          dialog#component-dialog(
+            data-ui-dialog,
+            aria-labelledby="dialog-title",
+            aria-describedby="dialog-description"
+          )
+            form.dialog__form(method="dialog")
+              p.eyebrow Quick action
+              h3#dialog-title Add a component
+              p#dialog-description This dialog uses a native HTML element with a focused, minimal surface.
+              .field
+                label(for="component-name") Component name
+                input#component-name(
+                  type="text",
+                  name="component-name",
+                  placeholder="e.g. Toast",
+                  autocomplete="off",
+                  required
+                )
+              .form-actions
+                button.button.button--ghost(type="submit", value="cancel") Cancel
+                button.button.button--primary(type="submit", value="confirm") Add component
+          .docs-example.docs-example--compact
+            .component-row
+              button.button.button--secondary(type="button", aria-controls="help-dialog") Open another dialog
+          dialog#help-dialog(
+            data-ui-dialog,
+            aria-labelledby="help-dialog-title",
+            aria-describedby="help-dialog-description"
+          )
+            form.dialog__form(method="dialog")
+              h3#help-dialog-title Another native dialog
+              p#help-dialog-description Each dialog keeps its own opener and returns focus after closing.
+              button.button.button--primary(type="submit") Close
+
+    output#toast.docs-toast(role="status", aria-live="polite", aria-atomic="true", hidden)

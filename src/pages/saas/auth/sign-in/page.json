@@ -1,0 +1,18 @@
+{
+  "id": "saas.auth.sign-in",
+  "route": "/sign-in/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.auth.sign-in",
+  "source": "src/pages/saas/auth/sign-in/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/auth/auth.scss"],
+  "layout": "auth",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Sign in — Orbit",
+  "description": "A static Orbit sign-in screen for reviewing the product flow.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "robots": "noindex,follow"
+}

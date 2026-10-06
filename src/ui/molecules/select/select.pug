@@ -1,0 +1,23 @@
+mixin uiSelect(options = {})
+  - const props = assertProps('ui-select', options, { type: 'object', required: ['id', 'name', 'label', 'options'], properties: { id: { type: 'string', minLength: 1 }, name: { type: 'string', minLength: 1 }, label: { type: 'string', minLength: 1 }, options: { type: 'array' }, value: { type: 'string' }, placeholder: { type: 'string' }, hint: { type: 'string' }, required: { type: 'boolean' }, disabled: { type: 'boolean' } }, additionalProperties: false })
+  - if (!/^[A-Za-z][A-Za-z0-9_.:-]*$/.test(props.id) || !props.name.trim() || !props.label.trim()) throw new Error('ui-select requires a valid id and non-empty name and label.')
+  - if (!Array.isArray(props.options) || props.options.length === 0) throw new Error('ui-select options must contain at least one option.')
+  - const values = new Set()
+  - props.options.forEach((option, index) => {
+  -   if (!option || typeof option !== 'object' || typeof option.value !== 'string' || !option.value || typeof option.label !== 'string' || !option.label.trim()) throw new Error(`ui-select option ${index + 1} requires a non-empty string value and label.`)
+  -   if (values.has(option.value)) throw new Error(`ui-select has a duplicate option value "${option.value}".`)
+  -   if (option.disabled !== undefined ? typeof option.disabled !== 'boolean' : false) throw new Error(`ui-select option ${index + 1} disabled must be boolean.`)
+  -   values.add(option.value)
+  - })
+  - const selectedValue = props.value === undefined ? null : props.value
+  - if (selectedValue !== null ? !values.has(selectedValue) : false) throw new Error(`ui-select value "${selectedValue}" does not match an option.`)
+  - const hintId = props.hint ? `${props.id}-hint` : undefined
+  .ui-select
+    label.ui-select__label(for=props.id)= props.label
+    select.ui-select__control(id=props.id, name=props.name, required=Boolean(props.required), disabled=Boolean(props.disabled), aria-describedby=hintId)
+      if props.placeholder
+        option(value="", selected=selectedValue === null, disabled=Boolean(props.required))= props.placeholder
+      each option in props.options
+        option(value=option.value, selected=selectedValue === option.value, disabled=Boolean(option.disabled))= option.label
+    if props.hint
+      small.ui-select__hint(id=hintId)= props.hint

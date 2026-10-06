@@ -1,0 +1,41 @@
+include @ui/atoms/button/button.pug
+include @ui/atoms/link/link.pug
+include @ui/molecules/field/field.pug
+
+section.auth-page.auth-page--register(aria-labelledby="saas-create-title")
+  .container.auth-page__shell
+    aside.auth-showcase(aria-labelledby="create-showcase-title")
+      .auth-showcase__top
+        a.auth-showcase__brand(href=route('saas.home'))
+          span.auth-showcase__brand-mark(aria-hidden="true") ◒
+          span Orbit
+      .auth-showcase__content
+        p.auth-eyebrow A more focused product week
+        h2#create-showcase-title Bring your team’s best thinking together.
+        p.auth-showcase__copy Create a home for the questions, decisions, and small signals that shape your product.
+        ul.auth-showcase__points
+          li Share a useful view of the roadmap
+          li Keep customer signals close to decisions
+          li Make progress visible to collaborators
+      .auth-showcase__footer
+        blockquote.auth-showcase__quote “We can finally see the why alongside the work.”
+    .auth-card-wrap
+      .auth-card
+        p.auth-eyebrow Start with a free workspace
+        h1#saas-create-title= saas.auth.createTitle
+        p.auth-card__lead Add a few details to see the account setup flow.
+        form#orbit-create-account.auth-form(aria-describedby="orbit-create-note")
+          p#orbit-create-note.auth-demo-note= saas.auth.notice
+          fieldset.auth-form__fields(disabled)
+            legend.auth-form__legend Workspace details
+            .auth-field
+              +uiField({ id: "orbit-create-name", name: "name", label: "Your name", type: "text", autocomplete: "name", placeholder: "Alex Morgan" })
+            .auth-field
+              +uiField({ id: "orbit-create-email", name: "email", label: "Work email address", type: "email", autocomplete: "email", placeholder: "you@company.com" })
+            .auth-field
+              +uiField({ id: "orbit-create-password", name: "password", label: "Create a password", type: "password", autocomplete: "new-password", placeholder: "At least 8 characters" })
+            +uiButton({ label: "Create workspace", variant: "primary", type: "submit" }).auth-submit
+        p.auth-card__footer
+          | Already have an account? 
+          span.auth-inline-link
+            +uiLink({ href: route("saas.auth.sign-in"), label: "Sign in" })

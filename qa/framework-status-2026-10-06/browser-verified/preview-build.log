@@ -1,0 +1,34 @@
+
+[pug-loader:prismjs] Load language pug
+
+[pug-loader:prismjs] Load language scss
+assets by path assets/ 498 KiB 41 assets
+assets by path demos/ 231 KiB
+  assets by path demos/saas/ 179 KiB 20 assets
+  assets by path demos/agency/ 52.2 KiB 8 assets
+assets by path commerce/ 142 KiB
+  assets by path commerce/products/ 88.1 KiB 10 assets
+  + 2 assets
+assets by path auth/ 20.1 KiB
+  asset auth/register/index.html 7.82 KiB [emitted] [minimized] (name: __bundler-plugin-entry__legacy.auth.register)
+  + 2 assets
+assets by path *.html 18.8 KiB
+  asset index.html 17.1 KiB [emitted] [minimized] (name: __bundler-plugin-entry__legacy.home)
+  asset 404.html 1.66 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 7 assets
+runtime modules 3.42 KiB 7 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 1.05 MiB
+  modules by path ./src/ 672 KiB 50 modules
+  modules by path ./.generated/pages/*.pug 400 KiB
+    ./.generated/pages/agency-about-0aa59685.pug 8.05 KiB [built] [code generated]
+    + 38 modules
+  ./build/pages/404.pug 2.73 KiB [built] [code generated]
+asset modules 65.6 KiB (asset) 336 bytes (javascript)
+  modules by path ./src/assets/ 61.5 KiB (asset) 210 bytes (javascript)
+    modules by path ./src/assets/images/*.svg 10.2 KiB (asset) 126 bytes (javascript) 3 modules
+    modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript) 2 modules
+  modules by path ./src/pages/ 4.11 KiB (asset) 126 bytes (javascript)
+    ./src/pages/agency/assets/studio-board.svg 1.44 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    + 2 modules
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 3251 ms

@@ -1,0 +1,38 @@
+.agency.agency-services
+  include @blocks/agency/cta/cta.pug
+  include ../_agency-navigation.pug
+  header.agency-page-hero.agency-shell
+    p.agency-eyebrow What we bring to the table
+    h1 The right mix of clear thinking and careful making.
+    p.agency-lead Our services are connected by a shared goal: make your organization easier to understand, choose and remember.
+  section.agency-section--tight
+    .agency-shell.agency-card-grid
+      article.agency-card
+        span.agency-card__number 01 / Discover
+        h2 Find the signal
+        p Research and strategy that make the next decision clearer and give your team a point of view it can use.
+        a.agency-card__link(href=route("agency.service.brand-strategy")) Explore brand strategy #[span.agency-arrow(aria-hidden="true") →]
+      article.agency-card
+        span.agency-card__number 02 / Define
+        h2 Give it a voice
+        p Positioning, naming and messaging that turn your ambition into a story people can understand and share.
+        a.agency-card__link(href=route("agency.service.brand-strategy")) Explore our approach #[span.agency-arrow(aria-hidden="true") →]
+      article.agency-card
+        span.agency-card__number 03 / Design
+        h2 Make it recognizable
+        p Identity systems and digital experiences designed to feel consistent, distinctive and easy to use.
+        a.agency-card__link(href=route("agency.service.brand-strategy")) Explore our approach #[span.agency-arrow(aria-hidden="true") →]
+  section.agency-section.agency-band(aria-labelledby="services-fit")
+    .agency-shell.agency-split
+      div
+        p.agency-eyebrow A good fit
+        h2#services-fit We work best with people ready to make a thoughtful change.
+      div
+        p We partner with founders, community builders and established teams at moments of growth, transition or renewed purpose.
+        ul.agency-check-list
+          li You need a sharper story or a clearer direction
+          li Your brand has outgrown its original shape
+          li You want your digital experience to work harder
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "Start with a conversation", title: "Tell us where you want to go.", action: "Talk with the studio", href: route("agency.contact") })
+  include ../_agency-footer.pug

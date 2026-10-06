@@ -1,0 +1,96 @@
+{
+  "reviewDate": "2026-10-03",
+  "pass": "completion",
+  "scope": "Re-verification of the first-pass claims in a second environment plus three new measurements (Bootstrap share of shared CSS, internal link forms, working tree state). No browser QA, no hosting test, no dependency changes.",
+  "planSha256": "5709511b7c9582076a4ce2678a0a1d263fa22aa9e1ad6f472729aa23517b50a8",
+  "environment": {
+    "node": "v22.23.2",
+    "webpack": "5.111.1",
+    "pugPlugin": "5.3.0",
+    "sass": "1.67.0"
+  },
+  "build": {
+    "command": "npm run build -- --output-path <scratchpad>/dist",
+    "errors": 0,
+    "warnings": 0,
+    "timeMs": 6641,
+    "counts": { "html": 11, "css": 11, "js": 10 },
+    "markdownPageScriptTags": 0,
+    "cssCommonPrefixChars": 113905,
+    "notGenerated": ["404.html"]
+  },
+  "cssShare": {
+    "method": "sass --style=compressed on the single file; gzip = Node zlib default",
+    "customBootstrapOnly": { "rawBytes": 103987, "gzipBytes": 14845 },
+    "mainScssOnly": { "rawBytes": 113907, "gzipBytes": 17239 },
+    "bootstrapShareOfShared": 0.913,
+    "perPageCss": {
+      "about": { "raw": 115440, "gzip": 17588 },
+      "components": { "raw": 142617, "gzip": 22708 },
+      "dashboard": { "raw": 139535, "gzip": 21829 },
+      "forgot-password": { "raw": 123913, "gzip": 19330 },
+      "index": { "raw": 134769, "gzip": 20681 },
+      "login": { "raw": 123775, "gzip": 19288 },
+      "marketing": { "raw": 136220, "gzip": 21802 },
+      "register": { "raw": 123921, "gzip": 19322 },
+      "store": { "raw": 149963, "gzip": 23905 },
+      "markdown(style)": { "raw": 124879, "gzip": 19453 },
+      "templates": { "raw": 118386, "gzip": 18030 }
+    }
+  },
+  "bootstrapClassUsageInPug": {
+    "container": 12,
+    "nav-link": 4,
+    "nav-item": 4,
+    "list-unstyled": 1,
+    "my-0": 1
+  },
+  "internalHrefForms": {
+    "/components": 9,
+    "/templates": 4,
+    "/dashboard": 4,
+    "/commerce": 4,
+    "/marketing": 3,
+    "/markdown": 3,
+    "/auth/login": 3,
+    "/auth/login/": 3,
+    "/": 3,
+    "/auth/forgot-password/": 2,
+    "/auth/register/": 1,
+    "/terms/": 1
+  },
+  "sourceChecks": {
+    "storeJsProductsFromDom": "src/views/commerce/store.js:17-39",
+    "storeJsCartPrune": "src/views/commerce/store.js:147-151",
+    "storeJsInnerHtmlRender": "src/views/commerce/store.js:153-175",
+    "headerJsUnguardedStorage": "src/js/components/header.js:42,44",
+    "headerJsDocumentListenersNoCleanup": "src/js/components/header.js:26-37",
+    "loginJsBaseBeforeSubmit": "src/views/auth/login.js:3 then :46",
+    "authFormsAction": "action=\"#\" method=\"post\" in login.pug:33, register.pug:33, forgot-password.pug:33",
+    "registerTermsLink": "src/views/auth/register.pug:67 -> /terms/ (not generated)",
+    "basePugFixedLang": "src/layouts/base.pug:2 lang=\"tr\"; English content in markdown, templates, components, store pages",
+    "googleFontsCssImport": "src/scss/main.scss:4",
+    "darkOverridesWithSassConstants": [
+      "src/scss/base.scss:82-85",
+      "src/scss/components/header.scss:62"
+    ],
+    "sassLoaderCompressedInProduction": "node_modules/sass-loader/dist/utils.js:202-204",
+    "componentsLibraryLines": { "pug": 548, "js": 673, "scss": 1786 }
+  },
+  "repoState": {
+    "modifiedTracked": 22,
+    "untracked": 11,
+    "gitignore": ["node_modules", "dist"],
+    "lockfiles": {
+      "package-lock.json": "2026-09-22 02:57",
+      "yarn.lock": "2026-09-22 03:32"
+    },
+    "readmePackageManager": "yarn"
+  },
+  "notVerifiedThisPass": [
+    "pug-plugin 5.3.0 HTML minify option",
+    "hosting behaviour for trailing-slash-less URLs",
+    "browser focus/keyboard behaviour",
+    "Lighthouse / field metrics"
+  ]
+}

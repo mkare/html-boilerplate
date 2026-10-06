@@ -1,0 +1,627 @@
+{
+  "reviewDate": "2026-10-03",
+  "scope": "Plan review, isolated production build, static HTML checks and Node VM / Webpack fixture probes; no browser QA, dependency reinstall, code migration or publishing.",
+  "baseline": {
+    "planSha256": "5709511b7c9582076a4ce2678a0a1d263fa22aa9e1ad6f472729aa23517b50a8",
+    "environment": {
+      "node": "v26.10.0",
+      "webpack": "5.111.1",
+      "pugPlugin": "5.3.0",
+      "sass": "dart-sass\t1.67.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.1.2\t(Dart Compiler)\t[Dart]"
+    },
+    "build": {
+      "errors": 0,
+      "warnings": 0,
+      "timeMs": 8018,
+      "warningMessages": []
+    },
+    "counts": {
+      "html": 11,
+      "css": 11,
+      "js": 10,
+      "all": 34
+    },
+    "cssCommonPrefix": {
+      "characters": 113905,
+      "rawBytes": 113908,
+      "gzipBytes": 17229,
+      "files": 11
+    },
+    "brokenLinks": [
+      {
+        "page": "/auth/register/",
+        "tag": "a",
+        "attr": "href",
+        "value": "/terms/"
+      }
+    ],
+    "brokenAssets": [],
+    "brokenFragments": [
+      {
+        "page": "/dashboard/",
+        "value": "#customers"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#invoices"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#settings"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#upgrade"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#project-orbit"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#project-canvas"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#project-northstar"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#project-echo"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#project-atelier"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#download-report"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#team-report"
+      },
+      {
+        "page": "/dashboard/",
+        "value": "#customer-report"
+      }
+    ],
+    "placeholders": 0,
+    "pageMetrics": [
+      {
+        "page": "/about/",
+        "css": [
+          "about.62e88e22.css"
+        ],
+        "js": [
+          "about.2df35c5f.js"
+        ],
+        "cssBytes": {
+          "raw": 115440,
+          "gzip": 17588
+        },
+        "jsBytes": {
+          "raw": 3175,
+          "gzip": 1080
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/auth/forgot-password/",
+        "css": [
+          "forgot-password.159deac0.css"
+        ],
+        "js": [
+          "forgot-password.3d94d772.js"
+        ],
+        "cssBytes": {
+          "raw": 123913,
+          "gzip": 19330
+        },
+        "jsBytes": {
+          "raw": 4280,
+          "gzip": 1403
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/auth/login/",
+        "css": [
+          "login.c3aaa24f.css"
+        ],
+        "js": [
+          "login.5a926f3e.js"
+        ],
+        "cssBytes": {
+          "raw": 123775,
+          "gzip": 19288
+        },
+        "jsBytes": {
+          "raw": 5035,
+          "gzip": 1619
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/auth/register/",
+        "css": [
+          "register.f72500ff.css"
+        ],
+        "js": [
+          "register.b1e10bc1.js"
+        ],
+        "cssBytes": {
+          "raw": 123921,
+          "gzip": 19322
+        },
+        "jsBytes": {
+          "raw": 6328,
+          "gzip": 1868
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/commerce/",
+        "css": [
+          "store.18dc7dc1.css"
+        ],
+        "js": [
+          "store.d5084fed.js"
+        ],
+        "cssBytes": {
+          "raw": 149963,
+          "gzip": 23905
+        },
+        "jsBytes": {
+          "raw": 20064,
+          "gzip": 5148
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/components/",
+        "css": [
+          "components.9f1f1fcd.css"
+        ],
+        "js": [
+          "components.4b5e259c.js"
+        ],
+        "cssBytes": {
+          "raw": 142617,
+          "gzip": 22708
+        },
+        "jsBytes": {
+          "raw": 23702,
+          "gzip": 6035
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/dashboard/",
+        "css": [
+          "dashboard.dca4daf5.css"
+        ],
+        "js": [
+          "dashboard.aec35468.js"
+        ],
+        "cssBytes": {
+          "raw": 139535,
+          "gzip": 21829
+        },
+        "jsBytes": {
+          "raw": 8856,
+          "gzip": 2404
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/",
+        "css": [
+          "index.9320bb80.css"
+        ],
+        "js": [
+          "index.2a154f44.js"
+        ],
+        "cssBytes": {
+          "raw": 134769,
+          "gzip": 20681
+        },
+        "jsBytes": {
+          "raw": 5541,
+          "gzip": 1868
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/markdown/",
+        "css": [
+          "style.04c87a2e.css"
+        ],
+        "js": [],
+        "cssBytes": {
+          "raw": 124879,
+          "gzip": 19453
+        },
+        "jsBytes": {
+          "raw": 0,
+          "gzip": 0
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/marketing/",
+        "css": [
+          "marketing.9d53a86e.css"
+        ],
+        "js": [
+          "marketing.2958c4b2.js"
+        ],
+        "cssBytes": {
+          "raw": 136220,
+          "gzip": 21802
+        },
+        "jsBytes": {
+          "raw": 6240,
+          "gzip": 1827
+        },
+        "duplicateIds": []
+      },
+      {
+        "page": "/templates/",
+        "css": [
+          "templates.ebe97287.css"
+        ],
+        "js": [
+          "templates.76935932.js"
+        ],
+        "cssBytes": {
+          "raw": 118386,
+          "gzip": 18030
+        },
+        "jsBytes": {
+          "raw": 3743,
+          "gzip": 1221
+        },
+        "duplicateIds": []
+      }
+    ],
+    "assets": [
+      {
+        "name": "store.18dc7dc1.css",
+        "size": 149963,
+        "minimized": null
+      },
+      {
+        "name": "components.9f1f1fcd.css",
+        "size": 142617,
+        "minimized": null
+      },
+      {
+        "name": "dashboard.dca4daf5.css",
+        "size": 139535,
+        "minimized": null
+      },
+      {
+        "name": "marketing.9d53a86e.css",
+        "size": 136220,
+        "minimized": null
+      },
+      {
+        "name": "index.9320bb80.css",
+        "size": 134769,
+        "minimized": null
+      },
+      {
+        "name": "style.04c87a2e.css",
+        "size": 124879,
+        "minimized": null
+      },
+      {
+        "name": "register.f72500ff.css",
+        "size": 123921,
+        "minimized": null
+      },
+      {
+        "name": "forgot-password.159deac0.css",
+        "size": 123913,
+        "minimized": null
+      },
+      {
+        "name": "login.c3aaa24f.css",
+        "size": 123775,
+        "minimized": null
+      },
+      {
+        "name": "templates.ebe97287.css",
+        "size": 118386,
+        "minimized": null
+      },
+      {
+        "name": "about.62e88e22.css",
+        "size": 115440,
+        "minimized": null
+      },
+      {
+        "name": "commerce/index.html",
+        "size": 37193,
+        "minimized": null
+      },
+      {
+        "name": "dashboard/index.html",
+        "size": 33911,
+        "minimized": null
+      },
+      {
+        "name": "components/index.html",
+        "size": 31523,
+        "minimized": null
+      },
+      {
+        "name": "components.4b5e259c.js",
+        "size": 23702,
+        "minimized": null
+      },
+      {
+        "name": "markdown/index.html",
+        "size": 20386,
+        "minimized": null
+      },
+      {
+        "name": "store.d5084fed.js",
+        "size": 20064,
+        "minimized": null
+      },
+      {
+        "name": "marketing/index.html",
+        "size": 17718,
+        "minimized": null
+      },
+      {
+        "name": "index.html",
+        "size": 14999,
+        "minimized": null
+      },
+      {
+        "name": "dashboard.aec35468.js",
+        "size": 8856,
+        "minimized": null
+      },
+      {
+        "name": "templates/index.html",
+        "size": 8507,
+        "minimized": null
+      },
+      {
+        "name": "auth/register/index.html",
+        "size": 8448,
+        "minimized": null
+      },
+      {
+        "name": "auth/login/index.html",
+        "size": 7457,
+        "minimized": null
+      },
+      {
+        "name": "register.b1e10bc1.js",
+        "size": 6328,
+        "minimized": null
+      },
+      {
+        "name": "auth/forgot-password/index.html",
+        "size": 6297,
+        "minimized": null
+      },
+      {
+        "name": "marketing.2958c4b2.js",
+        "size": 6240,
+        "minimized": null
+      },
+      {
+        "name": "about/index.html",
+        "size": 5943,
+        "minimized": null
+      },
+      {
+        "name": "index.2a154f44.js",
+        "size": 5541,
+        "minimized": null
+      },
+      {
+        "name": "login.5a926f3e.js",
+        "size": 5035,
+        "minimized": null
+      },
+      {
+        "name": "forgot-password.3d94d772.js",
+        "size": 4280,
+        "minimized": null
+      },
+      {
+        "name": "templates.76935932.js",
+        "size": 3743,
+        "minimized": null
+      },
+      {
+        "name": "about.2df35c5f.js",
+        "size": 3175,
+        "minimized": null
+      },
+      {
+        "name": "assets/compass.svg",
+        "size": 2282,
+        "minimized": null
+      },
+      {
+        "name": "assets/favicon.svg",
+        "size": 2282,
+        "minimized": null
+      }
+    ]
+  },
+  "probes": {
+    "runtimeDefault": {
+      "scripts": [
+        "/js/shell.js",
+        "/js/page.js"
+      ],
+      "moduleEvaluations": 2,
+      "mounts": 2,
+      "sameInstance": false
+    },
+    "runtimeSingle": {
+      "scripts": [
+        "/js/runtime.js",
+        "/js/shell.js",
+        "/js/page.js"
+      ],
+      "moduleEvaluations": 1,
+      "mounts": 1,
+      "sameInstance": true
+    },
+    "wrapperRelative": {
+      "errors": [
+        "Module build failed (from ../../../../../Users/solvia/Documents/cowork/html-boilerplate/node_modules/html-bundler-webpack-plugin/src/Loader/index.js):\nLoaderException: \n Pug Plugin  Resolving of source files in the template file failed.\nFile: .generated/page.pug\nError: Cannot find module '/private/tmp/theme-plan-review-20261003/probes/wrapper-relative/.generated/icon.svg'"
+      ],
+      "assets": [
+        null
+      ]
+    },
+    "wrapperAlias": {
+      "errors": [],
+      "assets": [
+        null,
+        "index.html"
+      ]
+    },
+    "browserslist": {
+      "auto": null,
+      "explicit": [
+        "chrome 100"
+      ]
+    },
+    "blockedStorage": {
+      "error": "Simulated blocked storage",
+      "formSubmitListeners": 0,
+      "simulation": "Storage exception injected into compiled login entry; no real browser or network form submission."
+    }
+  },
+  "implementationChecks": {
+    "date": "2026-10-05",
+    "toolchain": {
+      "node": "22.23.2",
+      "yarn": "1.22.22",
+      "webpack": "5.111.1"
+    },
+    "customerProductionRoot": {
+      "command": "yarn ci:build",
+      "result": "passed",
+      "htmlFiles": 21,
+      "outputFiles": 35,
+      "basePath": "/"
+    },
+    "reproducibility": {
+      "command": "BUILD_NOW=2026-10-03T12:00:00.000Z yarn ci:build (includes yarn check:reproducible)",
+      "result": "passed",
+      "files": 35,
+      "sha256": "8f2845dc81ac97af9f360ff29c4cf7a5f30490cfdfdbb1407c9d29edf7072851"
+    },
+    "catalogPreviewRoot": {
+      "command": "BASE_PATH=/ SITE_URL=https://preview.example.test BUILD_NOW=2026-10-03T12:00:00.000Z yarn build:preview",
+      "result": "passed",
+      "htmlFiles": 51,
+      "outputFiles": 92,
+      "robots": "noindex,follow",
+      "sitemap": false,
+      "accessibilityMarkupPages": 51
+    },
+    "profileMatrix": {
+      "result": "passed",
+      "profiles": [
+        "catalog-preview",
+        "saas-customer",
+        "saas-starter",
+        "agency-customer"
+      ],
+      "basePaths": [
+        "/",
+        "/preview/theme/"
+      ]
+    },
+    "commerce": {
+      "suite": "node --test qa/commerce/*.test.mjs",
+      "result": "passed",
+      "passed": 12,
+      "failed": 0
+    },
+    "watcher": {
+      "result": "passed",
+      "cases": [
+        "add",
+        "route rename",
+        "invalid JSON retention",
+        "repair",
+        "remove",
+        "primary navigation sync"
+      ]
+    },
+    "projectOverrides": {
+      "result": "passed",
+      "isolatedProductionBuild": true,
+      "malformedConfigFallback": true,
+      "customPageRetained": true
+    },
+    "releaseAcceptance": {
+      "result": "passed",
+      "archiveSha256": "99cf13a43049cf5391b390d2bfc56d49a227b0267c24a2934d7c369b01a2a71d",
+      "saasRootRoutes": 21,
+      "saasSubpathRoutes": 21,
+      "agencyRootRoutes": 9,
+      "budgetFailures": 0
+    },
+    "fontAssets": {
+      "result": "passed",
+      "sourceWoff2Bytes": 52516
+    },
+    "staticAccessibility": {
+      "result": "passed",
+      "pages": 21,
+      "scope": "Static markup subset; not a full WCAG conformance claim."
+    },
+    "browserReview": {
+      "result": "passed focused flows; manual accessibility review remains open",
+      "browser": "Google Chrome 154.0.8037.95, headless with isolated temporary profile",
+      "url": "http://127.0.0.1:4175/",
+      "viewportObservations": 27,
+      "routes": [
+        "/commerce/",
+        "/commerce/catalog/",
+        "/commerce/products/arc-glass-set/",
+        "/demos/saas/",
+        "/demos/agency/",
+        "/demos/saas/sign-in/",
+        "/markdown/",
+        "/components/",
+        "/dashboard/"
+      ],
+      "responsiveWidthsCssPx": [320, 768, 1440],
+      "horizontalOverflowCount": 0,
+      "confirmed": [
+        "All nine routes checked at 320/768/1440 CSS px with no document horizontal overflow",
+        "System light/dark changes and explicit theme choice persistence",
+        "Space opens the keyboard menu; Escape closes it and returns focus",
+        "Dialog Escape closes and returns focus to its opener",
+        "JavaScript-disabled native page-two pagination click loads page 2",
+        "Product detail quantity 2 persists through catalog navigation, cart open, and reload",
+        "Denied localStorage preserves an in-memory add and announces visit-only storage",
+        "Accessibility tree includes a main landmark; no external requests were observed"
+      ],
+      "notConfirmed": [
+        "200% browser text zoom reflow",
+        "Screen-reader output and measured color contrast/target sizes",
+        "Broader two-brand by light/dark visual comparison",
+        "Long translated copy and RTL; no real translated page content exists"
+      ],
+      "limitation": "Focused automated browser checks do not establish full visual or WCAG 2.2 AA conformance. The manual checks listed above remain open; field performance is unmeasured."
+    }
+  }
+}

@@ -1,0 +1,29 @@
+mixin commercePagination(currentPage)
+  nav.store-pagination(aria-label="Catalog pagination")
+    if currentPage === 1
+      span.store-pagination__control(aria-disabled="true")
+        span(aria-hidden="true") ←
+        |  Previous
+    else
+      a.store-pagination__control(data-catalog-page-link href=route('legacy.commerce'))
+        span(aria-hidden="true") ←
+        |  Previous
+    ol.store-pagination__pages
+      li
+        if currentPage === 1
+          span.store-pagination__page(aria-current="page") 1
+        else
+          a.store-pagination__page(data-catalog-page-link href=route('legacy.commerce')) 1
+      li
+        if currentPage === 2
+          span.store-pagination__page(aria-current="page") 2
+        else
+          a.store-pagination__page(data-catalog-page-link href=route('commerce.catalog')) 2
+    if currentPage === 1
+      a.store-pagination__control(data-catalog-page-link href=route('commerce.catalog'))
+        | Next
+        span(aria-hidden="true") →
+    else
+      span.store-pagination__control(aria-disabled="true")
+        | Next
+        span(aria-hidden="true") →

@@ -1,0 +1,35 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node scripts/build-demo.cjs agency
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+assets by path assets/ 115 KiB
+  assets by info 58.9 KiB [immutable] 7 assets
+  assets by path assets/css/pages/*.css 56.4 KiB 4 assets
+assets by path *.html 10.6 KiB
+  asset index.html 8.92 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
+assets by path projects/ 12.1 KiB
+  asset projects/northline/index.html 6.27 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.project.northline)
+  asset projects/index.html 5.83 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.projects)
+assets by path services/ 11.6 KiB
+  asset services/brand-strategy/index.html 5.97 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.service.brand-strategy)
+  asset services/index.html 5.61 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.services)
++ 4 assets
+runtime modules 3.16 KiB 6 modules
+javascript modules 119 KiB
+  modules by path ./.generated/pages/*.pug 56.1 KiB 8 modules
+  modules by path ./src/ 60.7 KiB
+    ./src/scss/core.scss 27.1 KiB [built] [code generated]
+    + 3 modules
+  ./build/pages/404.pug 2.5 KiB [built] [code generated]
+asset modules 57.6 KiB (asset) 252 bytes (javascript)
+  modules by path ./src/assets/ 53.5 KiB (asset) 126 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    + 2 modules
+  modules by path ./src/pages/agency/ 4.11 KiB (asset) 126 bytes (javascript)
+    ./src/pages/agency/assets/studio-board.svg 1.44 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/pages/agency/assets/northline.svg 1.42 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/pages/agency/assets/field-notes.svg 1.24 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 979 ms
+Done in 1.67s.

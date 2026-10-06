@@ -1,0 +1,65 @@
+- const product = products.find((record) => record.pageId === pageId)
+- if (!product) throw new Error(`Product page ${pageId} has no matching catalog record.`)
+.storefront.storefront--product-page
+  section.store-utility(aria-label="Store announcements")
+    .store-shell.store-utility__inner
+      p Complimentary shipping over $150
+      a(href=route('commerce.catalog')) Explore the full collection
+
+  section.store-detail-shell(data-product-id=product.id)
+    nav.store-detail__breadcrumb(aria-label="Breadcrumb")
+      a(href=route('legacy.commerce')) Storefront
+      span(aria-hidden="true") /
+      span= product.category
+      span(aria-hidden="true") /
+      span(aria-current="page")= product.name
+
+    article.store-detail
+      .store-detail__visual
+        .store-product__art(class=`store-product__art--${product.art}`, style=`--product-tone: ${product.tone}; --product-shadow: ${product.shadow};`, aria-hidden="true")
+          span.store-product__art-shadow
+          span.store-product__art-object
+        if product.isNew
+          span.store-product__label.store-detail__badge New in the collection
+        else if product.stock === 'limited'
+          span.store-product__label.store-product__label--quiet.store-detail__badge Limited availability
+
+      .store-detail__content
+        p.store-eyebrow= product.category
+        h1= product.name
+        p.store-detail__description= product.description
+        p.store-product__rating(aria-label=`Rated ${product.rating} out of 5 from ${product.reviews} reviews`)
+          span(aria-hidden="true") ★
+          |  #{product.rating} · #{product.reviews} reviews
+
+        .store-detail__price
+          strong= formatPrice(product.priceMinor, product.currency)
+          if product.compareAtPriceMinor
+            s= formatPrice(product.compareAtPriceMinor, product.currency)
+        p.store-detail__availability= product.stock === 'limited' ? 'A small number are available in this demo catalog.' : 'Listed as ready to dispatch in this demo catalog.'
+
+        form.store-detail__purchase(data-detail-form)
+          .store-quantity-control
+            label(for="detail-quantity") Quantity
+            .store-stepper
+              button(type="button", data-detail-quantity="-1", aria-label="Decrease quantity") −
+              input#detail-quantity(type="number", value="1", min="1", max="10", inputmode="numeric", required)
+              button(type="button", data-detail-quantity="1", aria-label="Increase quantity") +
+          button.store-button.store-button--ink.store-button--wide(type="submit", data-detail-add) Add to bag
+        p.store-detail__status#product-add-status(role="status", aria-live="polite")
+        p.store-detail__demo-note This is a storefront demo. Adding to the bag saves this selection in this browser; no order or payment is submitted.
+
+        dl.store-detail__facts
+          div
+            dt Category
+            dd= product.category
+          div
+            dt Color
+            dd= product.color
+          div
+            dt Availability
+            dd= product.stock === 'limited' ? 'Limited' : 'Ready'
+
+    nav.store-detail__next(aria-label="More catalog navigation")
+      a.store-text-link(href=route('legacy.commerce')) ← Back to the collection
+      a.store-text-link(href=route('commerce.catalog')) Browse page two →

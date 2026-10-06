@@ -1,0 +1,34 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ webpack build --mode production
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+assets by path assets/ 144 KiB
+  assets by info 64.9 KiB [immutable] 7 assets
+  assets by path assets/css/pages/*.css 79.3 KiB
+    assets by chunk 48.8 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 2 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15.3 KiB
+  asset index.html 13.6 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 9 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 283 KiB
+  modules by path ./.generated/pages/*.pug 179 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 5.91 KiB [built] [code generated]
+    + 19 modules
+  modules by path ./src/ 102 KiB 8 modules
+  ./build/pages/404.pug 2.5 KiB [built] [code generated]
+asset modules 55.7 KiB (asset) 168 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 4.46 KiB (asset) 84 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/images/compass.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1538 ms
+Done in 2.68s.

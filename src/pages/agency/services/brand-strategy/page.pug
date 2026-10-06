@@ -1,0 +1,49 @@
+.agency.agency-service-detail
+  include @blocks/agency/cta/cta.pug
+  include ../../_agency-navigation.pug
+  .agency-shell.agency-section--tight
+    nav.agency-breadcrumbs(aria-label="Breadcrumb")
+      a(href=route("agency.home")) Home
+      span(aria-hidden="true") /
+      a(href=route("agency.services")) Services
+      span(aria-hidden="true") /
+      span(aria-current="page") Brand strategy
+    .agency-split
+      div
+        p.agency-eyebrow Find the signal
+        h1 A clear story gives good work somewhere to go.
+        p.agency-lead We help you understand what makes your organization matter, then build a practical foundation for the choices ahead.
+        .agency-actions
+          a.agency-button(href=route("agency.contact")) Let’s talk about strategy #[span.agency-arrow(aria-hidden="true") →]
+          a.agency-button.agency-button--outline(href=route("agency.project.northline")) See it in action
+      figure.agency-art
+        img(src=require("@pages/agency/assets/northline.svg"), alt="Northline House identity exploration with architectural forms and stationery", width="1200", height="900")
+  section.agency-section.agency-band(aria-labelledby="strategy-outcomes")
+    .agency-shell
+      p.agency-eyebrow What you leave with
+      h2#strategy-outcomes A foundation that helps the whole team move with confidence.
+      ul.agency-deliverables
+        li A shared understanding of your audience and context
+        li Clear positioning, purpose and a practical brand story
+        li An identity direction and flexible visual system
+        li Guidance for putting the work into everyday practice
+  section.agency-section(aria-labelledby="strategy-steps")
+    .agency-shell
+      .agency-heading-row
+        div
+          p.agency-eyebrow How we work
+          h2#strategy-steps A thoughtful process, built around your team.
+        p Each engagement is shaped to fit the question. These are the three things every good collaboration has in common.
+      .agency-process
+        article
+          h3 Listen deeply
+          p We make space for interviews, research and the details that reveal where the opportunity really sits.
+        article
+          h3 Make choices
+          p We turn the learning into a clear direction, test it together and make the reasoning easy to share.
+        article
+          h3 Put it to work
+          p We translate the direction into useful tools your people can carry into the next project.
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "A real example", title: "See how a clear point of view shaped Northline House.", action: "View the project", href: route("agency.project.northline") })
+  include ../../_agency-footer.pug

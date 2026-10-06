@@ -1,0 +1,18 @@
+{
+  "id": "agency.project.northline",
+  "route": "/projects/northline/",
+  "demoId": "agency",
+  "translationKey": "agency.project.northline",
+  "starter": true,
+  "source": "src/pages/agency/projects/northline/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Northline House — Fieldwork Studio case study",
+  "description": "How Fieldwork shaped a welcoming place brand for Northline House.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

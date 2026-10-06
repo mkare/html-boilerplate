@@ -1,0 +1,7 @@
+# Shared CSS compatibility targets for Autoprefixer and Browserslist tooling.
+# This project does not transpile JavaScript or add polyfills.
+> 0.2%
+last 2 versions
+Firefox ESR
+not dead
+not op_mini all

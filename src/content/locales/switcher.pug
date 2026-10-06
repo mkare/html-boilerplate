@@ -1,0 +1,8 @@
+- const localeLabels = { en: "English", tr: "Türkçe" }
+- const labelForLocale = (value) => localeLabels[String(value || "").split("-")[0].toLowerCase()] || value
+- const switcherAlternates = Array.isArray(hreflangAlternates) ? hreflangAlternates : []
+if switcherAlternates.length
+  .locale-switcher(role="group", aria-label="Language")
+    span.locale-switcher__current(aria-current="true", lang=locale)= labelForLocale(locale)
+    each alternate in switcherAlternates
+      a.locale-switcher__link(href=alternate.href, hreflang=alternate.locale, lang=alternate.locale)= labelForLocale(alternate.locale)

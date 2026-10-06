@@ -1,0 +1,5 @@
+mixin dashboardIcon(name)
+  - const props = assertProps('block-dashboard-icon', { name }, { type: 'object', required: ['name'], properties: { name: { type: 'string', enum: ['grid', 'chart', 'folder', 'users', 'invoice', 'gear', 'search', 'bell', 'sparkles', 'arrow', 'dots', 'close', 'menu', 'plus'] } }, additionalProperties: false })
+  - const iconSprite = require('@images/ui-icons.svg')
+  svg.dashboard-icon(aria-hidden="true", viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.8", stroke-linecap="round", stroke-linejoin="round", focusable="false")
+    use(href=iconSprite + '#dashboard-' + props.name)

@@ -1,0 +1,17 @@
+- const catalogPage = 2
+- const pageProducts = products.slice(pageSize, pageSize * 2)
+.storefront.storefront--catalog-page
+  section.store-utility(aria-label="Store announcements")
+    .store-shell.store-utility__inner
+      p Complimentary shipping over $150
+      a(href="#catalog") Continue exploring
+  header.store-subhero
+    .store-shell
+      p.store-eyebrow The collection / Page 02
+      h1 More pieces to explore.
+      p.store-hero__lead The rest of the collection, with the same filters and bag carried between pages.
+      a.store-text-link(href=route('legacy.commerce'))
+        span(aria-hidden="true") ←
+        |  Back to the collection
+  include ../../../views/commerce/_catalog.pug
+include ../../../views/commerce/_catalog-dialogs.pug

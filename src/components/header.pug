@@ -1,16 +1,24 @@
--
-  const navLinks = [
-    { href: '/', text: 'Home' },
-    { href: '/markdown', text: 'Markdown' },
-    { href: '/about', text: 'About' },
-  ]
+- var primaryNavItems = Array.isArray(mainNavigation) ? mainNavigation : []
+- var currentLayout = typeof layout === "string" ? layout : "site"
+- var homeRoutePageId = typeof homePageId === "string" && homePageId ? homePageId : "legacy.home"
+- var packageBrand = typeof demoBrand === "string" && demoBrand ? demoBrand : "Interface Kit"
+- var packageLogo = typeof brandLogoSrc === "string" && brandLogoSrc ? brandLogoSrc : require('@images/compass.svg')
+- var showPrimaryNavigation = !["auth", "dashboard"].includes(currentLayout)
 
-header.header#header.pb-3
+header.header(data-component="site-header", data-shell-variant=currentLayout)
   .container
-    nav
-      a.logo.align-self-center.p-4(href='#')
-        img(src=require('@images/compass.svg'), alt='Logo', class='img-fluid')
-      ul.d-flex.justify-content-center.list-unstyled.my-0
-        each val in navLinks
-          li.nav-item(class=val === navLinks[navLinks.length - 1] ? 'nav-item' : 'nav-item mr-3')
-            a.nav-link(href=val.href)= val.text
+    nav.navbar(aria-label="Primary navigation")
+      a.logo(href=route(homeRoutePageId), aria-label="Home")
+        img(src=packageLogo, alt='', width='48', height='48')
+        span.logo__name= packageBrand
+      if showPrimaryNavigation && primaryNavItems.length
+        button.nav-toggle(type='button', aria-controls='primary-navigation', aria-expanded='false')
+          span.sr-only Menu
+          span.nav-toggle__icon(aria-hidden='true') ☰
+        ul#primary-navigation.nav-list.list-unstyled.my-0
+          each val in primaryNavItems
+            li.nav-item
+              a.nav-link(href=route(val.pageId), aria-current=val.pageId === pageId ? "page" : undefined)= val.label
+      include @content/locales/switcher.pug
+      button.theme-toggle(type='button', aria-label="Use dark theme", aria-pressed='false', title="Change theme")
+        span.theme-icon(aria-hidden='true') ◐

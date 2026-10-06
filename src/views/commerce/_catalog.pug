@@ -1,0 +1,34 @@
+include @blocks/commerce/catalog-filter/catalog-filter.pug
+include @blocks/commerce/product-card/product-card.pug
+include _pagination.pug
+
+section.store-catalog#catalog(aria-labelledby="catalog-title")
+  .store-shell
+    .store-catalog__header
+      .store-catalog__header-copy
+        p.store-eyebrow The collection
+        h2#catalog-title= catalogPage === 1 ? 'Pieces with a point of view.' : 'More pieces to explore.'
+      button.store-cart-trigger(type="button", data-open-cart, aria-haspopup="dialog", aria-controls="store-cart")
+        span.store-cart-trigger__icon(aria-hidden="true")
+          svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+            path(d="M3.5 5.5h2l1.35 10.06a2 2 0 0 0 1.98 1.74h7.5a2 2 0 0 0 1.94-1.5l1.25-5.04H6.2")
+            circle(cx="9.4" cy="20" r="1")
+            circle(cx="17.1" cy="20" r="1")
+        span Your bag
+        span.store-cart-trigger__count(data-cart-count aria-label="0 items") 0
+
+    +commerceCatalogFilter({ categories, colors })
+      .store-products-region
+        .store-results-bar
+          p#store-results-count(role="status", aria-live="polite")= `${pageProducts.length} pieces on this page`
+          button.store-active-filters(type="button", data-reset-filters, hidden) Clear filters
+        p.store-filter-scope Filters and search apply to the products on this page. Browse another catalog page for more.
+        .store-product-grid#store-product-grid
+          each product in pageProducts
+            +commerceProductCard({ product, detailHref: route(product.pageId), price: formatPrice(product.priceMinor, product.currency), compareAtPrice: product.compareAtPriceMinor ? formatPrice(product.compareAtPriceMinor, product.currency) : '' })
+        .store-empty-state#store-empty-state(hidden)
+          .store-empty-state__symbol(aria-hidden="true") ⌁
+          h3 Nothing caught the net.
+          p Try widening your filters, or browse the entire collection.
+          button.store-button.store-button--soft(type="button", data-reset-filters) Reset filters
+        +commercePagination(catalogPage)

@@ -1,0 +1,112 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ yarn lint && yarn format:check && yarn check:source-quality-fixtures && yarn check:assets && yarn check:architecture && yarn check:ui-primitives && yarn check:route-inventory && yarn check:manifest-wrapper && yarn check:runtime-sharing && yarn check:budget-report && yarn check:collections && yarn check:autoprefixer && yarn check:commerce && yarn check:profile-contracts && yarn check:locales && yarn check:block-composition && yarn check:watch && yarn check:overrides && yarn build && yarn check:dist && yarn check:reproducible && yarn check:fonts && yarn check:accessibility && yarn check:profile && yarn check:phase2 && yarn check:button-attributes && yarn check:catalog-source-parity && yarn check:release
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ yarn lint:js && yarn lint:styles && yarn lint:pug && yarn lint:bootstrap-classes && yarn lint:markdown
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ eslint webpack.config.js eslint.config.mjs stylelint.config.mjs src build config scripts qa
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ stylelint "src/**/*.scss"
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ pug-lint src
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ yarn check:bootstrap-classes
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-bootstrap-classes.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Bootstrap class check passed: 96 Pug templates; retained surface and negative fixture verified.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ markdownlint-cli2
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+markdownlint-cli2 v0.23.3 (markdownlint v0.41.1)
+Finding: README.md docs/**/*.md !docs/reviews/** src/**/*.docs.md
+Linting: 79 files
+Summary: 0 issues in 0 files
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ prettier --check --plugin @prettier/plugin-pug package.json eslint.config.mjs stylelint.config.mjs .pug-lintrc.json .markdownlint-cli2.jsonc .prettierrc.json scripts/source-quality/*.cjs docs/guides/source-quality.md src/content/locales/hreflang.pug
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Checking formatting...
+All matched files use Prettier code style!
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node scripts/source-quality/check-fixtures.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Source-quality fixtures passed: ESLint, Stylelint, Pug lint, Markdown lint and check-only Prettier detect disposable failures; the format check preserved its input.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node --test qa/assets/*.test.mjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+TAP version 13
+# Subtest: Webpack emits responsive variants and page data uses the configured root/subpath asset base
+ok 1 - Webpack emits responsive variants and page data uses the configured root/subpath asset base
+  ---
+  duration_ms: 536.654834
+  type: 'test'
+  ...
+# Subtest: generates owner-qualified, content-hashed AVIF/WebP/fallback candidates deterministically
+ok 2 - generates owner-qualified, content-hashed AVIF/WebP/fallback candidates deterministically
+  ---
+  duration_ms: 68.362
+  type: 'test'
+  ...
+# Subtest: validates entry shape, paths, IDs, formats, fallback, and dimensions
+ok 3 - validates entry shape, paths, IDs, formats, fallback, and dimensions
+  ---
+  duration_ms: 3.740208
+  type: 'test'
+  ...
+# Subtest: rejects malformed, non-raster, mismatched, and animated sources with entry IDs
+ok 4 - rejects malformed, non-raster, mismatched, and animated sources with entry IDs
+  ---
+  duration_ms: 3.462167
+  type: 'test'
+  ...
+# Subtest: Pug mixin renders picture sources, responsive fallback, intrinsic size, alt, and priority policy
+ok 5 - Pug mixin renders picture sources, responsive fallback, intrinsic size, alt, and priority policy
+  ---
+  duration_ms: 53.913083
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 649.4885
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-architecture.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+architecture source boundaries passed: 144 source files checked.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/ui/check-shared-primitives.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+shared UI primitive markup and prop acceptance passed.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/phase-0/check-route-inventory.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Route inventory is stale. Run `node qa/phase-0/check-route-inventory.cjs --write` and review the diff.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

@@ -1,0 +1,7 @@
+section.maintenance-page(aria-labelledby="maintenanceTitle")
+  .maintenance-page__content
+    p.maintenance-page__eyebrow Scheduled maintenance
+    h1#maintenanceTitle We’ll be back shortly.
+    p.maintenance-page__message This site is temporarily unavailable while we complete a few updates. Please try again soon.
+    - const maintenanceHomeId = selectedDemoId === "agency" ? "agency.home" : "saas.home"
+    a.maintenance-page__home(href=route(maintenanceHomeId)) Return to the homepage

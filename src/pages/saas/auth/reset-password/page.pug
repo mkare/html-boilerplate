@@ -1,0 +1,37 @@
+include @ui/atoms/button/button.pug
+include @ui/atoms/link/link.pug
+include @ui/molecules/field/field.pug
+
+section.auth-page.auth-page--login(aria-labelledby="saas-reset-title")
+  .container.auth-page__shell
+    aside.auth-showcase(aria-labelledby="reset-showcase-title")
+      .auth-showcase__top
+        a.auth-showcase__brand(href=route('saas.home'))
+          span.auth-showcase__brand-mark(aria-hidden="true") ◒
+          span Orbit
+      .auth-showcase__content
+        p.auth-eyebrow Account access
+        h2#reset-showcase-title A clear path back to your work.
+        p.auth-showcase__copy In a connected service, a recovery link would help you return to your workspace securely.
+        ul.auth-showcase__points
+          li Your existing workspace stays in place
+          li Recovery links should expire promptly
+          li Support should never ask for your password
+      .auth-showcase__footer
+        blockquote.auth-showcase__quote This sample keeps every account action offline.
+    .auth-card-wrap
+      .auth-card
+        p.auth-eyebrow Password help
+        h1#saas-reset-title= saas.auth.resetTitle
+        p.auth-card__lead Enter the work email associated with the workspace to review this screen.
+        form#orbit-password-reset.auth-form(aria-describedby="orbit-reset-note")
+          p#orbit-reset-note.auth-demo-note= saas.auth.notice
+          fieldset.auth-form__fields(disabled)
+            legend.auth-form__legend Recovery details
+            .auth-field
+              +uiField({ id: "orbit-reset-email", name: "email", label: "Work email address", type: "email", autocomplete: "email", placeholder: "you@company.com" })
+            +uiButton({ label: "Continue", variant: "primary", type: "submit" }).auth-submit
+        p.auth-card__footer
+          | Remembered your password? 
+          span.auth-inline-link
+            +uiLink({ href: route("saas.auth.sign-in"), label: "Return to sign in" })

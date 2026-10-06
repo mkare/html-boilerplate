@@ -1,0 +1,33 @@
+mixin commerceQuickView(options = {})
+  - const props = assertProps('block-commerce-quick-view', options, { type: 'object', properties: { art: { type: 'string', minLength: 1 }, tone: { type: 'string', minLength: 1 }, shadow: { type: 'string', minLength: 1 }, category: { type: 'string', minLength: 1 }, title: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 }, rating: { type: 'string', minLength: 1 }, reviews: { type: 'string', minLength: 1 }, price: { type: 'string', minLength: 1 }, compareAtPrice: { type: 'string' }, availability: { type: 'string', minLength: 1 }, quantityLabel: { type: 'string', minLength: 1 }, quantityGroupLabel: { type: 'string', minLength: 1 }, closeLabel: { type: 'string', minLength: 1 }, addLabel: { type: 'string', minLength: 1 }, note: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  - const view = { art: 'lamp', tone: '#c7d2fe', shadow: '#6366f1', category: 'Living', title: 'Orion table lamp', description: 'A dimmable glow with a warm, focused pool of light.', rating: '4.8', reviews: '(16 reviews)', price: '$128', compareAtPrice: '$156', availability: 'Ready to dispatch today', quantityLabel: 'Quantity', quantityGroupLabel: 'Choose quantity', closeLabel: 'Close product quick view', addLabel: 'Add to bag · $128', note: 'Orders leave our studio in 1–2 working days. Free returns within 30 days.', ...props }
+  - if (!/^[a-z0-9-]+$/.test(view.art) || !/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(view.tone) || !/^#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(view.shadow)) throw new Error('block-commerce-quick-view art must be a CSS-safe token and tone/shadow must be valid hex colors')
+  dialog.store-quick-view#quick-view-dialog(aria-labelledby="quick-view-title")
+    .store-quick-view__media
+      .store-product__art(class=`store-product__art--${view.art}`, id="quick-view-art", style=`--product-tone: ${view.tone}; --product-shadow: ${view.shadow};`, aria-hidden="true")
+        span.store-product__art-shadow
+        span.store-product__art-object
+    .store-quick-view__content
+      form.store-dialog-close(method="dialog")
+        button(type="submit", aria-label=props.closeLabel || view.closeLabel)
+          svg(viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true")
+            path(d="m6 6 12 12M18 6 6 18")
+      p.store-card-kicker#quick-view-category= view.category
+      h2#quick-view-title= view.title
+      p.store-quick-view__description#quick-view-description= view.description
+      .store-quick-view__rating
+        span(aria-hidden="true") ★
+        span#quick-view-rating= view.rating
+        span#quick-view-reviews= view.reviews
+      .store-quick-view__price
+        strong#quick-view-price= view.price
+        s#quick-view-compare(hidden=!view.compareAtPrice)= view.compareAtPrice
+      p.store-quick-view__availability#quick-view-availability= view.availability
+      .store-quantity-control(role="group", aria-label=view.quantityGroupLabel)
+        span= view.quantityLabel
+        .store-stepper
+          button(type="button", data-quick-view-adjust="-1", aria-label="Decrease quantity") −
+          input#quick-view-quantity(type="number", value="1", min="1", max="10", inputmode="numeric", aria-label="Quantity")
+          button(type="button", data-quick-view-adjust="1", aria-label="Increase quantity") +
+      button.store-button.store-button--ink.store-button--wide#quick-view-add(type="button")= props.addLabel || view.addLabel
+      p.store-quick-view__note= view.note

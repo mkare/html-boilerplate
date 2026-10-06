@@ -1,0 +1,303 @@
+yarn run v1.22.22
+$ yarn lint && yarn format:check && yarn check:source-quality-fixtures && yarn check:assets && yarn check:architecture && yarn check:ui-primitives && yarn check:route-inventory && yarn check:manifest-wrapper && yarn check:runtime-sharing && yarn check:budget-report && yarn check:collections && yarn check:autoprefixer && yarn check:commerce && yarn check:profile-contracts && yarn check:locales && yarn check:block-composition && yarn check:watch && yarn check:overrides && yarn build && yarn check:dist && yarn check:reproducible && yarn check:fonts && yarn check:accessibility && yarn check:profile && yarn check:phase2 && yarn check:button-attributes && yarn check:catalog-source-parity && yarn check:release
+$ yarn lint:js && yarn lint:styles && yarn lint:pug && yarn lint:bootstrap-classes && yarn lint:markdown
+$ eslint webpack.config.js eslint.config.mjs stylelint.config.mjs src build config scripts qa
+$ stylelint "src/**/*.scss"
+$ pug-lint src
+$ yarn check:bootstrap-classes
+$ node qa/check-bootstrap-classes.cjs
+Bootstrap class check passed: 96 Pug templates; retained surface and negative fixture verified.
+$ markdownlint-cli2
+markdownlint-cli2 v0.23.3 (markdownlint v0.41.1)
+Finding: README.md docs/**/*.md !docs/reviews/** src/**/*.docs.md
+Linting: 79 files
+Summary: 0 issues in 0 files
+$ prettier --check --plugin @prettier/plugin-pug package.json eslint.config.mjs stylelint.config.mjs .pug-lintrc.json .markdownlint-cli2.jsonc .prettierrc.json scripts/source-quality/*.cjs docs/guides/source-quality.md src/content/locales/hreflang.pug
+Checking formatting...
+All matched files use Prettier code style!
+$ node scripts/source-quality/check-fixtures.cjs
+Source-quality fixtures passed: ESLint, Stylelint, Pug lint, Markdown lint and check-only Prettier detect disposable failures; the format check preserved its input.
+$ node --test qa/assets/*.test.mjs
+TAP version 13
+# Subtest: Webpack emits responsive variants and page data uses the configured root/subpath asset base
+ok 1 - Webpack emits responsive variants and page data uses the configured root/subpath asset base
+  ---
+  duration_ms: 491.92475
+  type: 'test'
+  ...
+# Subtest: generates owner-qualified, content-hashed AVIF/WebP/fallback candidates deterministically
+ok 2 - generates owner-qualified, content-hashed AVIF/WebP/fallback candidates deterministically
+  ---
+  duration_ms: 63.063333
+  type: 'test'
+  ...
+# Subtest: validates entry shape, paths, IDs, formats, fallback, and dimensions
+ok 3 - validates entry shape, paths, IDs, formats, fallback, and dimensions
+  ---
+  duration_ms: 3.392791
+  type: 'test'
+  ...
+# Subtest: rejects malformed, non-raster, mismatched, and animated sources with entry IDs
+ok 4 - rejects malformed, non-raster, mismatched, and animated sources with entry IDs
+  ---
+  duration_ms: 3.13775
+  type: 'test'
+  ...
+# Subtest: Pug mixin renders picture sources, responsive fallback, intrinsic size, alt, and priority policy
+ok 5 - Pug mixin renders picture sources, responsive fallback, intrinsic size, alt, and priority policy
+  ---
+  duration_ms: 50.052291
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 588.894542
+$ node qa/check-architecture.cjs
+architecture source boundaries passed: 144 source files checked.
+$ node qa/ui/check-shared-primitives.cjs
+shared UI primitive markup and prop acceptance passed.
+$ node qa/phase-0/check-route-inventory.cjs
+Route inventory passed: 52 manifest routes; buildNow 2026-10-03T12:00:00.000Z; catalog-preview.
+$ node qa/phase-1/check-manifest-wrapper.cjs
+Phase 1 manifest/wrapper contracts passed: 52 catalog pages (40 generated wrappers), schema recursion/source existence/case-insensitive output collisions, data precedence, legacy dashboard compatibility.
+$ node qa/phase-1/check-runtime-sharing.cjs
+Two-entry runtime sharing passed: runtime.js loads once per entry; shared module evaluates/mounts once; both entries execute.
+$ node qa/release/test-measure-budgets.cjs
+Release budget reporting fixtures passed: cross-page asset reuse, unused CSS/JS rejection, byte-identical files, and per-page baseline deltas are reported.
+$ node qa/check-collections.cjs
+collection acceptance passed: 0/1/N/N+1 pagination, publication filtering, Turkish slugs, collision and date checks.
+$ node qa/check-autoprefixer.cjs
+Autoprefixer acceptance passed: 5 shared queries resolve 53 browser targets; Webpack uses the same implicit .browserslistrc.
+$ node --test qa/commerce/*.test.mjs
+TAP version 13
+# Subtest: migrates atelier-store-cart-v1 into the versioned cart key
+ok 1 - migrates atelier-store-cart-v1 into the versioned cart key
+  ---
+  duration_ms: 0.941708
+  type: 'test'
+  ...
+# Subtest: keeps unknown catalog IDs when loading, adding, and reloading a cart
+ok 2 - keeps unknown catalog IDs when loading, adding, and reloading a cart
+  ---
+  duration_ms: 0.205875
+  type: 'test'
+  ...
+# Subtest: reports denied storage reads and keeps later cart changes in memory
+ok 3 - reports denied storage reads and keeps later cart changes in memory
+  ---
+  duration_ms: 0.085417
+  type: 'test'
+  ...
+# Subtest: reports denied storage writes and keeps cart changes in memory
+ok 4 - reports denied storage writes and keeps cart changes in memory
+  ---
+  duration_ms: 0.069875
+  type: 'test'
+  ...
+# Subtest: catalog lookup failure does not clear saved or unknown cart lines
+ok 5 - catalog lookup failure does not clear saved or unknown cart lines
+  ---
+  duration_ms: 0.3045
+  type: 'test'
+  ...
+# Subtest: detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+ok 6 - detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+  ---
+  duration_ms: 1.174833
+  type: 'test'
+  ...
+# Subtest: detail submit clamps the submitted value before adding it
+ok 7 - detail submit clamps the submitted value before adding it
+  ---
+  duration_ms: 0.166792
+  type: 'test'
+  ...
+# Subtest: missing catalog product disables add and reports that it is unavailable
+ok 8 - missing catalog product disables add and reports that it is unavailable
+  ---
+  duration_ms: 0.119583
+  type: 'test'
+  ...
+# Subtest: a rejected cart add reports the inline retry message
+ok 9 - a rejected cart add reports the inline retry message
+  ---
+  duration_ms: 0.082833
+  type: 'test'
+  ...
+# Subtest: storage denial keeps the add in memory and explains the visit-only bag
+ok 10 - storage denial keeps the add in memory and explains the visit-only bag
+  ---
+  duration_ms: 0.1855
+  type: 'test'
+  ...
+# Subtest: filter URL state restores on history back and forward
+ok 11 - filter URL state restores on history back and forward
+  ---
+  duration_ms: 13.544125
+  type: 'test'
+  ...
+# Subtest: filter URL state restores after a page reload
+ok 12 - filter URL state restores after a page reload
+  ---
+  duration_ms: 1.074833
+  type: 'test'
+  ...
+# Subtest: cart persists across catalog route navigation and a page reload
+ok 13 - cart persists across catalog route navigation and a page reload
+  ---
+  duration_ms: 1.742333
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 65.943167
+$ node qa/phase-5/check-contracts.cjs
+Phase 5 manifest contracts passed: preview 52 pages, SaaS customer 22, starter 11; invalid locale, normalized IDs/outputs, missing translation target, selected-home, and route-mount assertions verified.
+$ node qa/phase-5/check-locales.cjs
+Locale contracts passed: default locale config, demo mount, customer root/subpath, reciprocal hreflang, visible switcher fixture, and no synthetic translations.
+$ node qa/phase-5/check-block-composition.cjs
+Phase 5 block composition passed: Agency CTAs, marketing hero/stats, shared marketing/SaaS testimonials, and Dashboard data blocks are present.
+$ node qa/phase-1/check-watch.cjs
+Manifest watcher acceptance passed: add, nested CJS data edit/reload, route rename, invalid JSON retention, repair, remove, and synchronized primary navigation.
+$ node qa/overrides/check-project-overrides.cjs
+Project override QA passed: defaults, brand/logo containment, semantic tokens, compiled custom Sass, route-backed navigation, page discovery, malformed fallback, repair refresh, and isolated production integration.
+$ webpack build --mode production
+assets by path assets/ 156 KiB
+  assets by info 70.6 KiB [immutable] 8 assets
+  assets by path assets/css/pages/*.css 85.1 KiB
+    assets by chunk 52.4 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 3 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15 KiB
+  asset index.html 13.3 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 10 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 293 KiB
+  modules by path ./.generated/pages/*.pug 183 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 6.17 KiB [built] [code generated]
+    + 20 modules
+  modules by path ./src/ 108 KiB 9 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 61.5 KiB (asset) 210 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 10.2 KiB (asset) 126 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    + 2 modules
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1641 ms
+$ node qa/check-dist.cjs
+check:dist passed: 22 HTML files, 38 output files, basePath /.
+$ node qa/check-reproducible.cjs
+$ webpack build --mode production
+assets by path assets/ 156 KiB
+  assets by info 70.6 KiB [immutable] 8 assets
+  assets by path assets/css/pages/*.css 85.1 KiB
+    assets by chunk 52.4 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 3 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15 KiB
+  asset index.html 13.3 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 10 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 293 KiB
+  modules by path ./.generated/pages/*.pug 183 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 6.17 KiB [built] [code generated]
+    + 20 modules
+  modules by path ./src/ 108 KiB 9 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 61.5 KiB (asset) 210 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 10.2 KiB (asset) 126 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    + 2 modules
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1601 ms
+$ webpack build --mode production
+assets by path assets/ 156 KiB
+  assets by info 70.6 KiB [immutable] 8 assets
+  assets by path assets/css/pages/*.css 85.1 KiB
+    assets by chunk 52.4 KiB (name: __bundler-plugin-entry__saas.auth.create-account) 4 assets
+    + 3 assets
+assets by path blog/ 87.8 KiB
+  assets by path blog/category/ 36.5 KiB 5 assets
+  + 6 assets
+assets by path *.html 15 KiB
+  asset index.html 13.3 KiB [emitted] [minimized] (name: __bundler-plugin-entry__saas.home)
+  asset 404.html 1.65 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
++ 10 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+javascript modules 293 KiB
+  modules by path ./.generated/pages/*.pug 183 KiB
+    ./.generated/pages/saas-auth-create-account-fada353a.pug 6.17 KiB [built] [code generated]
+    + 20 modules
+  modules by path ./src/ 108 KiB 9 modules
+  ./build/pages/404.pug 2.51 KiB [built] [code generated]
+asset modules 61.5 KiB (asset) 210 bytes (javascript)
+  modules by path ./src/assets/images/*.svg 10.2 KiB (asset) 126 bytes (javascript)
+    ./src/assets/images/favicon.svg 2.23 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    + 2 modules
+  modules by path ./src/assets/fonts/*.woff2 51.3 KiB (asset) 84 bytes (javascript)
+    ./src/assets/fonts/Inter-Latin.woff2 47.1 KiB (asset) 42 bytes (javascript) [built] [code generated]
+    ./src/assets/fonts/Inter-Latin-Ext.woff2 4.16 KiB (asset) 42 bytes (javascript) [built] [code generated]
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1577 ms
+reproducible build passed: 38 files, SHA-256 3caa8d96c5d9111bde45f5a1a182175450ac5da04a05708ee8968988b4eda454, BUILD_NOW 2026-10-03T12:00:00.000Z.
+$ node qa/check-font-assets.cjs
+Font assets passed: 52516 bytes source WOFF2; OFL and local subset CSS verified; hashed distribution files verified.
+$ node qa/accessibility/check-markup.cjs
+Accessibility markup checks passed for 22 pages: lang, landmark, skip link, heading order, image alternatives, control names/labels, and ARIA references. This is a static subset of WCAG checks, not a full conformance claim.
+$ node qa/phase-5/check-profile.cjs
+Phase 5 profile check passed: customer-production, demo saas, basePath /; 22 HTML routes (20 package pages), selected home /; maintenance profile/build contract, internal package links and metadata verified.
+$ node qa/phase-2/check-shell.cjs
+Phase 2 shell full checks passed: CSS ownership, external font policy, manifest-fed navigation, storage denial, system theme updates, multiple shell instances, Escape/focus, sticky cleanup, tabs/dialog/toast keyboard and lifecycle, auth fallback, and dist shell links.
+$ node qa/phase-3/check-button-attributes.cjs
+Button attribute precedence passed: class merge, forwarded type/disabled/aria-label precedence, and option defaults.
+$ node qa/phase-3/check-catalog-source-parity.cjs
+Catalog source parity contract passed for quick-start, layout, buttons, tabs, forms, and content; SaaS auth fields/actions/links also consume the documented shared UI APIs without changing form semantics.
+$ node qa/release/check-release.cjs
+Release acceptance step: qa/release/test-preview-http.cjs
+HTTP preview fixtures passed: extracted root/subpath routes and CSS/JS/font/raster/SVG sprite requests served exact bytes; the actual preview server redirected /about to /about/ and served the resulting page at root and /preview/theme/, with unknown routes returning the 404 document and no SPA fallback.
+Release acceptance step: qa/release/test-scaffolds.cjs
+Release acceptance step: qa/release/test-release-cli.cjs
+Release acceptance step: qa/release/rehearse-upgrade.cjs
+Release acceptance step: scripts/package-release.cjs
+check-release: Error: scripts/package-release.cjs exited 1.
+
+package-release: Release source script qa:visual-acceptance references a missing file: qa/framework-status-2026-10-06/browser-verified/visual-acceptance.mjs
+
+    at run (/Users/solvia/Documents/cowork/html-boilerplate/qa/release/check-release.cjs:20:34)
+    at main (/Users/solvia/Documents/cowork/html-boilerplate/qa/release/check-release.cjs:49:5)
+    at Object.<anonymous> (/Users/solvia/Documents/cowork/html-boilerplate/qa/release/check-release.cjs:84:3)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+    at node:internal/main/run_main_module:36:49
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

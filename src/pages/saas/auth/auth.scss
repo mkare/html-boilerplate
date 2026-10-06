@@ -1,0 +1,63 @@
+@use "@ui/atoms/button/button";
+@use "@ui/atoms/link/link";
+@use "@ui/molecules/field/field";
+@use "../../../views/auth/auth-shared";
+
+.auth-page .auth-field > .ui-field {
+  gap: 0.48rem;
+}
+
+.auth-page .auth-field__label-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  row-gap: 0.48rem;
+}
+
+.auth-page .auth-field__label-row > .ui-field {
+  display: contents;
+}
+
+.auth-page .auth-field__label-row > .ui-field > label {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.auth-page .auth-field__label-row > .ui-field > input {
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.auth-page .auth-field__label-row > .auth-inline-link {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.auth-page .auth-inline-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+.auth-page .auth-inline-link .ui-link {
+  gap: 0;
+  color: var(--color-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.auth-page .auth-inline-link .ui-link__arrow {
+  display: none;
+}
+
+.auth-page .auth-inline-link .ui-link:hover {
+  color: var(--color-accent);
+}
+
+.auth-page .auth-card__footer .auth-inline-link .ui-link {
+  font-size: inherit;
+}
+
+.auth-page .auth-submit:hover:not(:disabled) {
+  filter: none;
+}

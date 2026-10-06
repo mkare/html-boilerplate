@@ -1,0 +1,42 @@
+include @ui/atoms/button/button.pug
+include @ui/atoms/link/link.pug
+include @ui/molecules/field/field.pug
+
+section.auth-page.auth-page--login(aria-labelledby="saas-sign-in-title")
+  .container.auth-page__shell
+    aside.auth-showcase(aria-labelledby="sign-in-showcase-title")
+      .auth-showcase__top
+        a.auth-showcase__brand(href=route('saas.home'))
+          span.auth-showcase__brand-mark(aria-hidden="true") ◒
+          span Orbit
+      .auth-showcase__content
+        p.auth-eyebrow A calmer week starts here
+        h2#sign-in-showcase-title Find the context you need to move forward.
+        p.auth-showcase__copy Orbit keeps priorities, evidence, and team decisions in one thoughtful workspace.
+        ul.auth-showcase__points
+          li One shared view of the next product bet
+          li Research connected to the choices it informs
+          li Progress without another status ritual
+      .auth-showcase__footer
+        blockquote.auth-showcase__quote “A little more context makes the whole week feel lighter.”
+    .auth-card-wrap
+      .auth-card
+        p.auth-eyebrow Welcome back
+        h1#saas-sign-in-title= saas.auth.signInTitle
+        p.auth-card__lead Sign in to continue to your Orbit workspace.
+        form#orbit-sign-in.auth-form(aria-describedby="orbit-sign-in-note")
+          p#orbit-sign-in-note.auth-demo-note= saas.auth.notice
+          fieldset.auth-form__fields(disabled)
+            legend.auth-form__legend Sign-in details
+            .auth-field
+              +uiField({ id: "orbit-sign-in-email", name: "email", label: "Work email address", type: "email", autocomplete: "email", placeholder: "you@company.com" })
+            .auth-field
+              .auth-field__label-row
+                +uiField({ id: "orbit-sign-in-password", name: "password", label: "Password", type: "password", autocomplete: "current-password", placeholder: "Enter your password" })
+                span.auth-inline-link
+                  +uiLink({ href: route("saas.auth.reset-password"), label: "Forgot password?" })
+            +uiButton({ label: "Sign in", variant: "primary", type: "submit" }).auth-submit
+        p.auth-card__footer
+          | New to Orbit? 
+          span.auth-inline-link
+            +uiLink({ href: route("saas.auth.create-account"), label: "Create an account" })

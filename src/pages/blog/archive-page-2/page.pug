@@ -1,0 +1,23 @@
+- const currentPage = pageNumber || 1
+include ../_post-card.pug
+include ../_pagination.pug
+.blog-page
+  header.blog-subhero
+    p.blog-eyebrow= 'Journal / Page ' + String(currentPage).padStart(2, '0')
+    h1 More ideas for better digital products.
+    p.blog-hero__lede= description
+  section.blog-listing(aria-labelledby="blog-list-title")
+    .blog-section-heading
+      div
+        p.blog-eyebrow The journal
+        h2#blog-list-title Continued reading
+      a.blog-inline-link(href=route(archivePageRoutes['1'])) ← Newest articles
+    if pagePosts.length
+      .blog-card-grid
+        each post in pagePosts
+          +postCard(post)
+    else
+      .blog-empty
+        h2 There are no published articles on this page yet
+        p This page may be empty when the build date is earlier than the scheduled articles.
+    +blogPagination(currentPage, totalPages)

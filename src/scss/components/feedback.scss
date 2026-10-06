@@ -1,0 +1,8 @@
+.status-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.55rem; border-radius: 99rem; font-size: 0.72rem; font-weight: $font-weight-bold; }
+.status-badge--success { color: var(--color-positive); background: color-mix(in srgb, var(--color-positive) 13%, transparent); }
+.status-badge--warning { color: var(--color-warning); background: color-mix(in srgb, var(--color-warning) 13%, transparent); }
+.status-badge--danger { color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 13%, transparent); }
+.status-badge--neutral { color: var(--color-muted); background: var(--color-surface-subtle); }
+
+.toast-region { position: fixed; right: 1rem; bottom: 1rem; z-index: 100; display: grid; gap: 0.75rem; }
+.toast-message { padding: 0.85rem 1rem; color: $slate-50; background: $slate-900; border-radius: var(--radius-sm); box-shadow: var(--shadow-soft); }

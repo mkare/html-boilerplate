@@ -1,0 +1,13 @@
+mixin dashboardKpiCard(options = {})
+  - const props = assertProps('block-dashboard-kpi-card', options, { type: 'object', required: ['label', 'value', 'trend', 'comparison', 'trendDirection'], properties: { id: { type: 'string' }, label: { type: 'string', minLength: 1 }, value: { type: 'string', minLength: 1 }, badge: { type: 'string' }, badgeTone: { type: 'string', enum: ['up', 'neutral'] }, miniIcon: { type: 'string' }, trend: { type: 'string', minLength: 1 }, trendDirection: { type: 'string', enum: ['up', 'down'] }, comparison: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  article.dashboard-kpi(id=props.id)
+    .dashboard-kpi__top
+      p.dashboard-kpi__label= props.label
+      if props.badge
+        span.dashboard-kpi__badge(class=`dashboard-kpi__badge--${props.badgeTone || 'neutral'}`)= props.badge
+      else if props.miniIcon
+        span.dashboard-kpi__mini-icon(aria-hidden="true")= props.miniIcon
+    strong.dashboard-kpi__value= props.value
+    p.dashboard-kpi__meta
+      span.dashboard-kpi__trend(class=`dashboard-kpi__trend--${props.trendDirection}`)= props.trend
+      |  #{props.comparison}

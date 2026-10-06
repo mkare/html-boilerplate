@@ -1,0 +1,20 @@
+# Source quality checks
+
+Run `yarn lint` and `yarn format:check` before `yarn ci:build`. CI uses check-only commands; it never rewrites source files.
+
+## Tools and scope
+
+| Check             | Pinned tools                                               | Scope                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JavaScript        | ESLint 10.10.0, `@eslint/js` 10.0.1, `globals` 17.12.0     | Browser modules in `src/**/*.js`; Node scripts, build helpers, QA and Webpack config. The existing architecture check separately enforces import layers. Source lint also rejects `innerHTML` writes, `insertAdjacentHTML()` and `document.write()`.                                                                          |
+| SCSS              | Stylelint 17.15.0, `stylelint-config-standard-scss` 17.0.0 | `src/**/*.scss` using the SCSS parser. BEM/semantic-token naming and existing compact/legacy color formatting are preserved; standard correctness rules remain enabled. The `clip` declaration in screen-reader-only utilities is retained as a legacy fallback beside `clip-path`.                                           |
+| Pug               | `pug-lint` 2.7.0                                           | Pug templates under `src/`, including indentation, duplicate attributes, line endings and final newlines. Lower-case/tag and trailing-space checks are omitted because SVG preserves case-sensitive names and inline Pug text can require a trailing space before the next inline element.                                    |
+| Bootstrap classes | Project checker via `yarn check:bootstrap-classes`         | Parsed Pug class attributes are checked against the Bootstrap modules retained by ADR-002. Unapproved recognized utilities/helpers fail with file, line, and class details. Project-owned lookalike component classes and runtime-computed values are outside the static check; see [style ownership](../style-ownership.md). |
+| Markdown          | `markdownlint-cli2` 0.23.3                                 | `README.md`, first-party `docs/**/*.md`, and source-owned `src/**/*.docs.md` component guides. Archived review material under `docs/reviews/` is excluded. Long lines and inline HTML are allowed for prose, tables, links and examples; fragment links are checked.                                                          |
+| Formatting        | Prettier 3.9.9 and `@prettier/plugin-pug` 3.4.2            | Package/tooling configuration, this guide, the locale hreflang Pug fragment and files under `scripts/source-quality/`. This bounded scope avoids reformatting the inherited application tree; expand it as source areas are standardized.                                                                                     |
+
+Exact versions live in `package.json` and `yarn.lock`. ESLint and Stylelint require Node 20.19 or newer; this project pins Node 22.23.2. The commands above do not include generated output, dependencies, release archives or historical review artifacts. `yarn check:source-quality-fixtures` confirms that each check rejects a disposable defect and that Prettier check mode leaves its fixture byte-identical.
+
+## Updating source
+
+Fix real lint findings in the smallest owned source area. Do not add broad ignores to silence a failing check or run Prettier with `--write` across the repository. When formatting additional existing sources, review their diff independently and add their paths to `format:check` only after they follow the configured style.

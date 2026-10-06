@@ -1,0 +1,89 @@
+.agency.agency-home
+  include @blocks/agency/cta/cta.pug
+  include ../_agency-navigation.pug
+  section.agency-hero
+    .agency-shell.agency-hero__grid
+      .agency-hero__copy
+        p.agency-eyebrow Independent creative studio · Est. 2014
+        h1 Good ideas deserve work that feels #[span clear.]
+        p.agency-lead We bring strategy, identity and digital craft together to help ambitious teams make their next chapter matter.
+        .agency-actions
+          a.agency-button(href=route("agency.projects")) Explore selected work #[span.agency-arrow(aria-hidden="true") →]
+          a.agency-button.agency-button--outline(href=route("agency.about")) Get to know us
+      .agency-hero__visual
+        img(src=require("@pages/agency/assets/studio-board.svg"), alt="Fieldwork studio moodboard in forest green, cream and warm coral", width="1200", height="1100")
+        span.agency-hero__note We make the complex feel considered.
+  .agency-shell
+    p.agency-eyebrow Trusted by thoughtful teams
+    .agency-logo-strip(aria-label="Selected partners")
+      span Northline
+      span Commonwell
+      span Meridian
+      span Field Notes
+  section.agency-section(aria-labelledby="home-services")
+    .agency-shell
+      .agency-heading-row
+        div
+          p.agency-eyebrow What we do
+          h2#home-services Thoughtful work, from first question to final detail.
+        p We connect clear thinking to useful design, building a coherent story across every place people meet your brand.
+      .agency-card-grid
+        article.agency-card
+          span.agency-card__number 01 / Strategy
+          h3 Find the signal
+          p Positioning, research and naming that give your team a shared direction and a reason to be remembered.
+          a.agency-card__link(href=route("agency.service.brand-strategy")) Explore brand strategy #[span.agency-arrow(aria-hidden="true") →]
+        article.agency-card
+          span.agency-card__number 02 / Identity
+          h3 Make it recognizable
+          p Visual systems with enough character to stand out and enough structure to work everywhere.
+          a.agency-card__link(href=route("agency.services")) See all services #[span.agency-arrow(aria-hidden="true") →]
+        article.agency-card
+          span.agency-card__number 03 / Digital
+          h3 Build for real life
+          p Useful websites and digital experiences designed around the people who rely on them.
+          a.agency-card__link(href=route("agency.services")) See all services #[span.agency-arrow(aria-hidden="true") →]
+  section.agency-section.agency-band(aria-labelledby="home-work")
+    .agency-shell
+      .agency-heading-row
+        div
+          p.agency-eyebrow Work with purpose
+          h2#home-work A few recent collaborations.
+        a.agency-button.agency-button--outline(href=route("agency.projects")) See our work #[span.agency-arrow(aria-hidden="true") →]
+      .agency-card-grid
+        article.agency-project
+          a.agency-project__image(href=route("agency.project.northline"), aria-label="View the Northline House project")
+            img(src=require("@pages/agency/assets/northline.svg"), alt="Northline House identity on cream stationery and forest green", width="1200", height="900", loading="lazy")
+          .agency-project__body
+            p.agency-project__meta: span Identity · Place
+            h3: a(href=route("agency.project.northline")) Northline House
+            p A quieter, more human point of view for a new kind of neighborhood.
+        article.agency-project
+          .agency-project__image
+            img(src=require("@pages/agency/assets/field-notes.svg"), alt="Field Notes editorial cover with botanical forms and a coral sun", width="1200", height="900", loading="lazy")
+          .agency-project__body
+            p.agency-project__meta: span Editorial · Culture
+            h3 Field Notes Journal
+            p An editorial identity for people growing a closer relationship with the natural world.
+        article.agency-project
+          .agency-project__image
+            img(src=require("@pages/agency/assets/studio-board.svg"), alt="A collection of brand color and shape studies from the studio", width="1200", height="1100", loading="lazy")
+          .agency-project__body
+            p.agency-project__meta: span Digital · Community
+            h3 Commonwell Network
+            p A welcoming digital home that makes a distributed community feel connected.
+  section.agency-section(aria-labelledby="home-approach")
+    .agency-shell.agency-split
+      div
+        p.agency-eyebrow Small by design
+        h2#home-approach Senior thinking, close collaboration.
+        p We keep our team deliberately small. You work directly with the people shaping your project, from the first conversation through the last handoff.
+        a.agency-card__link(href=route("agency.about")) Meet the studio #[span.agency-arrow(aria-hidden="true") →]
+      .agency-stat-grid(aria-label="Studio at a glance")
+        .agency-stat: strong 10+ #[span Years working together]
+        .agency-stat: strong 32 #[span Teams we’ve partnered with]
+        .agency-stat: strong 04 #[span Core collaborators]
+        .agency-stat: strong 08 #[span Independent awards]
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "Have a good question?", title: "We’d love to hear what you’re working on.", action: "Start a conversation", href: route("agency.contact") })
+  include ../_agency-footer.pug

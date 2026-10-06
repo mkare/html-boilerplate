@@ -1,0 +1,4 @@
+.ui-disclosure { border: 1px solid var(--color-border, #cbd5e1); border-radius: var(--radius-md, 0.75rem); background: var(--color-surface, #fff); }
+.ui-disclosure__summary { min-height: 44px; padding: 0.7rem 1rem; color: var(--color-text, #0f172a); font-weight: 700; cursor: pointer; }
+.ui-disclosure__summary:focus-visible { outline: 3px solid var(--color-focus, var(--color-accent, #0369a1)); outline-offset: 2px; }
+.ui-disclosure__content { padding: 0 1rem 1rem; color: var(--color-muted, #475569); line-height: 1.6; }

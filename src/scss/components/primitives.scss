@@ -1,0 +1,28 @@
+.ui-card {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.ui-stack { display: grid; gap: 1rem; }
+.ui-stack--loose { gap: 1.5rem; }
+.ui-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+
+.ui-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.3rem 0.7rem;
+  color: var(--color-muted);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 99rem;
+  font-size: 0.78rem;
+  font-weight: $font-weight-bold;
+}
+
+.ui-link { color: var(--color-accent); font-weight: $font-weight-bold; text-underline-offset: 0.2em; }
+
+.ui-divider { height: 1px; margin-block: 1.5rem; background: var(--color-border); border: 0; }

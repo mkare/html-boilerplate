@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.orion-table-lamp",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.orion-table-lamp",
+  "route": "/commerce/products/orion-table-lamp/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Orion table lamp — Storefront",
+  "description": "A dimmable glow with a warm, focused pool of light.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

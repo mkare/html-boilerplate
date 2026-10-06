@@ -1,0 +1,11 @@
+@use "@scss/variables" as *;
+
+@import "./auth-shared";
+
+.auth-page--login .auth-showcase {
+  background: linear-gradient(145deg, #312e81 0%, #1e1b4b 58%, #0f172a 100%);
+}
+
+.auth-page--login .auth-showcase__quote {
+  border-top-color: rgba($slate-50, 0.16);
+}

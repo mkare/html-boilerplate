@@ -1,0 +1,40 @@
+.agency.agency-projects
+  include @blocks/agency/cta/cta.pug
+  include ../_agency-navigation.pug
+  header.agency-page-hero.agency-shell
+    p.agency-eyebrow Selected collaborations
+    h1 Work made better by working together.
+    p.agency-lead Every project starts with listening. Here are a few outcomes shaped by open questions, shared ambition and careful craft.
+  section.agency-section--tight(aria-labelledby="projects-grid-title")
+    .agency-shell
+      h2#projects-grid-title.sr-only Selected projects
+      .agency-card-grid
+        article.agency-project
+          a.agency-project__image(href=route("agency.project.northline"), aria-label="View the Northline House case study")
+            img(src=require("@pages/agency/assets/northline.svg"), alt="Northline House visual identity with green architectural shapes on cream", width="1200", height="900")
+          .agency-project__body
+            p.agency-project__meta: span Identity · Place · 2025
+            h3: a(href=route("agency.project.northline")) Northline House
+            p A new neighborhood brand built around the simple idea of making room to belong.
+        article.agency-project
+          .agency-project__image
+            img(src=require("@pages/agency/assets/field-notes.svg"), alt="Field Notes editorial cover, botanical leaves and a coral sun", width="1200", height="900", loading="lazy")
+          .agency-project__body
+            p.agency-project__meta: span Editorial · Culture · 2024
+            h3 Field Notes Journal
+            p A seasonal journal that brings the small rituals of a greener life into focus.
+        article.agency-project
+          .agency-project__image
+            img(src=require("@pages/agency/assets/studio-board.svg"), alt="Warm green and cream brand studies for a community project", width="1200", height="1100", loading="lazy")
+          .agency-project__body
+            p.agency-project__meta: span Digital · Community · 2024
+            h3 Commonwell Network
+            p A simple, useful digital home for people sharing knowledge across a growing network.
+  section.agency-section.agency-band
+    .agency-shell.agency-quote
+      figure
+        blockquote “Fieldwork helped us say what we meant with a confidence we didn’t have before.”
+        figcaption Morgan Lee · Director, Northline House
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "Your project could be next", title: "Good work begins with a good conversation.", action: "Tell us about it", href: route("agency.contact") })
+  include ../_agency-footer.pug

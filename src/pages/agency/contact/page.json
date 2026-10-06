@@ -1,0 +1,18 @@
+{
+  "id": "agency.contact",
+  "route": "/contact/",
+  "demoId": "agency",
+  "translationKey": "agency.contact",
+  "starter": true,
+  "source": "src/pages/agency/contact/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Contact Fieldwork Studio",
+  "description": "Start a conversation with Fieldwork Studio about your next brand or digital project.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "saas.features",
+  "route": "/features/",
+  "demoId": "saas",
+  "starter": true,
+  "translationKey": "saas.features",
+  "source": "src/pages/saas/features/page.pug",
+  "data": "src/content/locales/en.cjs",
+  "styles": ["src/pages/saas/saas.scss"],
+  "layout": "site",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Product features — Orbit",
+  "description": "A focused workspace for product priorities, evidence, team rituals, and progress.",
+  "head": { "canonical": "self", "openGraphType": "website" },
+  "navigation": { "groups": ["main", "footer"], "label": "Features", "order": 10 },
+  "robots": "index,follow"
+}

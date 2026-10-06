@@ -1,0 +1,97 @@
+extends @layouts/base.pug
+
+include @blocks/marketing/kicker/kicker.pug
+include @blocks/marketing/stats/stats.pug
+include @blocks/marketing/hero/hero.pug
+include @blocks/marketing/logo-strip/logo-strip.pug
+include @blocks/marketing/product-preview/product-preview.pug
+include @blocks/marketing/feature-card/feature-card.pug
+include @blocks/marketing/pricing-switch/pricing-switch.pug
+include @blocks/marketing/plan-card/plan-card.pug
+include @blocks/marketing/faq-list/faq-list.pug
+include @blocks/marketing/newsletter-signup/newsletter-signup.pug
+include @blocks/marketing/testimonial-card/testimonial-card.pug
+
+block head
+  link(href="./marketing.scss" rel="stylesheet")
+  script(src="./marketing.js" defer="defer")
+
+block content
+  .marketing
+    +marketingHero({ id: "marketing-title", kicker: "The calm workspace for growing teams", title: "Make your next good idea feel inevitable.", description: "Orbit gives product teams one focused space to plan, ship and learn — without turning progress into busywork.", primaryAction: "Start for free", primaryHref: "#newsletter", secondaryAction: "See how it works", secondaryHref: "#features", stats: [{ value: "12k+", label: "teams building calmly" }, { value: "4.9/5", label: "average customer rating" }, { value: "32%", label: "less status-meeting time" }] })
+      +marketingProductPreview()
+
+    +marketingLogoStrip({ label: "Trusted by thoughtful teams at", items: ["LUMA", "northstar", "VERSE", "allén", "ASTRA", "framed."] })
+
+    section.feature-section#features(aria-labelledby="features-title")
+      .container
+        .section-intro
+          +marketingKicker({ label: "Built for momentum" })
+          h2#features-title A lighter way to run serious work.
+          p One opinionated home for the small rituals that move a product forward. Useful by default; flexible when it matters.
+        .feature-grid
+          +marketingFeatureCard({ eyebrow: "Clear priorities", title: "Turn a noisy backlog into one next move.", description: "Give every bet an owner, a reason and a visible path to done. The team sees what matters before standup starts.", iconTone: "violet", featured: true, bullets: ["Improve invite flow", "Capture onboarding notes"] })
+            svg(viewBox="0 0 24 24", fill="none", focusable="false")
+              path(d="M5 12.5 9.2 16.7 19 6.9", stroke="currentColor", stroke-width="1.9", stroke-linecap="round", stroke-linejoin="round")
+          +marketingFeatureCard({ eyebrow: "Signal, not noise", title: "See the work without chasing updates.", description: "Small, legible project health signals make the right conversation obvious.", iconTone: "orange" })
+            svg(viewBox="0 0 24 24", fill="none", focusable="false")
+              path(d="M4.5 18.5h15M6.5 15V9.5m5.5 5.5V5.5m5.5 9.5v-3", stroke="currentColor", stroke-width="1.9", stroke-linecap="round")
+          +marketingFeatureCard({ eyebrow: "Built-in confidence", title: "Keep decisions close to the evidence.", description: "Link research, feedback and product context directly where choices are made.", iconTone: "mint" })
+            svg(viewBox="0 0 24 24", fill="none", focusable="false")
+              path(d="M12 20.2s7-3.5 7-9.4V5.8L12 3 5 5.8v5c0 5.9 7 9.4 7 9.4Z", stroke="currentColor", stroke-width="1.9", stroke-linejoin="round")
+              path(d="m9.3 11.4 1.8 1.8 3.7-3.8", stroke="currentColor", stroke-width="1.9", stroke-linecap="round", stroke-linejoin="round")
+          +marketingFeatureCard({ eyebrow: "Designed to connect", title: "Work with the tools you already trust.", description: "Pull in the links and handoffs your team needs, without moving your whole stack.", iconTone: "blue" })
+            svg(viewBox="0 0 24 24", fill="none", focusable="false")
+              path(d="M4.5 12h15M12 4.5v15", stroke="currentColor", stroke-width="1.9", stroke-linecap="round")
+              circle(cx="12", cy="12", r="8", stroke="currentColor", stroke-width="1.9")
+          +marketingFeatureCard({ eyebrow: "Your pace, visible", title: "Notice what is improving over time.", description: "A simple historical view turns team learning into a practical advantage.", iconTone: "rose" })
+            svg(viewBox="0 0 24 24", fill="none", focusable="false")
+              path(d="M5 16.5c1.5-1.5 2.6-2.8 4.3-2.8 2.2 0 2.3 2.2 4.4 2.2 1.8 0 3-1.4 5.3-4.2", stroke="currentColor", stroke-width="1.9", stroke-linecap="round")
+              path(d="M5 7.5h14", stroke="currentColor", stroke-width="1.9", stroke-linecap="round", stroke-dasharray="2.5 3.5")
+          article.feature-card.feature-card--quote
+            p “Orbit stripped away the status theater. We have more honest product conversations now.”
+            footer
+              span.feature-card__quote-avatar(aria-hidden="true") JT
+              span
+                strong Jules Tran
+                small Product lead, Luma
+
+    section.pricing-section#pricing(aria-labelledby="pricing-title")
+      .container
+        .section-intro.section-intro--center
+          +marketingKicker({ label: "Simple pricing" })
+          h2#pricing-title Start small. Stay because it works.
+          p Every plan includes the tools to give your team a calmer, clearer week.
+          +marketingPricingSwitch({ idPrefix: "pricing", label: "Billing period" })
+        .pricing-grid
+          +marketingPlanCard({ id: "starter", audience: "For individuals", name: "Starter", description: "Build a confident product practice from day one.", monthly: "0", yearly: "0", period: "/ month", billingCopy: "Free forever", action: "Start free", mark: "○", features: ["Unlimited personal projects", "Weekly planning rituals", "Community templates"] })
+          +marketingPlanCard({ id: "team", audience: "For growing teams", name: "Team", description: "One shared place for the work that moves the roadmap.", monthly: "18", yearly: "14", period: "/ member / month", billingCopy: "Billed monthly", action: "Try Team free", actionTone: "primary", mark: "✦", markTone: "violet", popular: true, tag: "Most loved", features: ["Everything in Starter", "Up to 30 collaborators", "Insight and feedback hub", "Progress snapshots"] })
+          +marketingPlanCard({ id: "scale", audience: "For connected orgs", name: "Scale", description: "Extend a thoughtful system across every product team.", monthly: "42", yearly: "34", period: "/ member / month", billingCopy: "Billed monthly", action: "Talk to us", mark: "↗", markTone: "orange", features: ["Everything in Team", "Unlimited workspaces", "Advanced permissions", "Priority support"] })
+
+    section.testimonial-section(aria-labelledby="story-title")
+      .container.testimonial-section__inner
+        .testimonial-section__statement
+          +marketingKicker({ label: "Customer story" })
+          h2#story-title More clarity, fewer meetings, happier makers.
+          a.marketing-text-link(href="#newsletter")
+            | Read their playbook
+            span(aria-hidden="true") →
+        +marketingTestimonialCard({ initials: "RA", wrapInitials: true, ratingLabel: "Five out of five stars", ratingText: "★ ★ ★ ★ ★", quote: "“The team finally has enough context to make a decision without another meeting. Orbit feels like the quietest person in the room, and the most useful.”", author: "Rhea Alvarez", role: "VP Product, Northstar" })
+
+    section.faq-section(aria-labelledby="faq-title")
+      .container.faq-section__inner
+        .section-intro
+          +marketingKicker({ label: "Good questions" })
+          h2#faq-title A few things you might be wondering.
+          p If we missed something, our small team is happy to help.
+          a.marketing-text-link(href="mailto:hello@orbit.example")
+            | Ask a question
+            span(aria-hidden="true") →
+        +marketingFaqList([
+          { question: "Is there a free trial for team plans?", answer: "Yes. Team and Scale both include a 14-day free trial with no credit card required. Your workspace and notes remain yours if you decide Orbit is not a fit." },
+          { question: "Can I invite people outside my company?", answer: "Absolutely. Invite research partners, contractors and stakeholders as guests, then choose exactly which spaces and projects they can see." },
+          { question: "Does Orbit replace our project-management tool?", answer: "Orbit is the decision layer around your work. It complements delivery tools by making priorities, evidence and project health clear before tickets are created." },
+          { question: "How does yearly billing work?", answer: "Yearly pricing gives you a 20% discount and is billed once per member each year. You can add seats at any time and we will prorate the difference." }
+        ])
+
+    +marketingNewsletterSignup({ idPrefix: "newsletter", title: "A monthly note for product people who care about craft.", description: "Fresh frameworks, useful questions and the occasional team ritual — no product spam.", note: "By subscribing, you agree to receive our monthly email. Unsubscribe anytime.", kicker: "A calmer inbox", emailLabel: "Work email address", placeholder: "you@company.com", action: "Subscribe" })

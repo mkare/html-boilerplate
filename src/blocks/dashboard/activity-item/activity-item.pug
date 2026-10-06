@@ -1,0 +1,9 @@
+mixin dashboardActivityItem(options = {})
+  - const props = assertProps('block-dashboard-activity-item', options, { type: 'object', required: ['initials', 'tone', 'datetime', 'timeLabel'], properties: { initials: { type: 'string', minLength: 1 }, tone: { type: 'string', enum: ['violet', 'coral', 'mint', 'gold'] }, datetime: { type: 'string', minLength: 1 }, timeLabel: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  li.dashboard-activity__item
+    span(class=`dashboard-avatar dashboard-avatar--${props.tone}`, aria-hidden="true")= props.initials
+    .dashboard-activity__body
+      if block
+        block
+      time(datetime=props.datetime)= props.timeLabel
+    span(class=`dashboard-activity__status dashboard-activity__status--${props.tone}`, aria-hidden="true")

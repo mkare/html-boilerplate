@@ -1,0 +1,21 @@
+footer.agency-footer
+  .agency-shell.agency-footer__main
+    .agency-footer__brand
+      a.agency-brand(href=route("agency.home"), aria-label="Fieldwork Studio home")
+        span.agency-brand__mark(aria-hidden="true") F
+        span
+          strong Fieldwork
+          small Independent creative studio
+      p Strategy, identity and digital craft for teams building a more thoughtful future.
+    nav.agency-footer__nav(aria-label="Agency footer navigation")
+      p.agency-footer__title Explore
+      ul
+        li: a(href=route("agency.about")) About the studio
+        li: a(href=route("agency.services")) Services
+        li: a(href=route("agency.projects")) Selected work
+    .agency-footer__contact
+      p.agency-footer__title Have a good question?
+      a(href=route("agency.contact")) Let’s start a conversation #[span.agency-arrow(aria-hidden="true") →]
+  .agency-shell.agency-footer__bottom
+    p © 2026 Fieldwork Studio
+    p Independent by nature. Thoughtful by design.

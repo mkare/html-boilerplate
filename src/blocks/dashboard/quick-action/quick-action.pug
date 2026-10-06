@@ -1,0 +1,9 @@
+mixin dashboardQuickAction(options = {})
+  - const props = assertProps('block-dashboard-quick-action', options, { type: 'object', required: ['action', 'icon', 'tone', 'title', 'description'], properties: { action: { type: 'string', minLength: 1 }, icon: { type: 'string', enum: ['folder', 'invoice', 'users'] }, tone: { type: 'string', enum: ['violet', 'coral', 'mint'] }, title: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  button.dashboard-quick-action(type="button", data-dashboard-quick-action=props.action)
+    span(class=`dashboard-quick-action__icon dashboard-quick-action__icon--${props.tone}`, aria-hidden="true")
+      +dashboardIcon(props.icon)
+    span
+      strong= props.title
+      small= props.description
+    +dashboardIcon('arrow')

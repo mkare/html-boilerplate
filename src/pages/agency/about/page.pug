@@ -1,0 +1,55 @@
+.agency.agency-about
+  include @blocks/agency/cta/cta.pug
+  include ../_agency-navigation.pug
+  header.agency-page-hero.agency-shell
+    p.agency-eyebrow A small studio with a wide view
+    h1 We believe good design starts with paying attention.
+    p.agency-lead We are a close-knit team of strategists, designers and makers who care about the work and the people it is for.
+  section.agency-section--tight
+    .agency-shell.agency-split
+      div
+        p.agency-eyebrow Our point of view
+        h2 Make it useful. Make it matter.
+        p We started Fieldwork because the best work happens when clear thinking and generous collaboration meet. Our job is to help you see what makes your organization distinctive, then express it with clarity and care.
+        ul.agency-check-list
+          li An experienced, hands-on team from kickoff to delivery
+          li Honest recommendations grounded in research and context
+          li A practical system your team can use with confidence
+      figure.agency-art
+        img(src=require("@pages/agency/assets/studio-board.svg"), alt="The studio's warm paper, green and coral visual palette", width="1200", height="1100")
+  section.agency-section(aria-labelledby="about-principles")
+    .agency-shell
+      .agency-heading-row
+        div
+          p.agency-eyebrow What guides us
+          h2#about-principles Our principles are simple and lived.
+      .agency-card-grid
+        article.agency-card
+          span.agency-card__number 01 / Be curious
+          h3 Listen before shaping
+          p We ask better questions, make room for different perspectives and look for the insight that moves a project forward.
+        article.agency-card
+          span.agency-card__number 02 / Stay generous
+          h3 Make together
+          p The best outcomes come from shared ownership, open conversations and a genuine respect for everyone’s expertise.
+        article.agency-card
+          span.agency-card__number 03 / Sweat the right details
+          h3 Keep it useful
+          p Craft matters most when it helps people understand, navigate or make a good decision.
+  section.agency-section.agency-band(aria-labelledby="about-process")
+    .agency-shell
+      p.agency-eyebrow A good process creates room for good work
+      h2#about-process Clear steps, thoughtful momentum.
+      .agency-process
+        article
+          h3 Listen & learn
+          p We get close to your goals, your audience and the context around the challenge.
+        article
+          h3 Find the direction
+          p We make the choices visible and align around a strong, useful point of view.
+        article
+          h3 Make & grow
+          p We build the work, share the tools and help your team carry it forward.
+  section.agency-section--tight
+    +agencyCta({ eyebrow: "The right people make the work", title: "Let’s make something that earns its place.", action: "Meet us", href: route("agency.contact") })
+  include ../_agency-footer.pug

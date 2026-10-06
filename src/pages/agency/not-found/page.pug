@@ -1,0 +1,11 @@
+.agency.agency-not-found-page
+  include ../_agency-navigation.pug
+  section.agency-section.agency-not-found
+    .agency-shell.agency-not-found__inner
+      span.agency-not-found__code 404 / PAGE NOT FOUND
+      h1 This page seems to have wandered off.
+      p.agency-lead We can’t find the page you were looking for. Let’s get you back to something useful.
+      .agency-actions(style="justify-content:center")
+        a.agency-button(href=route("agency.home")) Back to Fieldwork home #[span.agency-arrow(aria-hidden="true") →]
+        a.agency-button.agency-button--outline(href=route("agency.projects")) Browse selected work
+  include ../_agency-footer.pug

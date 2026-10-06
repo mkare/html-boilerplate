@@ -1,0 +1,4 @@
+- const article = posts.find((post) => post.pageId === 'blog.article.accessible-states')
+- if (!article || article.draft || Date.parse(article.publishedAt) > Date.parse(buildNow)) throw new Error('The requested article is not published for this build.')
+.blog-page.blog-page--article
+  include ../../_article-content.pug

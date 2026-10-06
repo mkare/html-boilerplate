@@ -1,0 +1,138 @@
+{
+  "fixtureNodeModulesIsSymlink": false,
+  "dependencies": [
+    {
+      "name": "autoprefixer",
+      "declared": "10.6.1",
+      "cleanInstalled": "10.6.1",
+      "rootInstalled": "10.6.1",
+      "same": true
+    },
+    {
+      "name": "bootstrap",
+      "declared": "^5.3.3",
+      "cleanInstalled": "5.3.3",
+      "rootInstalled": "5.3.3",
+      "same": true
+    },
+    {
+      "name": "browserslist",
+      "declared": "4.29.3",
+      "cleanInstalled": "4.29.3",
+      "rootInstalled": "4.29.3",
+      "same": true
+    },
+    {
+      "name": "caniuse-lite",
+      "declared": "1.0.30001814",
+      "cleanInstalled": "1.0.30001814",
+      "rootInstalled": "1.0.30001814",
+      "same": true
+    },
+    {
+      "name": "clean-webpack-plugin",
+      "declared": "^4.0.0",
+      "cleanInstalled": "4.0.0",
+      "rootInstalled": "4.0.0",
+      "same": true
+    },
+    {
+      "name": "css-loader",
+      "declared": "^7.1.2",
+      "cleanInstalled": "7.1.2",
+      "rootInstalled": "7.1.2",
+      "same": true
+    },
+    {
+      "name": "markdown-it",
+      "declared": "^14.3.2",
+      "cleanInstalled": "14.3.2",
+      "rootInstalled": "14.3.2",
+      "same": true
+    },
+    {
+      "name": "parse5",
+      "declared": "7.1.2",
+      "cleanInstalled": "7.1.2",
+      "rootInstalled": "7.1.2",
+      "same": true
+    },
+    {
+      "name": "postcss",
+      "declared": "8.5.28",
+      "cleanInstalled": "8.5.28",
+      "rootInstalled": "8.5.28",
+      "same": true
+    },
+    {
+      "name": "postcss-loader",
+      "declared": "8.2.1",
+      "cleanInstalled": "8.2.1",
+      "rootInstalled": "8.2.1",
+      "same": true
+    },
+    {
+      "name": "prismjs",
+      "declared": "^1.30.0",
+      "cleanInstalled": "1.30.0",
+      "rootInstalled": "1.30.0",
+      "same": true
+    },
+    {
+      "name": "pug",
+      "declared": "^3.0.2",
+      "cleanInstalled": "3.0.3",
+      "rootInstalled": "3.0.3",
+      "same": true
+    },
+    {
+      "name": "pug-plugin",
+      "declared": "^5.3.0",
+      "cleanInstalled": "5.3.0",
+      "rootInstalled": "5.3.0",
+      "same": true
+    },
+    {
+      "name": "sass",
+      "declared": "^1.55.0",
+      "cleanInstalled": "1.67.0",
+      "rootInstalled": "1.67.0",
+      "same": true
+    },
+    {
+      "name": "sass-loader",
+      "declared": "^13.1.0",
+      "cleanInstalled": "13.3.2",
+      "rootInstalled": "13.3.2",
+      "same": true
+    },
+    {
+      "name": "webpack",
+      "declared": "^5.95.0",
+      "cleanInstalled": "5.111.1",
+      "rootInstalled": "5.111.1",
+      "same": true
+    },
+    {
+      "name": "webpack-cli",
+      "declared": "^5.1.4",
+      "cleanInstalled": "5.1.4",
+      "rootInstalled": "5.1.4",
+      "same": true
+    },
+    {
+      "name": "webpack-dev-server",
+      "declared": "^5.1.0",
+      "cleanInstalled": "5.2.6",
+      "rootInstalled": "5.2.6",
+      "same": true
+    }
+  ],
+  "snapshotFileChanges": [],
+  "allPackages": {
+    "rootUniqueNameVersions": 472,
+    "cleanUniqueNameVersions": 472,
+    "onlyRoot": [],
+    "onlyClean": []
+  }
+}

@@ -1,21 +1,84 @@
 extends @layouts/base.pug
 
-//- page specifically styles and scripts
 block head
-  //- relative path to SCSS source file
   link(href="./style.scss" rel="stylesheet")
 
 block content
-  section
-    .container
-      h1.mt-5 Inline markdown text
-      :markdown
-        **Bold** _Italic_ Normal
-        - list item 1
-        - list item 2
-        - list item 3
+  .markdown-page
+    section.docs-hero(aria-labelledby="docs-title")
+      .page-shell.docs-hero__inner
+        .docs-hero__content
+          p.eyebrow Documentation / Design system
+          h1#docs-title Documentation that makes building feel obvious.
+          p.docs-hero__lead A practical writing guide for the same semantic HTML, quiet visual language and resilient component patterns used across every template in this starter kit.
+          .docs-hero__actions
+            a.button.button--primary(href="#overview") Read the guide
+            a.button.button--ghost(href=route("legacy.components")) Browse UI library
+        aside.docs-hero__snapshot(aria-label="Documentation highlights")
+          p.docs-hero__snapshot-label Inside this guide
+          ul.docs-hero__checks(role="list")
+            li
+              span.docs-check(aria-hidden="true") ✓
+              span Semantic component anatomy
+            li
+              span.docs-check(aria-hidden="true") ✓
+              span Copy-ready Pug, HTML and SCSS
+            li
+              span.docs-check(aria-hidden="true") ✓
+              span Accessible states and useful defaults
+          .docs-hero__snapshot-footer
+            span.docs-live-dot(aria-hidden="true")
+            span Updated for the multipurpose kit
 
-      h1.mt-5 Include markdown file
-      //- include the markdown file
-      include:markdown ./markdown.md
+    .page-shell.docs-layout
+      aside.docs-sidebar(aria-label="Documentation navigation")
+        .docs-sidebar__head
+          p.docs-sidebar__eyebrow On this page
+          p.docs-sidebar__title Build with a system
+        nav.docs-toc(aria-label="Table of contents")
+          a.docs-toc__link.is-current(href="#overview", aria-current="location") Overview
+          a.docs-toc__link(href="#anatomy") Anatomy
+          a.docs-toc__link(href="#composition") Composition
+          a.docs-toc__link(href="#content-rhythm") Content rhythm
+          a.docs-toc__link(href="#implementation") Implementation
+          a.docs-toc__link(href="#accessibility") Accessibility
+          a.docs-toc__link(href="#tokens") Tokens
+          a.docs-toc__link(href="#next-steps") Next steps
+        .docs-sidebar__help
+          p Need a visual reference?
+          a.ui-link(href=route("legacy.components")) Explore every component →
 
+      article.docs-article(aria-labelledby="article-title")
+        header.docs-article__header#overview
+          p.eyebrow Documentation / 01
+          h2#article-title A durable starting point for every interface.
+          p.docs-article__lead This page is intentionally content-first: the document is readable without its decoration, while the surrounding system adds orientation, metadata and calm visual hierarchy.
+          dl.docs-metadata
+            div
+              dt Format
+              dd Markdown + Pug
+            div
+              dt Audience
+              dd Designers & developers
+            div
+              dt Reading time
+              dd 6 minutes
+
+        aside.docs-callout(role="note", aria-label="Documentation principle")
+          span.docs-callout__icon(aria-hidden="true") ✦
+          .docs-callout__body
+            strong Start with the browser.
+            p Use native elements and meaningful content first. Add styling and JavaScript only when they make the interaction clearer.
+
+        .docs-prose
+          //- Keep Markdown as the source of truth for the long-form guide.
+          include:markdown ./markdown.md
+
+        footer.docs-next#next-steps
+          .docs-next__copy
+            p.eyebrow Keep building
+            h2 Put the guide into practice.
+            p Start from a complete template, then compose it with the library’s predictable building blocks.
+          .docs-next__actions
+            a.button.button--primary(href=route("legacy.templates")) View templates
+            a.button.button--secondary(href=route("legacy.components")) Open UI library

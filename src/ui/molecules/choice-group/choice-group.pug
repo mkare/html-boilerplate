@@ -1,0 +1,29 @@
+mixin uiChoiceGroup(options = {})
+  - const props = assertProps('ui-choice-group', options, { type: 'object', required: ['idPrefix', 'name', 'legend', 'type', 'items'], properties: { idPrefix: { type: 'string', minLength: 1 }, name: { type: 'string', minLength: 1 }, legend: { type: 'string', minLength: 1 }, type: { type: 'string', enum: ['checkbox', 'radio'] }, items: { type: 'array' }, hint: { type: 'string' }, orientation: { type: 'string', enum: ['vertical', 'horizontal'] }, disabled: { type: 'boolean' }, required: { type: 'boolean' } }, additionalProperties: false })
+  - if (!props.name.trim() || !props.legend.trim()) throw new Error('ui-choice-group requires non-empty name and legend text.')
+  - if (!/^[A-Za-z][A-Za-z0-9_.:-]*$/.test(props.idPrefix)) throw new Error('ui-choice-group idPrefix must start with a letter and contain only letters, digits, _, ., :, or -.')
+  - if (!Array.isArray(props.items) || props.items.length === 0) throw new Error('ui-choice-group items must contain at least one choice.')
+  - if (props.type === 'checkbox' ? props.required : false) throw new Error('ui-choice-group required applies to radio groups; mark individual required checkboxes on their item.')
+  - const values = new Set()
+  - let checkedCount = 0
+  - props.items.forEach((item, index) => {
+  -   if (!item || typeof item !== 'object' || typeof item.value !== 'string' || !item.value || typeof item.label !== 'string' || !item.label.trim()) throw new Error(`ui-choice-group item ${index + 1} requires a non-empty string value and label.`)
+  -   if (values.has(item.value)) throw new Error(`ui-choice-group has a duplicate choice value "${item.value}".`)
+  -   if (item.checked !== undefined ? typeof item.checked !== 'boolean' : false) throw new Error(`ui-choice-group item ${index + 1} checked must be boolean.`)
+  -   if (item.disabled !== undefined ? typeof item.disabled !== 'boolean' : false) throw new Error(`ui-choice-group item ${index + 1} disabled must be boolean.`)
+  -   if (item.required !== undefined ? typeof item.required !== 'boolean' : false) throw new Error(`ui-choice-group item ${index + 1} required must be boolean.`)
+  -   if (item.checked) checkedCount += 1
+  -   values.add(item.value)
+  - })
+  - if (props.type === 'radio' ? checkedCount > 1 : false) throw new Error('ui-choice-group radio items may have at most one checked choice.')
+  - const hintId = props.hint ? `${props.idPrefix}-hint` : undefined
+  fieldset.ui-choice-group(class=`ui-choice-group--${props.orientation || 'vertical'}`, disabled=Boolean(props.disabled), aria-describedby=hintId)
+    legend.ui-choice-group__legend= props.legend
+    if props.hint
+      p.ui-choice-group__hint(id=hintId)= props.hint
+    .ui-choice-group__items
+      each item, index in props.items
+        - const id = `${props.idPrefix}-${index + 1}`
+        label.ui-choice-group__choice(class=(props.disabled || item.disabled) ? 'ui-choice-group__choice--disabled' : undefined, for=id)
+          input.ui-choice-group__control(type=props.type, id=id, name=props.name, value=item.value, checked=Boolean(item.checked), disabled=Boolean(item.disabled), required=Boolean((props.type === 'radio' ? props.required : false) || item.required))
+          span= item.label

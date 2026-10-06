@@ -1,0 +1,13 @@
+mixin uiCard(options = {})
+  - const props = assertProps('ui-card', options, { type: 'object', required: ['title'], properties: { title: { type: 'string', minLength: 1 }, eyebrow: { type: 'string' }, description: { type: 'string' }, variant: { type: 'string', enum: ['plain', 'muted', 'raised'] } }, additionalProperties: false })
+  - if (!props.title.trim()) throw new Error('ui-card title must contain visible text.')
+  - const variant = props.variant || 'plain'
+  article.ui-card(class=`ui-card--${variant}`)&attributes(attributes)
+    if props.eyebrow
+      p.ui-card__eyebrow= props.eyebrow
+    h3.ui-card__title= props.title
+    if props.description
+      p.ui-card__description= props.description
+    if block
+      .ui-card__body
+        block

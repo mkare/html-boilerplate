@@ -1,0 +1,134 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ yarn check:architecture && yarn check:manifest-wrapper && yarn check:collections && yarn check:autoprefixer && yarn check:commerce && yarn check:profile-contracts && yarn check:locales && yarn check:watch && yarn check:overrides && yarn build && yarn check:dist && yarn check:reproducible && yarn check:fonts && yarn check:accessibility && yarn check:profile && yarn check:phase2 && yarn check:release
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-architecture.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+architecture source boundaries passed: 121 source files checked.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/phase-1/check-manifest-wrapper.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Phase 1 manifest/wrapper contracts passed: 51 catalog pages (39 generated wrappers), schema recursion/layout/theme enums, data precedence, legacy dashboard compatibility.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-collections.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+collection acceptance passed: 0/1/N/N+1 pagination, publication filtering, Turkish slugs, collision and date checks.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/check-autoprefixer.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Autoprefixer acceptance passed: 5 shared queries resolve 53 browser targets; Webpack uses the same implicit .browserslistrc.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node --test qa/commerce/*.test.mjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+TAP version 13
+# Subtest: migrates atelier-store-cart-v1 into the versioned cart key
+ok 1 - migrates atelier-store-cart-v1 into the versioned cart key
+  ---
+  duration_ms: 0.956583
+  type: 'test'
+  ...
+# Subtest: keeps unknown catalog IDs when loading, adding, and reloading a cart
+ok 2 - keeps unknown catalog IDs when loading, adding, and reloading a cart
+  ---
+  duration_ms: 0.209583
+  type: 'test'
+  ...
+# Subtest: reports denied storage reads and keeps later cart changes in memory
+ok 3 - reports denied storage reads and keeps later cart changes in memory
+  ---
+  duration_ms: 0.085083
+  type: 'test'
+  ...
+# Subtest: reports denied storage writes and keeps cart changes in memory
+ok 4 - reports denied storage writes and keeps cart changes in memory
+  ---
+  duration_ms: 0.071333
+  type: 'test'
+  ...
+# Subtest: catalog lookup failure does not clear saved or unknown cart lines
+ok 5 - catalog lookup failure does not clear saved or unknown cart lines
+  ---
+  duration_ms: 0.315042
+  type: 'test'
+  ...
+# Subtest: detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+ok 6 - detail quantity controls clamp to 1–10 and submit adds that quantity with a success message
+  ---
+  duration_ms: 1.170292
+  type: 'test'
+  ...
+# Subtest: detail submit clamps the submitted value before adding it
+ok 7 - detail submit clamps the submitted value before adding it
+  ---
+  duration_ms: 0.163375
+  type: 'test'
+  ...
+# Subtest: missing catalog product disables add and reports that it is unavailable
+ok 8 - missing catalog product disables add and reports that it is unavailable
+  ---
+  duration_ms: 0.125584
+  type: 'test'
+  ...
+# Subtest: a rejected cart add reports the inline retry message
+ok 9 - a rejected cart add reports the inline retry message
+  ---
+  duration_ms: 0.107125
+  type: 'test'
+  ...
+# Subtest: storage denial keeps the add in memory and explains the visit-only bag
+ok 10 - storage denial keeps the add in memory and explains the visit-only bag
+  ---
+  duration_ms: 0.197
+  type: 'test'
+  ...
+# Subtest: filter URL state restores on history back and forward
+ok 11 - filter URL state restores on history back and forward
+  ---
+  duration_ms: 24.733
+  type: 'test'
+  ...
+# Subtest: cart persists across catalog route navigation and a page reload
+ok 12 - cart persists across catalog route navigation and a page reload
+  ---
+  duration_ms: 2.300959
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 73.821375
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/phase-5/check-contracts.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Phase 5 manifest contracts passed: preview 51 pages, SaaS customer 21, starter 10; invalid locale, normalized IDs/outputs, missing translation target, selected-home, and route-mount assertions verified.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/phase-5/check-locales.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Locale contracts passed: default locale config, demo mount, customer root/subpath, reciprocal hreflang, visible switcher fixture, and no synthetic translations.
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ node qa/phase-1/check-watch.cjs
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+Error: listen EPERM: operation not permitted 127.0.0.1
+    at Server.setupListenHandle [as _listen2] (node:net:1919:21)
+    at listenInCluster (node:net:1998:12)
+    at node:net:2207:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

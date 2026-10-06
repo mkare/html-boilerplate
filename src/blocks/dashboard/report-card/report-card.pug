@@ -1,0 +1,7 @@
+mixin dashboardReportCard(options = {})
+  - const props = assertProps('block-dashboard-report-card', options, { type: 'object', required: ['eyebrow', 'title', 'description', 'action', 'feedback'], properties: { eyebrow: { type: 'string', minLength: 1 }, title: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 }, action: { type: 'string', minLength: 1 }, feedback: { type: 'string', minLength: 1 } }, additionalProperties: false })
+  article.dashboard-card.dashboard-report-card
+    p.dashboard-card__eyebrow= props.eyebrow
+    h2= props.title
+    p= props.description
+    button.dashboard-text-link(type="button", data-dashboard-feedback=props.feedback)= props.action

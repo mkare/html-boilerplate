@@ -1,0 +1,10 @@
+mixin marketingLogoStrip(options = {})
+  - const props = assertProps('block-marketing-logo-strip', options, { type: 'object', required: ['label', 'items'], properties: { id: { type: 'string' }, label: { type: 'string', minLength: 1 }, items: { type: 'array' } }, additionalProperties: false })
+  - const id = props.id || 'trusted-title'
+  - if (!Array.isArray(props.items) || props.items.length < 1 || props.items.some((item) => typeof item !== 'string' || !item.trim())) throw new Error('block-marketing-logo-strip items must be non-empty strings')
+  section.logo-strip(aria-labelledby=`${id}-label`)
+    .container
+      p.logo-strip__label(id=`${id}-label`)= props.label
+      ul.logo-strip__list(role="list")
+        each item in props.items
+          li= item

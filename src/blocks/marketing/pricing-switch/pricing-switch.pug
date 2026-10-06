@@ -1,0 +1,9 @@
+mixin marketingPricingSwitch(options = {})
+  - const props = assertProps('block-marketing-pricing-switch', options, { type: 'object', properties: { idPrefix: { type: 'string' }, label: { type: 'string' }, monthly: { type: 'string' }, yearly: { type: 'string' }, savings: { type: 'string' } }, additionalProperties: false })
+  - const idPrefix = props.idPrefix || 'pricing'
+  .pricing-switch(role="radiogroup", aria-label=props.label || 'Billing period', data-pricing-switch)
+    button.pricing-switch__option.is-selected(type="button", role="radio", aria-checked="true", tabindex="0", data-billing="monthly")= props.monthly || 'Monthly'
+    button.pricing-switch__option(type="button", role="radio", aria-checked="false", tabindex="-1", data-billing="yearly")
+      | #{props.yearly || 'Yearly'}
+      span= props.savings || 'Save 20%'
+  p.sr-only(role="status", aria-live="polite", data-pricing-announcement, id=`${idPrefix}-announcement`) Monthly billing selected.

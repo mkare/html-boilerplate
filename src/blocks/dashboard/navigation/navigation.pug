@@ -1,0 +1,19 @@
+mixin dashboardNavigation(options = {})
+  - const props = assertProps('block-dashboard-navigation', options, { type: 'object', required: ['groups'], properties: { groups: { type: 'array' } }, additionalProperties: false })
+  - if (!Array.isArray(props.groups) || props.groups.length === 0 || props.groups.some((group) => !group || typeof group.label !== 'string' || !Array.isArray(group.items))) throw new Error('block-dashboard-navigation groups require a label and items')
+  nav.dashboard-nav(aria-label="Workspace")
+    each group in props.groups
+      p.dashboard-nav__label(class=group.spaced ? 'dashboard-nav__label--spaced' : undefined)= group.label
+      each item in group.items
+        - if (!item || typeof item.label !== 'string' || typeof item.icon !== 'string') throw new Error('block-dashboard-navigation items require label and icon')
+        if item.feedback
+          button.dashboard-nav__item(type="button", data-dashboard-feedback=item.feedback)
+            +dashboardIcon(item.icon)
+            span= item.label
+        else
+          - if (typeof item.href !== 'string' || !item.href.trim()) throw new Error('block-dashboard-navigation link items require href')
+          a.dashboard-nav__item(class=item.active ? 'is-active' : undefined, href=item.href, aria-current=item.active ? 'page' : undefined)
+            +dashboardIcon(item.icon)
+            span= item.label
+            if item.count
+              span.dashboard-nav__count= item.count

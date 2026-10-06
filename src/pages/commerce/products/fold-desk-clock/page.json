@@ -1,0 +1,18 @@
+{
+  "id": "commerce.product.fold-desk-clock",
+  "blueprintId": "commerce.product",
+  "translationKey": "commerce.product.fold-desk-clock",
+  "route": "/commerce/products/fold-desk-clock/",
+  "source": "src/pages/commerce/product/page.pug",
+  "data": "src/content/products/storefront.cjs",
+  "layout": "site",
+  "theme": "commerce",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Fold desk clock — Storefront",
+  "description": "A compact analogue companion with a perfectly silent sweep.",
+  "styles": ["src/pages/commerce/commerce.scss"],
+  "script": "src/pages/commerce/product.js",
+  "head": { "canonical": "self", "openGraphType": "product" },
+  "robots": "index,follow"
+}

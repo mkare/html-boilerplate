@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "demo": "saas",
+  "profile": "release-html",
+  "basePath": "/",
+  "buildNow": "2026-10-04T00:00:00.000Z",
+  "source": "Session C extracted release measurement; page-level unique linked CSS/JS gzip bytes.",
+  "pages": {
+    "saas.auth.create-account": {
+      "cssGzipBytes": 11667,
+      "jsGzipBytes": 2902
+    },
+    "saas.auth.reset-password": {
+      "cssGzipBytes": 11667,
+      "jsGzipBytes": 2902
+    },
+    "saas.auth.sign-in": {
+      "cssGzipBytes": 11667,
+      "jsGzipBytes": 2902
+    },
+    "saas.faq": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "saas.features": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "saas.home": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "saas.privacy": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "saas.terms": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "saas.pricing": {
+      "cssGzipBytes": 14032,
+      "jsGzipBytes": 2902
+    },
+    "blog.archive": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.archive.page2": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.category.accessibility": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.category.design": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.category.research": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.category.teams": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.category.workflow": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.article.tokens-guide": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.article.accessible-states": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.article.calm-workflow": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    },
+    "blog.article.small-signals": {
+      "cssGzipBytes": 11583,
+      "jsGzipBytes": 2902
+    }
+  }
+}

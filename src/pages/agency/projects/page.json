@@ -1,0 +1,18 @@
+{
+  "id": "agency.projects",
+  "route": "/projects/",
+  "demoId": "agency",
+  "translationKey": "agency.projects",
+  "starter": true,
+  "source": "src/pages/agency/projects/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "Selected work — Fieldwork Studio",
+  "description": "Selected brand, editorial and digital projects by Fieldwork Studio.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

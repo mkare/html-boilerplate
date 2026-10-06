@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Northline House visual identity</title>
+  <desc id="desc">A contemporary forest green architecture identity on warm ivory stationery.</desc>
+  <rect width="1200" height="900" fill="#e9e8dc"/>
+  <rect x="90" y="105" width="690" height="680" rx="9" fill="#f8f5ed"/>
+  <rect x="660" y="200" width="450" height="500" rx="12" fill="#1e5548"/>
+  <path d="M146 163h570v345H146z" fill="#1e5548"/>
+  <path d="M209 455 428 205l220 250z" fill="#d9e0ca"/>
+  <path d="M312 455 428 322l115 133z" fill="#e89b7b"/>
+  <circle cx="581" cy="250" r="40" fill="#e8b48a"/>
+  <path d="M188 575h425" stroke="#244c41" stroke-width="5"/>
+  <path d="M188 611h310" stroke="#244c41" stroke-width="3" opacity=".55"/>
+  <path d="M188 640h382" stroke="#244c41" stroke-width="3" opacity=".35"/>
+  <text x="703" y="300" fill="#fffaf0" font-family="Georgia,serif" font-size="39" letter-spacing="3">NORTHLINE</text>
+  <text x="705" y="348" fill="#dce6d6" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">H O U S E</text>
+  <path d="M752 436h265" stroke="#dce6d6" stroke-width="1" opacity=".6"/>
+  <path d="M752 480h189" stroke="#dce6d6" stroke-width="5" opacity=".85"/>
+  <path d="M752 509h225" stroke="#dce6d6" stroke-width="3" opacity=".55"/>
+  <path d="M752 533h164" stroke="#dce6d6" stroke-width="3" opacity=".4"/>
+</svg>

@@ -1,0 +1,520 @@
+{
+  "version": 1,
+  "measuredAt": "2026-10-03T12:00:00.000Z",
+  "profile": "release-html",
+  "demo": "agency",
+  "basePath": "/",
+  "siteUrl": "https://release.example.test",
+  "limits": {
+    "standardCssGzipBytes": 61440,
+    "standardJsGzipBytes": 71680,
+    "dashboardCommerceJsGzipBytes": 133120,
+    "allFontsRawBytes": 122880,
+    "largestRasterRawBytes": 184320,
+    "regressionRatio": 0.1
+  },
+  "aggregate": {
+    "html": {
+      "fileCount": 9,
+      "rawBytes": 67142,
+      "gzipBytes": 20910,
+      "largest": {
+        "path": "index.html",
+        "rawBytes": 11867,
+        "gzipBytes": 3201
+      },
+      "files": [
+        {
+          "path": "404.html",
+          "rawBytes": 2110,
+          "gzipBytes": 897
+        },
+        {
+          "path": "about/index.html",
+          "rawBytes": 8558,
+          "gzipBytes": 2696
+        },
+        {
+          "path": "contact/index.html",
+          "rawBytes": 7441,
+          "gzipBytes": 2404
+        },
+        {
+          "path": "index.html",
+          "rawBytes": 11867,
+          "gzipBytes": 3201
+        },
+        {
+          "path": "not-found/index.html",
+          "rawBytes": 5165,
+          "gzipBytes": 1742
+        },
+        {
+          "path": "projects/index.html",
+          "rawBytes": 7900,
+          "gzipBytes": 2470
+        },
+        {
+          "path": "projects/northline/index.html",
+          "rawBytes": 8529,
+          "gzipBytes": 2648
+        },
+        {
+          "path": "services/brand-strategy/index.html",
+          "rawBytes": 8049,
+          "gzipBytes": 2551
+        },
+        {
+          "path": "services/index.html",
+          "rawBytes": 7523,
+          "gzipBytes": 2301
+        }
+      ]
+    },
+    "css": {
+      "fileCount": 4,
+      "rawBytes": 60413,
+      "gzipBytes": 13529,
+      "largest": {
+        "path": "assets/css/pages/core.fa2827fa.css",
+        "rawBytes": 25845,
+        "gzipBytes": 5878
+      },
+      "files": [
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        },
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        }
+      ]
+    },
+    "js": {
+      "fileCount": 2,
+      "rawBytes": 6985,
+      "gzipBytes": 2948,
+      "largest": {
+        "path": "assets/js/pages/base.b5444a9e.js",
+        "rawBytes": 5665,
+        "gzipBytes": 2226
+      },
+      "files": [
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        },
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        }
+      ]
+    },
+    "font": {
+      "fileCount": 2,
+      "rawBytes": 52516,
+      "gzipBytes": 52537,
+      "largest": {
+        "path": "assets/fonts/Inter-Latin.4f2981d8.woff2",
+        "rawBytes": 48256,
+        "gzipBytes": 48254
+      },
+      "files": [
+        {
+          "path": "assets/fonts/Inter-Latin-Ext.5b7a7ae2.woff2",
+          "rawBytes": 4260,
+          "gzipBytes": 4283
+        },
+        {
+          "path": "assets/fonts/Inter-Latin.4f2981d8.woff2",
+          "rawBytes": 48256,
+          "gzipBytes": 48254
+        }
+      ]
+    },
+    "image": {
+      "fileCount": 4,
+      "rawBytes": 6488,
+      "gzipBytes": 2901,
+      "largest": {
+        "path": "assets/images/favicon.b7d0edc6.svg",
+        "rawBytes": 2282,
+        "gzipBytes": 954
+      },
+      "files": [
+        {
+          "path": "assets/images/favicon.b7d0edc6.svg",
+          "rawBytes": 2282,
+          "gzipBytes": 954
+        },
+        {
+          "path": "assets/images/field-notes.0396bfd6.svg",
+          "rawBytes": 1274,
+          "gzipBytes": 640
+        },
+        {
+          "path": "assets/images/northline.dd125884.svg",
+          "rawBytes": 1456,
+          "gzipBytes": 622
+        },
+        {
+          "path": "assets/images/studio-board.c44048f0.svg",
+          "rawBytes": 1476,
+          "gzipBytes": 685
+        }
+      ]
+    }
+  },
+  "pages": {
+    "agency.about": {
+      "route": "/about/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.contact": {
+      "route": "/contact/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.home": {
+      "route": "/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.not-found": {
+      "route": "/not-found/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.project.northline": {
+      "route": "/projects/northline/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.projects": {
+      "route": "/projects/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.service.brand-strategy": {
+      "route": "/services/brand-strategy/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    },
+    "agency.services": {
+      "route": "/services/",
+      "cssGzipBytes": 13529,
+      "jsGzipBytes": 2948,
+      "cssFiles": [
+        {
+          "path": "assets/css/pages/core.fa2827fa.css",
+          "rawBytes": 25845,
+          "gzipBytes": 5878
+        },
+        {
+          "path": "assets/css/pages/theme.a61f4533.css",
+          "rawBytes": 4851,
+          "gzipBytes": 1310
+        },
+        {
+          "path": "assets/css/pages/layout.fc88047c.css",
+          "rawBytes": 9431,
+          "gzipBytes": 2193
+        },
+        {
+          "path": "assets/css/pages/agency-about.4bd665ee.css",
+          "rawBytes": 20286,
+          "gzipBytes": 4148
+        }
+      ],
+      "jsFiles": [
+        {
+          "path": "assets/js/pages/runtime.cc5d8fd1.js",
+          "rawBytes": 1320,
+          "gzipBytes": 722
+        },
+        {
+          "path": "assets/js/pages/base.b5444a9e.js",
+          "rawBytes": 5665,
+          "gzipBytes": 2226
+        }
+      ],
+      "budgetClass": "standard"
+    }
+  },
+  "referencedAssets": {
+    "css": [
+      "assets/css/pages/agency-about.4bd665ee.css",
+      "assets/css/pages/core.fa2827fa.css",
+      "assets/css/pages/layout.fc88047c.css",
+      "assets/css/pages/theme.a61f4533.css"
+    ],
+    "js": [
+      "assets/js/pages/base.b5444a9e.js",
+      "assets/js/pages/runtime.cc5d8fd1.js"
+    ]
+  },
+  "unusedJs": [],
+  "largestRaster": null,
+  "failures": []
+}

@@ -1,0 +1,17 @@
+mixin marketingNewsletterSignup(options = {})
+  - const props = assertProps('block-marketing-newsletter-signup', options, { type: 'object', required: ['title', 'description', 'note'], properties: { idPrefix: { type: 'string' }, title: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 }, note: { type: 'string', minLength: 1 }, kicker: { type: 'string' }, emailLabel: { type: 'string' }, placeholder: { type: 'string' }, action: { type: 'string' } }, additionalProperties: false })
+  - const id = props.idPrefix || 'newsletter'
+  section.newsletter-section(id=id, aria-labelledby=`${id}-title`)
+    .container
+      .newsletter-card
+        .newsletter-card__copy
+          +marketingKicker({ label: props.kicker || 'A calmer inbox' })
+          h2(id=`${id}-title`)= props.title
+          p= props.description
+        form.newsletter-form(id=`${id}-form`, novalidate, data-marketing-newsletter)
+          label.sr-only(for=`${id}-email`)= props.emailLabel || 'Work email address'
+          .newsletter-form__row
+            input(id=`${id}-email`, type="email", name="email", autocomplete="email", inputmode="email", placeholder=props.placeholder || 'you@company.com', required, aria-describedby=`${id}-note ${id}-status`, data-marketing-email)
+            button.marketing-button.marketing-button--dark(type="submit")= props.action || 'Subscribe'
+          p.newsletter-form__note(id=`${id}-note`)= props.note
+          p.newsletter-form__status(id=`${id}-status`, role="status", aria-live="polite", data-marketing-status)

@@ -1,0 +1,5 @@
+mixin marketingKicker(options = {})
+  - const props = assertProps('block-marketing-kicker', options, { type: 'object', required: ['label'], properties: { label: { type: 'string', minLength: 1 }, icon: { type: 'string' } }, additionalProperties: false })
+  p.marketing-kicker
+    span.marketing-kicker__spark(aria-hidden="true")= props.icon || '✦'
+    = props.label

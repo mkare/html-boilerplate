@@ -1,0 +1,164 @@
+@use "variables" as *;
+
+// Locally hosted Inter variable font. The small Latin-ext subset contains the
+// Turkish-specific glyphs; common Latin characters use the Latin subset.
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/Inter-Latin-Ext.woff2") format("woff2");
+  unicode-range: U+0047, U+0049, U+0053, U+0067, U+0069, U+0073, U+011E-0123, U+012C, U+0130-0131, U+015E-015F, U+0306-0307, U+0327, U+1E60-1E61;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/Inter-Latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// Brand and semantic tokens. Theme values are runtime CSS so one CSS file can
+// support light, dark, and future brand presets without rebuilding Sass.
+html {
+  color-scheme: light;
+  --font-family-sans: #{$font-family-sans-serif};
+  --font-family-mono: #{$font-family-monospace};
+  --color-bg: #{$slate-50};
+  --color-bg-rgb: 248, 250, 252;
+  --color-surface: #{$white};
+  --color-surface-rgb: 255, 255, 255;
+  --color-surface-subtle: #eef2ff;
+  --color-text: #{$slate-900};
+  --color-text-rgb: 15, 23, 42;
+  --color-muted: #526277;
+  --color-muted-rgb: 82, 98, 119;
+  --color-accent: #{$indigo-600};
+  --color-accent-rgb: 79, 70, 229;
+  --color-accent-strong: #{$teal-600};
+  --color-accent-strong-rgb: 15, 118, 110;
+  --color-on-accent: #{$white};
+  --color-border: rgba(71, 85, 105, 0.2);
+  --color-positive: #0f766e;
+  --color-warning: #7c3aed;
+  --color-danger: #db2777;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --shadow-soft: 0 1rem 2.5rem rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 0.6rem 1.8rem rgba(15, 23, 42, 0.07);
+  --transition-fast: 180ms ease;
+  --page-gutter: clamp(1rem, 3vw, 2rem);
+
+  // Bootstrap bridge: retained components consume the same semantic tokens.
+  --bs-font-sans-serif: var(--font-family-sans);
+  --bs-body-font-family: var(--font-family-sans);
+  --bs-body-color: var(--color-text);
+  --bs-body-color-rgb: var(--color-text-rgb);
+  --bs-body-bg: var(--color-bg);
+  --bs-body-bg-rgb: var(--color-bg-rgb);
+  --bs-emphasis-color: var(--color-text);
+  --bs-emphasis-color-rgb: var(--color-text-rgb);
+  --bs-secondary-color: var(--color-muted);
+  --bs-secondary-color-rgb: var(--color-muted-rgb);
+  --bs-secondary-bg: var(--color-surface-subtle);
+  --bs-tertiary-bg: var(--color-surface);
+  --bs-heading-color: var(--color-text);
+  --bs-primary: var(--color-accent);
+  --bs-primary-rgb: var(--color-accent-rgb);
+  --bs-link-color: var(--color-accent-strong);
+  --bs-link-color-rgb: var(--color-accent-strong-rgb);
+  --bs-link-hover-color: var(--color-accent);
+  --bs-link-hover-color-rgb: var(--color-accent-rgb);
+  --bs-border-color: var(--color-border);
+  --bs-border-color-translucent: color-mix(in srgb, var(--color-text) 15%, transparent);
+  --bs-focus-ring-color: rgba(var(--color-accent-rgb), 0.25);
+  --bs-form-valid-color: var(--color-positive);
+  --bs-form-invalid-color: var(--color-danger);
+}
+
+html[data-color-scheme="dark"],
+body.theme-dark {
+  color-scheme: dark;
+  --color-bg: #0f172a;
+  --color-bg-rgb: 15, 23, 42;
+  --color-surface: #172554;
+  --color-surface-rgb: 23, 37, 84;
+  --color-surface-subtle: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-rgb: 248, 250, 252;
+  --color-muted: #cbd5e1;
+  --color-muted-rgb: 203, 213, 225;
+  --color-accent: #a5b4fc;
+  --color-accent-rgb: 165, 180, 252;
+  --color-accent-strong: #5eead4;
+  --color-accent-strong-rgb: 94, 234, 212;
+  --color-on-accent: #0f172a;
+  --color-border: rgba(203, 213, 225, 0.2);
+  --color-positive: #5eead4;
+  --color-warning: #c4b5fd;
+  --color-danger: #f9a8d4;
+  --shadow-soft: 0 1rem 2.5rem rgba(0, 0, 0, 0.32);
+  --shadow-card: 0 0.6rem 1.8rem rgba(0, 0, 0, 0.2);
+
+  // Repeat the bridge at body scope so legacy body.theme-dark pages also
+  // override Bootstrap's inherited root values during the transition.
+  --bs-body-color: var(--color-text);
+  --bs-body-color-rgb: var(--color-text-rgb);
+  --bs-body-bg: var(--color-bg);
+  --bs-body-bg-rgb: var(--color-bg-rgb);
+  --bs-emphasis-color: var(--color-text);
+  --bs-emphasis-color-rgb: var(--color-text-rgb);
+  --bs-secondary-color: var(--color-muted);
+  --bs-secondary-color-rgb: var(--color-muted-rgb);
+  --bs-secondary-bg: var(--color-surface-subtle);
+  --bs-tertiary-bg: var(--color-surface);
+  --bs-heading-color: var(--color-text);
+  --bs-primary: var(--color-accent);
+  --bs-primary-rgb: var(--color-accent-rgb);
+  --bs-link-color: var(--color-accent-strong);
+  --bs-link-color-rgb: var(--color-accent-strong-rgb);
+  --bs-link-hover-color: var(--color-accent);
+  --bs-link-hover-color-rgb: var(--color-accent-rgb);
+  --bs-border-color: var(--color-border);
+  --bs-border-color-translucent: color-mix(in srgb, var(--color-text) 15%, transparent);
+  --bs-focus-ring-color: rgba(var(--color-accent-rgb), 0.25);
+  --bs-form-valid-color: var(--color-positive);
+  --bs-form-invalid-color: var(--color-danger);
+}
+
+// Bootstrap reboot and native inputs follow the resolved scheme.
+html[data-color-scheme="light"] { color-scheme: light; }
+
+// A second brand preset exercises the same semantic and Bootstrap contract.
+// Pages opt in with the `theme: "commerce"` layout data field.
+html[data-theme="commerce"] {
+  --color-surface-subtle: #fdf2f8;
+  --color-accent: #be185d;
+  --color-accent-rgb: 190, 24, 93;
+  --color-accent-strong: #0f766e;
+  --color-accent-strong-rgb: 15, 118, 110;
+  --color-on-accent: #ffffff;
+}
+
+html[data-theme="commerce"][data-color-scheme="dark"] {
+  --color-surface-subtle: #3b1d30;
+  --color-accent: #f9a8d4;
+  --color-accent-rgb: 249, 168, 212;
+  --color-accent-strong: #5eead4;
+  --color-accent-strong-rgb: 94, 234, 212;
+  --color-on-accent: #0f172a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

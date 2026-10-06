@@ -1,0 +1,18 @@
+{
+  "id": "agency.about",
+  "route": "/about/",
+  "demoId": "agency",
+  "translationKey": "agency.about",
+  "starter": true,
+  "source": "src/pages/agency/about/page.pug",
+  "layout": "agency",
+  "theme": "default",
+  "locale": "en",
+  "direction": "ltr",
+  "title": "About Fieldwork Studio",
+  "description": "Meet Fieldwork Studio, a small independent team joining clear strategy with thoughtful design.",
+  "styles": ["src/pages/agency/agency.scss"],
+  "gallery": { "category": "agency", "preview": true },
+  "robots": "index,follow",
+  "head": { "canonical": "self" }
+}

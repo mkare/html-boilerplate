@@ -1,0 +1,14 @@
+mixin uiAlert(options = {})
+  - const props = assertProps('ui-alert', options, { type: 'object', required: ['message'], properties: { title: { type: 'string' }, message: { type: 'string', minLength: 1 }, variant: { type: 'string', enum: ['info', 'success', 'warning', 'error'] }, icon: { type: 'string' } }, additionalProperties: false })
+  - const emptyTitle = props.title !== undefined ? !props.title.trim() : false
+  - if (!props.message.trim() || emptyTitle) throw new Error('ui-alert message and optional title must contain visible text.')
+  - const variant = props.variant || 'info'
+  - const role = variant === 'error' ? 'alert' : 'status'
+  - const live = variant === 'error' ? 'assertive' : 'polite'
+  .ui-alert(class=`ui-alert--${variant}`, role=role, aria-live=live, aria-atomic="true")
+    if props.icon
+      span.ui-alert__icon(aria-hidden="true")= props.icon
+    .ui-alert__content
+      if props.title
+        strong.ui-alert__title= props.title
+      p.ui-alert__message= props.message

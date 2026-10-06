@@ -1,0 +1,8 @@
+mixin uiBadge(options = {})
+  - const props = assertProps('ui-badge', options, { type: 'object', required: ['label'], properties: { label: { type: 'string', minLength: 1 }, variant: { type: 'string', enum: ['neutral', 'info', 'success', 'warning', 'danger'] }, dot: { type: 'boolean' } }, additionalProperties: false })
+  - if (!props.label.trim()) throw new Error('ui-badge label must contain visible text.')
+  - const variant = props.variant || 'neutral'
+  span.ui-badge(class=`ui-badge--${variant}`)
+    if props.dot
+      span.ui-badge__dot(aria-hidden="true")
+    span= props.label

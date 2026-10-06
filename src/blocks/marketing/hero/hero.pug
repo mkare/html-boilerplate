@@ -1,0 +1,21 @@
+mixin marketingHero(options = {})
+  - const props = assertProps('block-marketing-hero', options, { type: 'object', required: ['id', 'kicker', 'title', 'description', 'primaryAction', 'primaryHref', 'secondaryAction', 'secondaryHref', 'stats'], properties: { id: { type: 'string', minLength: 1 }, kicker: { type: 'string', minLength: 1 }, title: { type: 'string', minLength: 1 }, description: { type: 'string', minLength: 1 }, primaryAction: { type: 'string', minLength: 1 }, primaryHref: { type: 'string', minLength: 1 }, secondaryAction: { type: 'string', minLength: 1 }, secondaryHref: { type: 'string', minLength: 1 }, stats: { type: 'array' } }, additionalProperties: false })
+  - const validId = /^[A-Za-z][A-Za-z0-9_.:-]*$/.test(props.id)
+  - const safeHref = (href) => !/^[A-Za-z][A-Za-z0-9+.-]*:/.test(href.trim()) || /^(https?:|mailto:|tel:)/i.test(href.trim())
+  - if (!validId) throw new Error('block-marketing-hero id must be a valid HTML id')
+  - if (!safeHref(props.primaryHref) || !safeHref(props.secondaryHref)) throw new Error('block-marketing-hero hrefs must be relative or use http, https, mailto, or tel')
+  section.marketing-hero(aria-labelledby=props.id)
+    .container.marketing-hero__inner
+      .marketing-hero__copy
+        +marketingKicker({ label: props.kicker })
+        h1(id=props.id)= props.title
+        p.marketing-hero__lede= props.description
+        .marketing-hero__actions
+          a.marketing-button.marketing-button--primary(href=props.primaryHref)
+            = props.primaryAction
+            span(aria-hidden="true") →
+          a.marketing-button.marketing-button--quiet(href=props.secondaryHref)= props.secondaryAction
+        +marketingStats(props.stats)
+      .marketing-hero__art(aria-hidden="true")
+        if block
+          block

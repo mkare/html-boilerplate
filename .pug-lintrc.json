@@ -1,0 +1,6 @@
+{
+  "disallowDuplicateAttributes": true,
+  "requireLineFeedAtFileEnd": true,
+  "validateIndentation": 2,
+  "validateLineBreaks": "LF"
+}

@@ -1,0 +1,75 @@
+doctype html
+- const pageLocale = typeof locale === "string" ? locale : "en"
+- const pageDirection = typeof direction === "string" ? direction : "ltr"
+- const pageTheme = typeof theme === "string" ? theme : "default"
+- const pageLayout = typeof layout === "string" ? layout : "site"
+- const pagePreference = typeof colorSchemePreference === "string" ? colorSchemePreference : "system"
+- const pageTitle = typeof title === "string" ? title : "Interface Kit"
+- const shellLayout = ["site", "auth", "dashboard", "storefront", "docs", "minimal", "agency"].includes(pageLayout) ? pageLayout : "site"
+- const fallbackDescription = "A modern, accessible multipurpose HTML theme framework."
+- const pageDescription = typeof description === "string" && description.trim() ? description : fallbackDescription
+html(lang=pageLocale, dir=pageDirection, data-theme=pageTheme, data-color-scheme-preference=pagePreference, data-color-scheme="light", data-bs-theme="light")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="description", content=pageDescription)
+    if typeof robots === "string" && robots.trim()
+      meta(name="robots", content=robots)
+    else if typeof pageId === "string" && pageId === "system.404"
+      meta(name="robots", content="noindex,follow")
+    link(href="@images/favicon.svg" rel="icon")
+    link(rel="preload", href="@fonts/Inter-Latin.woff2", as="font", type="font/woff2", crossorigin="anonymous")
+    if pageLocale.toLowerCase().startsWith("tr")
+      link(rel="preload", href="@fonts/Inter-Latin-Ext.woff2", as="font", type="font/woff2", crossorigin="anonymous")
+    //- Apply the stored or system color scheme before stylesheets are requested.
+    script.
+      (() => {
+        const root = document.documentElement;
+        const storageKey = "interface-kit:color-scheme:v1";
+        const legacyKey = "theme";
+        const valid = (value) => value === "light" || value === "dark" || value === "system";
+        let preference = valid(root.dataset.colorSchemePreference) ? root.dataset.colorSchemePreference : "system";
+        try {
+          const storage = window.localStorage;
+          const current = storage.getItem(storageKey);
+          if (valid(current)) {
+            preference = current;
+            storage.removeItem(legacyKey);
+          } else {
+            const legacy = storage.getItem(legacyKey);
+            if (legacy === "light" || legacy === "dark") {
+              preference = legacy;
+              try {
+                storage.setItem(storageKey, legacy);
+                storage.removeItem(legacyKey);
+              } catch {}
+            }
+          }
+        } catch {}
+        let systemDark = false;
+        try {
+          systemDark = Boolean(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        } catch {}
+        const resolved = preference === "system" ? (systemDark ? "dark" : "light") : preference;
+        root.dataset.colorSchemePreference = preference;
+        root.dataset.colorScheme = resolved;
+        root.dataset.bsTheme = resolved;
+      })();
+    link(href="@scss/core.scss", rel="stylesheet")
+    link(href="@scss/theme.scss", rel="stylesheet")
+    link(href="@scss/layout.scss", rel="stylesheet")
+    if shellLayout !== "minimal"
+      script(src="@js/layouts/base.js", defer="defer")
+    title= pageTitle
+    block head
+    //- CSS order: core → theme → layout → page → project token overrides → project custom.scss.
+    if typeof projectThemeStyles === "boolean" && projectThemeStyles
+      link(href="@projectOverrides/tokens.scss", rel="stylesheet")
+    if typeof projectCustomStyles === "boolean" && projectCustomStyles
+      link(href="@projectOverrides/custom.scss", rel="stylesheet")
+  body(data-layout=shellLayout)
+    a.skip-link(href="#siteMain") Skip to content
+    block layoutHeader
+    main#siteMain(tabindex="-1")
+      block content
+    block layoutFooter

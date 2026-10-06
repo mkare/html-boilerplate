@@ -1,0 +1,34 @@
+yarn run v1.22.22
+warning Skipping preferred cache folder "/Users/solvia/Library/Caches/Yarn" because it is not writable.
+warning Selected the next writable cache folder in the list, will be "/var/folders/hj/1k3y6hf15lbd1bwt_1ff6g5h0000gn/T/.yarn-cache-501".
+$ webpack build --mode production --env profile=release-html
+warning Cannot find a suitable global folder. Tried these: "/usr/local, /Users/solvia/.yarn"
+assets by path assets/ 123 KiB
+  assets by info 64.4 KiB [immutable] 8 assets
+  assets by path assets/css/pages/*.css 59 KiB 4 assets
+assets by path *.html 13.6 KiB
+  asset index.html 11.6 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.home)
+  asset 404.html 2.06 KiB [emitted] [minimized] (name: __bundler-plugin-entry__system.404)
+assets by path projects/ 16 KiB
+  asset projects/northline/index.html 8.33 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.project.northline)
+  asset projects/index.html 7.71 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.projects)
+assets by path services/ 15.2 KiB
+  asset services/brand-strategy/index.html 7.86 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.service.brand-strategy)
+  asset services/index.html 7.35 KiB [emitted] [minimized] (name: __bundler-plugin-entry__agency.services)
++ 5 assets
+runtime modules 3.16 KiB 6 modules
+orphan modules 9.74 KiB [orphan] 3 modules
+cacheable modules 136 KiB (javascript) 57.6 KiB (asset)
+  javascript modules 136 KiB
+    modules by path ./.generated/pages/*.pug 58.6 KiB 8 modules
+    modules by path ./src/ 75 KiB
+      modules by path ./src/scss/*.scss 42.7 KiB 3 modules
+      + 2 modules
+    ./build/pages/404.pug 2.5 KiB [built] [code generated]
+  asset modules 57.6 KiB (asset) 252 bytes (javascript)
+    modules by path ./src/assets/ 53.5 KiB (asset) 126 bytes (javascript) 3 modules
+    modules by path ./src/pages/agency/ 4.11 KiB (asset) 126 bytes (javascript)
+      ./src/pages/agency/assets/studio-board.svg 1.44 KiB (asset) 42 bytes (javascript) [built] [code generated]
+      + 2 modules
+ Pug Plugin  ▶▶▶ (webpack 5.111.1) compiled successfully in 1177 ms
+Done in 2.19s.

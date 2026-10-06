@@ -1,0 +1,11 @@
+mixin uiPagination(options = {})
+  - const props = assertProps('ui-pagination', options, { type: 'object', required: ['label', 'items'], properties: { label: { type: 'string' }, items: { type: 'array' } }, additionalProperties: false })
+  - if (!Array.isArray(props.items) || props.items.some((item) => !item || typeof item.label !== 'string' || (!item.current && !item.disabled && typeof item.href !== 'string'))) throw new Error('ui-pagination items require label and a destination unless current or disabled')
+  nav.ui-pagination(aria-label=props.label)
+    each item in props.items
+      if item.current
+        span.ui-pagination__item.is-current(aria-current="page")= item.label
+      else if item.disabled
+        span.ui-pagination__item(aria-disabled="true")= item.label
+      else
+        a.ui-pagination__item(href=item.href)= item.label

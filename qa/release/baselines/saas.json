@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "demo": "saas",
+  "profile": "release-html",
+  "basePath": "/",
+  "buildNow": "2026-10-03T12:00:00.000Z",
+  "source": "Deliberate implementation remeasurement; extracted release-html archive, per-page unique CSS/JS gzip bytes using Node zlib level 9.",
+  "supersedes": "saas-session-c.json",
+  "rebaselineReason": "SaaS home and pricing now use the shared marketing interaction chunk for the accessible billing selector and demo newsletter feedback (1,038 B gzip). The prior Session C baseline had no page-specific JS and incorrectly rejected these required behaviors. The 70 KiB hard ceiling and +10% regression rule remain unchanged.",
+  "pages": {
+    "saas.auth.create-account": {
+      "cssGzipBytes": 12045,
+      "jsGzipBytes": 2948
+    },
+    "saas.auth.reset-password": {
+      "cssGzipBytes": 12045,
+      "jsGzipBytes": 2948
+    },
+    "saas.auth.sign-in": {
+      "cssGzipBytes": 12045,
+      "jsGzipBytes": 2948
+    },
+    "saas.faq": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 2948
+    },
+    "saas.features": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 2948
+    },
+    "saas.home": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 3986
+    },
+    "saas.privacy": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 2948
+    },
+    "saas.terms": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 2948
+    },
+    "saas.pricing": {
+      "cssGzipBytes": 14408,
+      "jsGzipBytes": 3986
+    },
+    "blog.archive": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.archive.page2": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.category.accessibility": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.category.design": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.category.research": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.category.teams": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.category.workflow": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.article.tokens-guide": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.article.accessible-states": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.article.calm-workflow": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    },
+    "blog.article.small-signals": {
+      "cssGzipBytes": 11961,
+      "jsGzipBytes": 2948
+    }
+  }
+}

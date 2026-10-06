@@ -1,0 +1,30 @@
+mixin blogPagination(currentPage, totalPages)
+  if totalPages > 1
+    - const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1).filter((number) => number === 1 || number === totalPages || Math.abs(number - currentPage) <= 1)
+    - const visibleItems = pageNumbers.reduce((items, number, index) => { if (index && number - pageNumbers[index - 1] > 1) items.push(null); items.push(number); return items; }, [])
+    nav.blog-pagination(aria-label="Article pagination")
+      if currentPage === 1
+        span.blog-pagination__control(aria-disabled="true")
+          span(aria-hidden="true") ←
+          |  Previous
+      else
+        a.blog-pagination__control(href=route(archivePageRoutes[String(currentPage - 1)]))
+          span(aria-hidden="true") ←
+          |  Previous
+      ol.blog-pagination__pages
+        each number in visibleItems
+          li
+            if number === null
+              span.blog-pagination__ellipsis(aria-hidden="true") …
+            else if number === currentPage
+              span.blog-pagination__page(aria-current="page")= number
+            else
+              a.blog-pagination__page(href=route(archivePageRoutes[String(number)]))= number
+      if currentPage < totalPages
+        a.blog-pagination__control(href=route(archivePageRoutes[String(currentPage + 1)]))
+          | Next
+          span(aria-hidden="true") →
+      else
+        span.blog-pagination__control(aria-disabled="true")
+          | Next
+          span(aria-hidden="true") →
